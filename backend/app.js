@@ -1,8 +1,22 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+const mongoose = require("mongoose");
 const router = require("./routes/routes");
+const uri = require('./atlas_uri');
 
-app.use("/", router);
+
+//app.use(cors());
+
+mongoose.connect(uri).then(() => {
+  console.log("connected");
+}).catch(err => {
+  console.error(err);
+});
+
+
+app.use("/movies", router)
+
 
 // Error handling
 app.use((err, req, res, next) => {
@@ -10,8 +24,8 @@ app.use((err, req, res, next) => {
 });
 
 // Server listening
-const server = app.listen(9090, () => {
-  console.log("server started on port", server.address().port);
+app.listen(9090, () => {
+  console.log("server started on port 9090");
 });
 
-module.exports = server;
+module.exports = app;

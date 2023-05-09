@@ -5,7 +5,7 @@ import openHrsData from "./hrs-data.json";
 const OpenHrs = () => {
     const tableData = openHrsData[0];
     const tableKeys = Object.keys(tableData);
-    
+
     const printDaysTimes = () => 
             openHrsData.map((data, index) => {
                 const {weekday, open, close} = data;
@@ -16,7 +16,14 @@ const OpenHrs = () => {
                         <td>{close}</td>
                     </tr>
                 )
-    })
+    });
+
+    const printTableKeys = () => 
+            tableKeys.map(key => {
+            return (
+                <th>{key}</th>
+            )
+    });
 
     return (
         <div style={{ padding: "10px", 
@@ -30,9 +37,7 @@ const OpenHrs = () => {
                 size="sm">
                 <thead>
                     <tr>
-                        <th>Weekday</th>
-                        <th>Open</th>
-                        <th>Close</th>
+                        {printTableKeys()}
                     </tr>
                 </thead>
                 <tbody>

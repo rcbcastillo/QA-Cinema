@@ -6,14 +6,14 @@ function App() {
     <div className="a">
       <div className='UIComponent'>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Blah, Blah, Blah
         </p>
         <a className='App-link'
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Example link
         </a>
       </div>
       <p>Opening Hours test</p>

@@ -1,0 +1,37 @@
+[
+    {
+        "weekday": "Monday",
+        "open": "-",
+        "close": "-"
+    },
+    {
+        "weekday": "Tuesday",
+        "open": "11:00",
+        "close": "22:00"
+    },
+    {
+        "weekday": "Wednesday",
+        "open": "12:00",
+        "close": "23:00"
+    },
+    {
+        "weekday": "Thursday",
+        "open": "12:00",
+        "close": "23:00"
+    },
+    {
+        "weekday": "Friday",
+        "open": "12:00",
+        "close": "23:30"
+    },
+    {
+        "weekday": "Saturday",
+        "open": "12:00",
+        "close": "23:30"
+    },
+    {
+        "weekday": "Sunday",
+        "open": "12:00",
+        "close": "23:30"
+    }
+]

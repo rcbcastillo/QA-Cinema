@@ -33,6 +33,11 @@ li{
   display: inline;
 }
 
+img{
+  margin-top: 5px;
+  margin-left: -50px;
+}
+
 a:visited { text-decoration: none; color:#234453; }
 
 .home-content{

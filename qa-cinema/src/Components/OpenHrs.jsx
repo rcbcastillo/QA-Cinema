@@ -4,10 +4,9 @@ import openHrsData from "./hrs-data.json";
 import TitleCaseHelper from "./TitleCaseHelper";
 
 const OpenHrs = () => {
-    const tableData = openHrsData[0];
-    const tableKeys = Object.keys(tableData);
+    const tableKeys = Object.keys(openHrsData[0]);
 
-    const printDaysTimes = () => 
+    const printTableRows = () => 
             openHrsData.map((data, index) => {
                 const {weekday, open, close} = data;
                 return (
@@ -30,8 +29,8 @@ const OpenHrs = () => {
         <div style={{ padding: "10px", 
                         margin: "auto",  
                         width: "50%", }}>
-            <Table
-                style = {{ border: "3px" }}
+            <Table  
+                style = {{ border: "4px solid white"}}
                 bordered
                 hover
                 striped
@@ -42,7 +41,7 @@ const OpenHrs = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {printDaysTimes()}
+                    {printTableRows()}
                 </tbody>
             </Table>
         </div>

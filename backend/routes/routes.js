@@ -21,9 +21,9 @@ router.get("/readMovies", async (req, res) => {
   }
 });
 
-router.get("/create", async (req, res) => {
+router.post("/create", async (req, res) => {
   try {
-    let movies = await Movie.create({
+    let movie = await Movie.create({
       Title: "The Hobbit: An Unexpected Journey",
       Year: 2012,
       Rated: "PG-13",
@@ -53,14 +53,13 @@ router.get("/create", async (req, res) => {
       BoxOffice: 303030651,
       Production: "N/A",
       Website: "N/A",
-      Response: True,
+      Response: true,
     });
-    res.status(200).json({
-      status: 200,
-    });
+    // TODO: change status to 201?
+    res.status(201).json(movie);
   } catch (err) {
     res.status(400).json({
-      status: 400,
+      // status: 400,
       message: err.message,
     });
   }

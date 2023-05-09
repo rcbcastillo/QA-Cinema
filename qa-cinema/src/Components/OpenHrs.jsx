@@ -1,6 +1,7 @@
 import React from "react";
 import { Table } from "reactstrap";
 import openHrsData from "./hrs-data.json";
+import TitleCaseHelper from "./TitleCaseHelper";
 
 const OpenHrs = () => {
     const tableData = openHrsData[0];
@@ -21,7 +22,7 @@ const OpenHrs = () => {
     const printTableKeys = () => 
             tableKeys.map(key => {
             return (
-                <th>{key}</th>
+                <th>{TitleCaseHelper(key)}</th>
             )
     });
 

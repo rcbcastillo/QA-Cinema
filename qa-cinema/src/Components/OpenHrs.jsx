@@ -4,16 +4,17 @@ import openHrsData from "./hrs-data.json";
 import TitleCaseHelper from "./TitleCaseHelper";
 
 const OpenHrs = () => {
-    const tableKeys = Object.keys(openHrsData[0]);
+    const columns = openHrsData[0];
+    const tableKeys = Object.keys(columns);
 
-    const printTableRows = () => 
-            openHrsData.map((data, index) => {
-                const {weekday, open, close} = data;
+    const getTableRows = () => 
+            openHrsData.map((row, index) => {
+                // const {weekday, open, close} = data;
                 return (
                     <tr key={index}>
-                        <td>{weekday}</td>
-                        <td>{open}</td>
-                        <td>{close}</td>
+                        {tableKeys.map((key) => (
+                            <td>{row[key]}</td>
+                        ))}
                     </tr>
                 )
     });
@@ -30,7 +31,7 @@ const OpenHrs = () => {
                         margin: "auto",  
                         width: "50%", }}>
             <Table  
-                style = {{ border: "4px solid white"}}
+                // style = {{ border: "4px solid white"}}
                 bordered
                 hover
                 striped
@@ -41,7 +42,7 @@ const OpenHrs = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {printTableRows()}
+                    {getTableRows()}
                 </tbody>
             </Table>
         </div>

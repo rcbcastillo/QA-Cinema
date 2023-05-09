@@ -1,3 +1,4 @@
+const { Double, Decimal128 } = require("bson");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -15,7 +16,18 @@ const movieSchema = new Schema({
   Language: { type: String, required: true },
   Country: { type: String, required: true },
   Awards: { type: String, required: true },
-  Poster: { type: String, required: true }
+  Poster: { type: String, required: true },
+  Ratings: { type: Array, required: true },
+  Metascore: { type: Number, required: true },
+  imdbRating: { type: Decimal128, required: true },
+  imdbVotes: { type: Number, required: true },
+  imdbID: { type: String, required: true },
+  Type: { type: String, required: true },
+  DVD: { type: Date, required: true },
+  BoxOffice: { type: Number, required: true },
+  Production: { type: String, required: true },
+  Website: { type: String, required: true },
+  Response: { type: Boolean, required: true },
 });
 
 const Movie = mongoose.model("movies", movieSchema);

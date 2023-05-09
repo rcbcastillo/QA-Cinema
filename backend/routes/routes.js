@@ -37,7 +37,23 @@ router.get("/create", async (req, res) => {
       Language: "English",
       Country: "New Zealand, United States",
       Awards: "Nominated for 3 Oscars. 11 wins & 75 nominations total",
-      Poster: "https://m.media-amazon.com/images/M/MV5BMTcwNTE4MTUxMl5BMl5BanBnXkFtZTcwMDIyODM4OA@@._V1_SX300.jpg",
+      Poster:
+        "https://m.media-amazon.com/images/M/MV5BMTcwNTE4MTUxMl5BMl5BanBnXkFtZTcwMDIyODM4OA@@._V1_SX300.jpg",
+      Ratings: [
+        { Source: "Internet Movie Database", Value: "7.8/10" },
+        { Source: "Rotten Tomatoes", Value: "64%" },
+        { Source: "Metacritic", Value: "58/100" },
+      ],
+      Metascore: 58,
+      imdbRating: 7.8,
+      imdbVotes: 842144,
+      imdbID: "tt0903624",
+      Type: "movie",
+      DVD: "2013-03-19",
+      BoxOffice: 303030651,
+      Production: "N/A",
+      Website: "N/A",
+      Response: True,
     });
     res.status(200).json({
       status: 200,

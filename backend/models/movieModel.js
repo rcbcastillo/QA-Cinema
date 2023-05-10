@@ -2,6 +2,7 @@ const { Decimal128 } = require("bson");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// TODO: check if required should be true
 const movieSchema = new Schema({
   Title: { type: String, required: true },
   Year: { type: Number, required: true },

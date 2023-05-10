@@ -27,8 +27,7 @@ movieRouter.post("/create", async ({ body }, res, next) => {
     return next({
       status: 500,
       msg: err.message,
-    })
-
+    });
   }
 });
 

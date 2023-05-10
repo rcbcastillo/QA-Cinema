@@ -29,4 +29,5 @@ module.exports = movie = {
   Production: "N/A",
   Website: "N/A",
   Response: true,
+  isShowing: true,
 };

@@ -70,6 +70,7 @@ describe("Tests for the app's HTTP requests", () => {
         chai.expect(readedMovie).has.property("Production");
         chai.expect(readedMovie).has.property("Website");
         chai.expect(readedMovie).has.property("Response");
+        chai.expect(readedMovie).has.property("isShowing");
         chai
           .expect(readedMovie.Title)
           .equal("TEST!The Hobbit: An Unexpected Journey");

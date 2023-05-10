@@ -29,6 +29,7 @@ const movieSchema = new Schema({
   Production: { type: String, required: true },
   Website: { type: String, required: true },
   Response: { type: Boolean, required: true },
+  isShowing: { type: Boolean, required: true },
 });
 
 const movieModel = mongoose.model("movies", movieSchema);

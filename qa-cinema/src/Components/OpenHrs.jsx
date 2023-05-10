@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-// import { Table } from "reactstrap";
 import openHrsData from "./hrs-data.json";
 import JsonTable from "./JsonTable";
-// import TitleCaseHelper from "./TitleCaseHelper";
 
 const OpenHrs = () => {
     const [jsonData] = useState(openHrsData);
@@ -11,6 +9,7 @@ const OpenHrs = () => {
         <div style={{ padding: "10px", 
                         margin: "auto",  
                         width: "50%", }}>
+            <h1>Opening Hours test</h1>
             <JsonTable jsonData={jsonData} />
         </div>
     );

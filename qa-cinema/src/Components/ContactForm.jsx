@@ -18,6 +18,7 @@ const ContactForm = () => {
     // Handle the on Submit event (e) and prevent 
     // default DOM behaviour, to implement our own
     const handleSubmit = (event) => {
+
         event.preventDefault();
         alert(`Email: ${formData.email},
             Subject: ${formData.subject}, 
@@ -28,28 +29,30 @@ const ContactForm = () => {
     return (
         <div>
             <section>
-                <Form>
-                    <FormGroup row>
-                        <Label for="email" sm={2}>
+                <form onSubmit={handleSubmit}>
+                <h1 className="custom-header">Please contact us!</h1>
+                    <div class="form-group">
+                        <label for="email">
                             Email
-                        </Label>
-                        <Col sm={10}>
-                        <Input
+                        </label>
+                        <input
                             id="email"
+                            aria-describedby="emailHelp"
                             name="email"
-                            placeholder="Email:"
+                            class="form-control"
+                            placeholder="Enter email"
                             type="email"
                             value={formData.email}
                             onChange={handleChange}
+                            required
                         />
-                        </Col>
-                    </FormGroup>
-                    <FormGroup row>
-                        <Label for="subject" sm={2}>
+                        <small id="emailHelp" class="form-text text-muted">Please enter your email (required).</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" sm={2}>
                             Subject
-                        </Label>
-                        <Col sm={10}>
-                        <Input
+                        </label>
+                        <input
                             id="subject"
                             name="subject"
                             placeholder="Subject - required"
@@ -57,28 +60,27 @@ const ContactForm = () => {
                             value={formData.subject}
                             onChange={handleChange}
                         />
-                        </Col>
-                    </FormGroup>
-                    <FormGroup row>
-                        <Label for="message" sm={2}>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">
                             Text Area
-                        </Label>
-                        <Col sm={10}>
-                        <Input
+                        </label>
+                        <input
                             id="message"
                             name="message"
                             type="textarea"
                             value={formData.message}
                             onChange={handleChange}
                         />
-                        </Col>
-                    </FormGroup>
-                    <FormGroup>
-                        <button type="submit" onClick={handleSubmit}>
+                    </div>
+                    <div class="form-group">
+                        <button 
+                        className="custom-button"
+                        type="submit">
                             Submit
                         </button>
-                    </FormGroup>
-                </Form>
+                    </div>
+                </form>
             </section>
         </div>
     )

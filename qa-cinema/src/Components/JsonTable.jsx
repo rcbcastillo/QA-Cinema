@@ -12,18 +12,17 @@ const JsonTable = ({jsonData}) => {
 
     return (
         <Table  
-            // style = {{ border: "4px solid white"}}
+            style = {{ border: "2px solid white"}}
             bordered
             hover
-            striped
-            size="sm">
+            striped>
             <thead>
                 <tr>
                     <PrintTableKeys tableKeys={tableKeys} /> 
                 </tr>
             </thead>
             <tbody>
-                { 
+                {   
                     jsonData.map((row) => <PrintTableRows rowData={row}/>)
                 }
             </tbody>

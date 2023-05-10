@@ -23,7 +23,9 @@ const JsonTable = ({jsonData}) => {
                 </tr>
             </thead>
             <tbody>
-                <PrintTableRows rowData={jsonData} />
+                { 
+                    jsonData.map((row) => <PrintTableRows rowData={row}/>)
+                }
             </tbody>
         </Table>
     )

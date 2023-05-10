@@ -1,17 +1,16 @@
 import React from "react";
 
-const PrintTableRows = ({rowData}) => {
-    const tableKeys = Object.keys(rowData[0]);
+const PrintTableRows = ({ rowData }) => {
     console.log({rowData});
-    rowData.map((row, index) => {
+    console.log("Got to here!");
         return (
-            <tr key={index}>
-                {tableKeys.map((key) => (
-                    <td>{row[key]}</td>
-                ))}
-            </tr>
+            <tr> 
+            {
+                Object.values(rowData).map((value, i) => 
+                <td key={i}>{value}</td>)
+            }
+            </tr>      
         )
-});
 }
 
 export default PrintTableRows;

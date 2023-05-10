@@ -4,6 +4,7 @@
 **/node_modules
 **/.pnp
 **.pnp.js
+**atlas_uri.js
 
 # testing
 **/coverage

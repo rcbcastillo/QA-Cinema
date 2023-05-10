@@ -1,13 +1,7 @@
-body {
-  background-color: #234453;
-  color: white;
-}
-
 .index{
   text-align: center;
   color: white;
 }
-
 .about-box{
   background-color: #84eab5;
   color: #234453;
@@ -22,11 +16,12 @@ body {
 }
 .nav{
   background-color: #84eab5;
-  color: white;
-  font-size: 18px;
-  border-color: #234453;
 }
-
+  
+.UIComponent {
+  background-color: #84eab5;
+  color: black;
+}
 li{
   list-style-type: none;
   margin: 10px;

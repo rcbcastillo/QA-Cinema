@@ -21,15 +21,15 @@ const movieSchema = new Schema({
   Ratings: { type: Array, required: true },
   Metascore: { type: Number, required: true },
   imdbRating: { type: Decimal128, required: true },
-  imdbVotes: { type: Number, required: true },
+  imdbVotes: { type: String, required: true },
   imdbID: { type: String, required: true },
   Type: { type: String, required: true },
   DVD: { type: Date, required: true },
-  BoxOffice: { type: Number, required: true },
+  BoxOffice: { type: String, required: true },
   Production: { type: String, required: true },
   Website: { type: String, required: true },
-  Response: { type: Boolean, required: true },
-  isShowing: { type: Boolean, required: true },
+  Response: { type: String, required: true },
+  isShowing: { type: String, required: true },
 });
 
 const movieModel = mongoose.model("movies", movieSchema);

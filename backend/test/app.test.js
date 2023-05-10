@@ -27,7 +27,6 @@ describe("Tests for the app's HTTP requests", () => {
       .send(movie)
       .end((err, res) => {
         chai.expect(err).to.be.null;
-        //console.log(res.text);
         chai.expect(res.status).to.equal(201);
         chai.expect(res.body).has.property("_id");
         chai.expect(res.body.Title).to.equal(movie.Title);

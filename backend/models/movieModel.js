@@ -1,4 +1,4 @@
-const { Double, Decimal128 } = require("bson");
+const { Decimal128 } = require("bson");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -30,5 +30,5 @@ const movieSchema = new Schema({
   Response: { type: Boolean, required: true },
 });
 
-const Movie = mongoose.model("movies", movieSchema);
-module.exports = Movie;
+const movieModel = mongoose.model("movies", movieSchema);
+module.exports = movieModel;

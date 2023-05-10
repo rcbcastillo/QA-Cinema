@@ -2,8 +2,9 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-const router = require("./routes/routes");
+const movieRouter = require("./routes/movieRoutes");
 const uri = require('./atlas_uri');
+const movieModel = require("./models/movieModel");
 
 
 //app.use(cors());
@@ -15,7 +16,7 @@ mongoose.connect(uri).then(() => {
 });
 
 
-app.use("/movies", router)
+app.use("/movies", movieRouter)
 
 
 // Error handling

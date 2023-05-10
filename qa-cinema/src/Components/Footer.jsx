@@ -1,48 +1,41 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container , Row, Col} from 'react-bootstrap'  
 
 const Footer = () => {
     const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
     const title = "Lorem Ipsum";
 
     const columns = [{
-        title: "malik",
-        resources: [{
-            name: "abdul",
-            link: "/item5"
         },{
-            name: "Item 6",
-            link: "/item6"
-        }]
+        link: <Link to="/about">About</Link>
         },{
-            title: "Column 3",
-            resources: [{
-                name: "Item 7",
-                link: "/item7"
-            },{
-                name: "Item 8",
-                link: "/item8"
-            }]
+            link: <Link to="/">Opening times</Link>
+        },{
+            link: <Link to="/">Classifications</Link>
         }];
 
         return (
-        <footer>
-            <h4>{title}</h4>
-            <h5>{description}</h5>
-
-            <div>
-                {columns.map((column, index) =>{
-                    return (
-                        <div key={index}>
-                            <h2>title: {column.title}</h2>
-                            <h2>resources: {column.resources.map((r)=><><h3>{r.name}</h3></>)}</h2>
-                            
-                        </div>
-                    )
-                }
-                )}
+            <div className='footer'>
+                <Container>
+                    <Row>
+                        <Col><h3>Footer</h3></Col>
+                    </Row>  
+                    <Row>
+                        <Col>Address:</Col>  
+                        <Col><Link to="/about">About</Link></Col>  
+                    </Row>  
+                    <Row>
+                        <Col>Floor 19, 53 Portland Street, Manchester M1 3LD</Col>
+                        <Col><Link to="/contact">Contact</Link></Col>  
+                    </Row>
+                    <Row>
+                        <Col><Link to="/opening-hours">Opening Hours</Link></Col>   
+                        <Col><Link to="/classifications">Classifications</Link></Col>
+                    </Row>
+                </Container> 
             </div>
-
-        </footer>
         );
 
     }

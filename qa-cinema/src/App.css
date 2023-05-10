@@ -1,26 +1,63 @@
-.index{
-  text-align: center;
+#root {
+  background-color: #234453;
   color: white;
+  font-size: 18px;
+  border-color: #234453;
 }
+
+#root {
+  background-color: #234453;
+  color: white;
+  font-size: 18px;
+  border-color: #234453;
+}
+
 .about-box{
   background-color: #84eab5;
   color: #234453;
-  margin: 20px;
+  margin-top: 10px;
   font-size: 22px;
 }
+.about-heading{
+  margin: 10px;
+}
 .about-content{
-  margin: 20px;
+  margin: 5px;
   font-size: 18px;
   padding: 10px;
-  border: solid;
 }
-.nav{
+nav{
+  width: auto;
+  height: auto;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 2px solid #234453;
+  border-radius: 4px;
   background-color: #84eab5;
+}
+.nav-a{
+  display: inline;
+  padding-left: 10px;
+  width: 128px;
+  height: 100px;
+}
+
+#logo{
+  width: auto;
+  height: auto;
+  box-sizing: border-box;
+
+  border: 2px solid #234453;
+  border-radius: 4px;
 }
   
 .UIComponent {
   background-color: #84eab5;
   color: black;
+}
+ul{
+  list-style-type: none;
+  display: inline;
 }
 li{
   list-style-type: none;
@@ -29,13 +66,73 @@ li{
   display: inline;
 }
 
-img{
-  margin-top: 5px;
-  margin-left: -50px;
-}
-
-a:visited { text-decoration: none; color:#234453; }
+a:link {color: #234453;}
+ 
+a:visited {color: #234453;}
+ 
+a:hover {background-color: #234453; color:white; font-style: italic;}
 
 .home-content{
   padding: 10px;
+}
+
+.footer{
+  background-color: #84eab5;
+  padding: 10px;
+  color: #234453;
+
+  bottom:0;
+  left:0;
+  width:100%;
+}
+
+.footer-content{
+  display: inline;
+  color: #234453;
+}
+
+input[type=text] {
+  width: 30px;
+  height: 30px;
+  padding-right: 5px;
+  box-sizing: border-box;
+  border: 2px solid #234453;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #84eab5;
+  background-image: url('./search.svg');
+  background-position: center; 
+  background-repeat: no-repeat;
+
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 100%;
+  background-position: right;
+  padding: 5px;
+}
+
+input[type=text] {
+  width: 30px;
+  height: 30px;
+  padding-right: 5px;
+  box-sizing: border-box;
+  border: 2px solid #234453;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #84eab5;
+  background-image: url('./search.svg');
+  background-position: center; 
+  background-repeat: no-repeat;
+
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 45%;
+  background-position: right;
+  padding: 5px;
 }

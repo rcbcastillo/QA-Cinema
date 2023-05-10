@@ -5,30 +5,36 @@ import logo from "../qa.png"
 function Navbar() {
   return (
     <nav>
-      <div className='nav'>
-      <ul>
-        <li>
-          <Link to = "/"><img src={logo} alt="The poster"></img></Link>
-        </li>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
+      <div>
+        <p className='nav-a'>
+          <Link to = "/"><img id = "logo" src={logo} alt="cinema logo"></img></Link>
+        </p>
+        <p className='nav-a'>
           <Link to="/">Films</Link>
-        </li>
-        <li>
-          <Link to="/">Location</Link>
-        </li>
-        <li>
+        </p>
+        <p className='nav-a'>
+          <Link to="/location">Location</Link>
+        </p>
+        <p className='nav-a'>
           <Link to="/">Book</Link>
-        </li>
-        <li>
+        </p>
+        <p className='nav-a'>
           <Link to="/">Discussion Board</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
+        </p>
+
+        <form className='nav-a'>
+          <input className='nav-a' type="text" name="search">
+          </input>
+        </form>
+
+      {/* <p>Search <BsSearch/></p>
+       */}
+      {/* <form>
+          <input type="text" name="name" placeholder='Search' /><BsSearch/>
+      </form> */}
+
+
+
       </div>
     </nav>
   );

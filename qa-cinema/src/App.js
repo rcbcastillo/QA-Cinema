@@ -4,9 +4,13 @@ import './App.css';
 import Navbar from './Components/Navbar'
 import Home from './Components/Home';
 import About from './Components/About';
+import Location from './Components/Location';
 import Footer from './Components/Footer';
 
 function App() {
+  //to do:
+  //fix navbar button??? things
+  //location embedded
   return (
     <>
     <BrowserRouter>
@@ -14,9 +18,8 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}></Route>
       <Route path='/about' element={<About/>}></Route>
-      <Route path='/'></Route>
+      <Route path='/location' element={<Location/>}></Route>
     </Routes>
-    
     <Footer/>
     </BrowserRouter>
     </>

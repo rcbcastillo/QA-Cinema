@@ -2,8 +2,10 @@ const About = () => {
     return(
         <>
         <div className="about-box">
+            <div className="about-heading">
             <h2>About Page</h2>
             <p>QA Cinema is part of QA - QA delivers training, apprenticeships and tech skills to UK companies large and small. We believe everything starts with our learners – transforming their careers, and their lives, is what motivates us.</p>
+            </div>
         </div>
         <div className="about-content">
             <p>ABOUT QA CINEMA

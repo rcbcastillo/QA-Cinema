@@ -1,24 +1,25 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
-import OpenHrs from './Components/OpenHrs';
+import Navbar from './Components/Navbar'
+import Home from './Components/Home';
+import About from './Components/About';
+import Footer from './Components/Footer';
 
 function App() {
   return (
-    <div className="a">
-      <div className='UIComponent'>
-        <p>
-          Blah, Blah, Blah
-        </p>
-        <a className='App-link'
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Example link
-        </a>
-      </div>
-      <p>Opening Hours test</p>
-      <OpenHrs />
-    </div>
+    <>
+    <BrowserRouter>
+    <Navbar/>
+    <Routes>
+      <Route path='/' element={<Home/>}></Route>
+      <Route path='/about' element={<About/>}></Route>
+      <Route path='/'></Route>
+    </Routes>
+    
+    <Footer/>
+    </BrowserRouter>
+    </>
   );
 }
 

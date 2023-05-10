@@ -23,6 +23,9 @@ function Navbar() {
           <Link to="/">Book</Link>
         </li>
         <li>
+          <Link to="/opening-hours">Opening Hours</Link>
+        </li>
+        <li>
           <Link to="/">Discussion Board</Link>
         </li>
         <li>

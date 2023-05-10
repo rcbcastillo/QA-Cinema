@@ -39,3 +39,8 @@ a:visited { text-decoration: none; color:#234453; }
 .home-content{
   padding: 10px;
 }
+
+body {
+  color: #234453;
+  color: white;
+}

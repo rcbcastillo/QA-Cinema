@@ -2,6 +2,7 @@ const chai = require("chai");
 const { describe, before, it, after } = require("mocha");
 const { uriTest } = require("../atlas_uri");
 const movie = require("./data/movieDataTest");
+const movieModel = require("../models/movieModel");
 
 // Chai HTTP plugin
 const chaiHttp = require("chai-http");
@@ -14,6 +15,7 @@ const server = require("../app");
 before(async () => {
   await mongoose.connection.close();
   await mongoose.connect(uriTest);
+  await movieModel.deleteMany({});
 });
 
 describe("Tests for the app's HTTP requests", () => {

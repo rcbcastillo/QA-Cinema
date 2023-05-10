@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const movieRouter = require("./routes/movieRoutes");
-const uri = require("./atlas_uri");
+const { uri } = require("./atlas_uri");
 const movieModel = require("./models/movieModel");
 
 app.use(express.json());

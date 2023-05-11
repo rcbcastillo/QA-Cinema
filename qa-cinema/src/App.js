@@ -4,12 +4,17 @@ import './App.css';
 import Navbar from './Components/Navbar'
 import Home from './Components/Home';
 import About from './Components/About';
+import Location from './Components/Location';
 import Footer from './Components/Footer';
 import OpenHrs from './Components/OpenHrs';
 import Gallery from './Components/Gallery';
 import ContactForm from './Components/ContactForm';
 
+
 function App() {
+  //to do:
+  //fix navbar button??? things
+  //location embedded
   return (
     <>
     <BrowserRouter>
@@ -19,10 +24,10 @@ function App() {
       <Route path='/about' element={<About/>}></Route>
       <Route path='/gallery' element={<Gallery/>}></Route>
       <Route path='/opening-hours' element={<OpenHrs/>}></Route>
+      <Route path='/location' element={<Location/>}></Route>
       <Route path='/contact-form' element={<ContactForm/>}></Route>
     </Routes>
-    
-    <Footer/>
+    {/* <Footer/> */}
     </BrowserRouter>
     </>
   );

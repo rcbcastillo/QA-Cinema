@@ -40,4 +40,20 @@ userRouter.post("/create", async ({ body }, res, next) => {
   }
 });
 
+userRouter.patch("/update/:userId", async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+    const userUpdated = await userModel.findByIdAndUpdate(userId, req.query, {
+      // Use "after" to return document *after* it is updated
+      returnDocument: "after",
+    });
+    res.status(201).json(userUpdated);
+  } catch (err) {
+    return next({
+      status: 404,
+      msg: "user not updated!",
+    });
+  }
+});
+
 module.exports = userRouter;

@@ -1,5 +1,5 @@
 import logo from "../logo.svg"
-import Carousel from "./Carousel"
+import Carousel from "./CarouselC"
 
 const Home = () =>{
     return (

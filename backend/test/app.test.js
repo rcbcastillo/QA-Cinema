@@ -178,7 +178,7 @@ describe("Tests for HTTP requests: BOOKINGS", () => {
       });
   });
 
-  it("**WIP - test not complete** /bookings/id should get one booking", (done) => {
+  it("/bookings/id should get one booking", (done) => {
     bookingModel.findOne({}).then((testBooking) => {
       chai
         .request(server)
@@ -188,6 +188,22 @@ describe("Tests for HTTP requests: BOOKINGS", () => {
           chai.expect(err).to.be.null;
           chai.expect(res.status).to.equal(200);
           chai.expect(returnedBooking._id).to.equal(testBooking._id.toString());
+          done();
+        });
+    });
+  });
+
+  it("/bookings/update/id should update one booking", (done) => {
+    bookingModel.findOne({}).then((testBooking) => {
+      chai
+        .request(server)
+        .patch("/bookings/update/" + testBooking._id + "?movieTitle=CHANGED")
+        .end((err, res) => {
+          const returnedBooking = res.body;
+          chai.expect(err).to.be.null;
+          chai.expect(res.status).to.equal(201);
+          chai.expect(returnedBooking._id).to.equal(testBooking._id.toString());
+          chai.expect(returnedBooking.movieTitle).to.equal("CHANGED");
           done();
         });
     });

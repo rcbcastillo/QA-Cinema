@@ -2,6 +2,8 @@ const express = require("express");
 const movieModel = require("../models/movieModel");
 const movieRouter = express.Router();
 
+// TODO: full CRUD requests
+
 movieRouter.get("/", (req, res, next) => {
   res.send("Movies Page, in progress..");
 });

@@ -4,8 +4,10 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const movieRouter = require("./routes/movieRoutes");
 const userRouter = require("./routes/userRoutes");
+const commentRouter = require("./routes/commentRoutes");
 const movieModel = require("./models/movieModel");
 const userModel = require("./models/userModel");
+const commentModel = require("./models/commentModel");
 
 app.use(express.json());
 

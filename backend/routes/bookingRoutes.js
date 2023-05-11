@@ -41,9 +41,21 @@ bookingRouter.post("/create", async ({ body }, res, next) => {
   }
 });
 
-bookingRouter.patch("/update", async ({ body }, res, next) => {});
-
-// /update
+bookingRouter.patch("/update/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const updatedBooking = await bookingModel.findByIdAndUpdate(id, req.query, {
+      // return the booking *after* it has been updated
+      returnDocument: "after",
+    });
+    res.status(201).json(updatedBooking);
+  } catch (err) {
+    return next({
+      status: 404,
+      msg: "warning: booking not updated",
+    });
+  }
+});
 
 // /delete/id
 

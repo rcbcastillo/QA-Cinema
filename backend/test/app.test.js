@@ -3,6 +3,8 @@ const { describe, before, it, after } = require("mocha");
 const { uriTest } = require("../atlas_uri");
 const movie = require("./data/movieDataTest");
 const movieModel = require("../models/movieModel");
+const booking = require("./data/bookingDataTest");
+const bookingModel = require("../models/bookingModel");
 
 // Chai HTTP plugin
 const chaiHttp = require("chai-http");
@@ -16,6 +18,7 @@ before(async () => {
   await mongoose.connection.close();
   await mongoose.connect(uriTest);
   await movieModel.deleteMany({});
+  await bookingModel.deleteMany({});
 });
 
 describe("Tests for the app's HTTP requests", () => {
@@ -76,8 +79,47 @@ describe("Tests for the app's HTTP requests", () => {
         done();
       });
   });
+});
 
-  after(async () => {
-    await mongoose.disconnect();
+describe("Tests for HTTP requests: BOOKINGS", () => {
+  it("/bookings/create should create a booking", (done) => {
+    chai
+      .request(server)
+      .post("/bookings/create")
+      .send(booking)
+      .end((err, res) => {
+        chai.expect(err).to.be.null;
+        chai.expect(res.status).to.equal(201);
+        chai.expect(res.body).has.property("_id");
+        chai.expect(res.body.movieTitle).to.equal(booking.movieTitle);
+        done();
+      });
   });
+
+  it("/bookings/readBookings should get all bookings", (done) => {
+    chai
+      .request(server)
+      .get("/bookings/readBookings")
+      .end((err, res) => {
+        const booking = res.body[0];
+        chai.expect(err).to.be.null;
+        chai.expect(res.status).to.equal(200);
+        chai.expect(booking).has.property("_id");
+        chai.expect(booking).has.property("movieID");
+        chai.expect(booking).has.property("movieTitle");
+        chai.expect(booking).has.property("screeningDateTime");
+        chai.expect(booking).has.property("firstName");
+        chai.expect(booking).has.property("lastName");
+        chai.expect(booking).has.property("seatsBooked");
+        chai.expect(booking).has.property("adult");
+        chai.expect(booking).has.property("concession");
+        chai.expect(booking).has.property("paymentID");
+        chai.expect(booking.movieTitle).equal("test booked movie title");
+        done();
+      });
+  });
+});
+
+after(async () => {
+  await mongoose.disconnect();
 });

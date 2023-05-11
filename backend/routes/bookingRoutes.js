@@ -52,11 +52,22 @@ bookingRouter.patch("/update/:id", async (req, res, next) => {
   } catch (err) {
     return next({
       status: 404,
-      msg: "warning: booking not updated",
+      msg: "warning: booking not updated + " + err.msg,
     });
   }
 });
 
-// /delete/id
+bookingRouter.delete("/delete/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await bookingModel.findByIdAndDelete(id);
+    res.status(200).json(id);
+  } catch (err) {
+    return next({
+      status: 404,
+      msg: "warning: booking not deleted + " + err.msg,
+    });
+  }
+});
 
 module.exports = bookingRouter;

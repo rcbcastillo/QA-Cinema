@@ -6,7 +6,7 @@ const ContactForm = () => {
     const [formData, setFormData] = useState({
                                                 email: "",
                                                 subject: "",
-                                                message: ""
+                                                message: "",
                                             });
 
     const handleChange = (event) => {
@@ -14,15 +14,21 @@ const ContactForm = () => {
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     };
 
-    // Handle the on Submit event (e) and prevent 
-    // default DOM behaviour, to implement our own
+    // Handle the on Submit event
     const handleSubmit = (event) => {
-        // const {email, subject, message} = formData;
-        // if(!email) or  
+        // React - prevent default DOM behaviour, to implement our own
         event.preventDefault();
-        alert(`Email: ${formData.email},
-            Subject: ${formData.subject}, 
-            Message: ${formData.message}`
+        
+        let regex = new RegExp('/[^\s@]+@[^\s@]+\.[^\s@]+/');
+        const {email, subject, message} = formData;
+        if((!email) || (!regex.test(email))) {
+            alert('invalid email');
+            return;
+        }
+        
+        alert(`Email: ${email},
+            Subject: ${subject}, 
+            Message: ${message}`
         );
     }
 
@@ -35,28 +41,28 @@ const ContactForm = () => {
                 <div className="flex-1">                 
                     <label  
                     className="block uppercase tracking-wide text-white text-xs font-bold mb-2"
-                    for="email">
+                    htmlFor="email">
                         Email
                     </label>
                     <input 
                     className="appearance-none block w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="email"
-                        aria-describedby="emailHelp"
+                        // aria-describedby="emailHelp"
                         name="email"
-                        // class="form-control"
                         placeholder="Enter email"
                         type="email"
                         required
                         value={formData.email}
                         onChange={handleChange}
                     />
-                    <p className="text-red text-xs italic">Please fill out this field.</p>
-                    <small id="emailHelp" class="form-text text-muted">Please enter your email (required).</small>
+                    {/* <p id='email-warning' className={ (validEmail ? 'hidden-invalid-p' : 'visible-invalid-p') }> */}
+                        {/* Please input a valid email.</p> */}
+                    {/* <small id="emailHelp" class="form-text text-muted">Please enter your email (required).</small> */}
                 </div>
                 <div className="flex-1">
                     <label
                      className="block uppercase tracking-wide text-white text-xs font-bold mb-2"
-                     for="subject">
+                     htmlFor="subject">
                         Subject
                     </label>
                     <input
@@ -73,7 +79,7 @@ const ContactForm = () => {
 
                 <div className="flex-1">
                     <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2"
-                    for="message">
+                    htmlFor="message">
                         Message
                     </label>
                     <input
@@ -81,6 +87,7 @@ const ContactForm = () => {
                         id="message"
                         name="message"
                         type="textarea"
+                        required
                         value={formData.message}
                         onChange={handleChange}
                     />

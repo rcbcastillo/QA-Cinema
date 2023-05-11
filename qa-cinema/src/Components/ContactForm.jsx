@@ -1,7 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
+    const emailServiceID = 'service_01gk0xb';
+    const emailTemplateID = 'template_14qpanu';
+    const emailPublicKey = 'iZfkvRJeWhM7gWGWL';
 
     const [formData, setFormData] = useState({
                                                 email: "",
@@ -21,15 +25,22 @@ const ContactForm = () => {
         
         let regex = new RegExp('/[^\s@]+@[^\s@]+\.[^\s@]+/');
         const {email, subject, message} = formData;
-        if((!email) || (!regex.test(email))) {
-            alert('invalid email');
-            return;
-        }
+        // if((!email) || (!regex.test(email))) {
+        //     alert('invalid email');
+        //     return;
+        // }
         
+        emailjs.sendForm(emailServiceID, emailTemplateID, event.target, emailPublicKey)
+        .then((result) => {
+        alert("Message Sent, We will get back to you shortly", result.text);
+        },
+        (error) => {
+        alert("An error occurred, Please try again", error.text);
+        });
+
         alert(`Email: ${email},
             Subject: ${subject}, 
-            Message: ${message}`
-        );
+            Message: ${message}`);
     }
 
     return (

@@ -571,15 +571,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.invisible {
-  visibility: hidden;
-}
-
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -661,10 +652,6 @@ video {
   text-transform: uppercase;
 }
 
-.italic {
-  font-style: italic;
-}
-
 .leading-tight {
   line-height: 1.25;
 }
@@ -676,11 +663,6 @@ video {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-.text-tesla-red {
-  --tw-text-opacity: 1;
-  color: rgb(227 25 55 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -736,8 +718,19 @@ video {
   outline-color: #000000;
 }
 
-.validation-p {
-  visibility: hidden;
+.hidden-invalid-p {
+  visibility: collapse;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-style: italic;
+  --tw-text-opacity: 1;
+  color: rgb(227 25 55 / var(--tw-text-opacity));
+}
+
+.visible-invalid-p {
+  visibility: visible;
   margin-left: 1rem;
   margin-right: 1rem;
   font-size: 0.75rem;

@@ -163,6 +163,21 @@ describe("Tests for the app's user HTTP requests", function () {
         });
     });
   });
+
+  it("/users/delete/:userId should get one user by Id", () => {
+    userModel.findOne({}).then((expectedUser) => {
+      chai
+        .request(app)
+        .delete(`/users/delete/${expectedUser._id}`)
+        .end((err, res) => {
+          const deletedUserDB = res.body;
+          chai.expect(err).to.be.null;
+          chai.expect(deletedUserDB.acknowledged).to.equal(true);
+          chai.expect(deletedUserDB.deletedCount).to.equal(1);
+          chai.expect(res.status).to.equal(201);
+        });
+    });
+  });
 });
 
 after(async () => {

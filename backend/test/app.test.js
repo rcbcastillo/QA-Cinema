@@ -92,7 +92,6 @@ describe("Tests for the app's movie HTTP requests", () => {
 
 describe("Tests for the app's user HTTP requests", function () {
   it("/users/create should create a user", (done) => {
-    // TODO: remove this test when no longer needed
     chai
       .request(app)
       .post("/users/create")
@@ -182,14 +181,18 @@ describe("Tests for HTTP requests: BOOKINGS", () => {
   // TODO: read one works but this test is WIP
   // Await merging of the new test from branch/issue QAC-75
   it("**WIP - test not complete** /bookings/id should get one booking", (done) => {
-    chai
-      .request(server)
-      .get("/bookings/:id")
-      .end((err, res) => {
-        chai.expect(err).to.be.null;
-        // chai.expect(res.status).to.equal(200);
-        done();
-      });
+    bookingModel.findOne({}).then((testBooking) => {
+      chai
+        .request(server)
+        .get("/bookings/" + testBooking._id)
+        .end((err, res) => {
+          const returnedBooking = res.body;
+          chai.expect(err).to.be.null;
+          chai.expect(res.status).to.equal(200);
+          chai.expect(returnedBooking._id).to.equal(testBooking._id.toString());
+          done();
+        });
+    });
   });
 });
 

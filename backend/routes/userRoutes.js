@@ -56,4 +56,17 @@ userRouter.patch("/update/:userId", async (req, res, next) => {
   }
 });
 
+userRouter.delete("/delete/:userId", async (req, res, next) => {
+  try {
+    const { userId } = req.params;
+    await userModel.findByIdAndDelete(userId);
+    res.status(200).json(userId); // this will be the body returned (only id)
+  } catch (err) {
+    return next({
+      status: 404,
+      msg: err.msg,
+    });
+  }
+});
+
 module.exports = userRouter;

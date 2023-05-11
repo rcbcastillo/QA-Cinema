@@ -23,6 +23,7 @@ const ContactForm = () => {
         // React - prevent default DOM behaviour, to implement our own
         event.preventDefault();
         
+        // TODO: fix the regex for emails
         let regex = new RegExp('/[^\s@]+@[^\s@]+\.[^\s@]+/');
         const {email, subject, message} = formData;
         // if((!email) || (!regex.test(email))) {
@@ -30,17 +31,26 @@ const ContactForm = () => {
         //     return;
         // }
         
-        emailjs.sendForm(emailServiceID, emailTemplateID, event.target, emailPublicKey)
+        // Parameters that match our EmailJS email template
+        // TODO - add subject to template?
+        const emailTemplateParams = {
+            to_name: 'QA Cinema',
+            from_name: 'Barry',
+            message: 'From app',
+            reply_to: 'ellohez@gmail.com',
+        }
+        
+        emailjs.sendForm(emailServiceID, emailTemplateID, emailPublicKey, emailTemplateParams)
         .then((result) => {
-        alert("Message Sent, We will get back to you shortly", result.text);
+            alert("Message Sent, We will get back to you shortly", result.text);
         },
         (error) => {
-        alert("An error occurred, Please try again", error.text);
+            alert("An error occurred, Please try again", error.text);
         });
 
-        alert(`Email: ${email},
-            Subject: ${subject}, 
-            Message: ${message}`);
+        // alert(`Email: ${email},
+        //     Subject: ${subject}, 
+        //     Message: ${message}`);
     }
 
     return (

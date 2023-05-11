@@ -51,7 +51,7 @@ userRouter.patch("/update/:userId", async (req, res, next) => {
   } catch (err) {
     return next({
       status: 404,
-      msg: "user not updated!",
+      msg: err.message,
     });
   }
 });

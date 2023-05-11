@@ -212,7 +212,7 @@ describe("Tests for the server's comment HTTP requests", function () {
         chai.expect(readedComment).has.property("movieId");
         chai.expect(readedComment).has.property("userId");
         chai.expect(readedComment).has.property("message");
-        chai.expect(readedComment).has.property("ratin");
+        chai.expect(readedComment).has.property("rating");
         chai.expect(readedComment.movieId).to.equal("Titanic");
         done();
       });
@@ -235,8 +235,8 @@ describe("Tests for the server's comment HTTP requests", function () {
     });
   });
 
-  it("/comments/update/:commentId should get one user by Id", (done) => {
-    userModel.findOne({}).then((expectedComment) => {
+  it("/comments/update/:commentId should get one comment by Id", (done) => {
+    commentModel.findOne({}).then((expectedComment) => {
       const updatedComment = {
         movieId: "Titanic",
         userId: "this is updated",
@@ -261,8 +261,8 @@ describe("Tests for the server's comment HTTP requests", function () {
     });
   });
 
-  it("/comments/delete/:commentId should get one user by Id", (done) => {
-    userModel.findOne({}).then((expectedComment) => {
+  it("/comments/delete/:commentId should get one comment by Id", (done) => {
+    commentModel.findOne({}).then((expectedComment) => {
       chai
         .request(server)
         .delete(`/comments/delete/${expectedComment._id}`)

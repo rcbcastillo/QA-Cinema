@@ -8,5 +8,5 @@ const commentSchema = new Schema({
   rating: { type: Number, required: true },
 });
 
-const commentModel = new Schema("comments", commentSchema);
+const commentModel = mongoose.model("comments", commentSchema);
 module.exports = commentModel;

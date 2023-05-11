@@ -7,7 +7,20 @@ const bookingRouter = express.Router();
 bookingRouter.get("/readBookings", async (req, res, next) => {
   try {
     const bookingsFound = await bookingModel.find();
-    res.json(bookingsFound);
+    res.status(200).json(bookingsFound);
+  } catch (err) {
+    return next({
+      status: 500,
+      msg: err.message,
+    });
+  }
+});
+
+bookingRouter.get("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const bookingFound = await bookingModel.findById(id);
+    res.status(200).json(bookingFound);
   } catch (err) {
     return next({
       status: 500,

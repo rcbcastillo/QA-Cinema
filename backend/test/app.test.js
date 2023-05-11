@@ -29,7 +29,7 @@ before(async function () {
   console.log("Ending Setup");
 });
 
-describe("Tests for the app's movie HTTP requests", () => {
+describe("Tests for HTTP requests: MOVIES", () => {
   it("/movies/create should create a movie", (done) => {
     chai
       .request(server)
@@ -88,7 +88,7 @@ describe("Tests for the app's movie HTTP requests", () => {
   });
 });
 
-describe("Tests for the server's user HTTP requests", function () {
+describe("Tests for HTTP requests: USERS", function () {
   it("/users/create should create a user", (done) => {
     chai
       .request(server)
@@ -122,7 +122,7 @@ describe("Tests for the server's user HTTP requests", function () {
       });
   });
 
-  it("/users/:userId should get one user by Id", (done) => {
+  it("/users/userId should get one user by Id", (done) => {
     userModel.findOne({}).then((expectedUser) => {
       chai
         .request(server)
@@ -137,7 +137,7 @@ describe("Tests for the server's user HTTP requests", function () {
     });
   });
 
-  it("/users/update/:userId should get one user by Id", (done) => {
+  it("/users/update/userId should get one user by Id", (done) => {
     userModel.findOne({}).then((expectedUser) => {
       const updatedUser = {
         firstName: "Jane",
@@ -164,7 +164,7 @@ describe("Tests for the server's user HTTP requests", function () {
     });
   });
 
-  it("/users/delete/:userId should get one user by Id", (done) => {
+  it("/users/delete/userId should get one user by Id", (done) => {
     userModel.findOne({}).then((expectedUser) => {
       chai
         .request(server)

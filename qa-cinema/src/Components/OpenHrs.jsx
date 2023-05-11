@@ -3,7 +3,7 @@ import openHrsData from "./hrs-data.json";
 import JsonTable from "./JsonTable";
 
 const OpenHrs = () => {
-    const [jsonData] = useState(openHrsData);
+    const [jsonData] = useState(openHrsData);   
 
     return (
         <div style={{ padding: "10px", 

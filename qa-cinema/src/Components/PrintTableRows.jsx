@@ -1,8 +1,6 @@
 import React from "react";
 
 const PrintTableRows = ({ rowData }) => {
-    console.log({rowData});
-    console.log("Got to here!");
         return (
             <tr> 
             {

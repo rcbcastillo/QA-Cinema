@@ -2,8 +2,6 @@ const express = require("express");
 const bookingModel = require("../models/bookingModel");
 const bookingRouter = express.Router();
 
-// TODO: read one, update one, delete one, delete many
-
 bookingRouter.get("/readBookings", async (req, res, next) => {
   try {
     const bookingsFound = await bookingModel.find();

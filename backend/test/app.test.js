@@ -25,14 +25,12 @@ before(async function () {
   await mongoose.connect(uriTest);
   await movieModel.deleteMany({});
   await userModel.deleteMany({});
-  //await userModel.createOne({});
-  console.log("Ending Setup");
   await bookingModel.deleteMany({});
+  console.log("Ending Setup");
 });
 
 describe("Tests for the app's movie HTTP requests", () => {
   it("/movies/create should create a movie", (done) => {
-    // TODO: remove this test when no longer needed
     chai
       .request(server)
       .post("/movies/create")
@@ -204,6 +202,20 @@ describe("Tests for HTTP requests: BOOKINGS", () => {
           chai.expect(res.status).to.equal(201);
           chai.expect(returnedBooking._id).to.equal(testBooking._id.toString());
           chai.expect(returnedBooking.movieTitle).to.equal("CHANGED");
+          done();
+        });
+    });
+  });
+
+  it("/bookings/delete/id should delete one booking", (done) => {
+    bookingModel.findOne({}).then((testBooking) => {
+      chai
+        .request(server)
+        .delete("/bookings/delete/" + testBooking._id)
+        .end((err, res) => {
+          chai.expect(err).to.be.null;
+          chai.expect(res.status).to.equal(200);
+          chai.expect(res.body).to.equal(testBooking._id.toString());
           done();
         });
     });

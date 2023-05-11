@@ -4,10 +4,6 @@ const bookingRouter = express.Router();
 
 // TODO: read one, update one, delete one, delete many
 
-bookingRouter.get("/", (req, res, next) => {
-  res.send("Bookings Page, in progress..");
-});
-
 bookingRouter.get("/readBookings", async (req, res, next) => {
   try {
     const bookingsFound = await bookingModel.find();
@@ -20,7 +16,6 @@ bookingRouter.get("/readBookings", async (req, res, next) => {
   }
 });
 
-// for testing purposes to be remove in the future
 bookingRouter.post("/create", async ({ body }, res, next) => {
   try {
     const createdBooking = await bookingModel.create(body);

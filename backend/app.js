@@ -3,8 +3,8 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const movieRouter = require("./routes/movieRoutes");
+const bookingRouter = require("./routes/bookingRoutes");
 const { uri } = require("./atlas_uri");
-const movieModel = require("./models/movieModel");
 
 app.use(express.json());
 
@@ -20,7 +20,7 @@ mongoose
   });
 
 app.use("/movies", movieRouter);
-app.use("/bookings", movieRouter);
+app.use("/bookings", bookingRouter);
 
 // Error handling
 app.use((err, req, res, next) => {

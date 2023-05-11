@@ -2,11 +2,7 @@ const express = require("express");
 const movieModel = require("../models/movieModel");
 const movieRouter = express.Router();
 
-// TODO: full CRUD requests
-
-movieRouter.get("/", (req, res, next) => {
-  res.send("Movies Page, in progress..");
-});
+// TODO: remaining CRUD requests
 
 movieRouter.get("/readMovies", async (req, res, next) => {
   try {
@@ -20,7 +16,7 @@ movieRouter.get("/readMovies", async (req, res, next) => {
   }
 });
 
-// for testing purposes to be remove in the future
+//TODO: decide if this /create request is needed
 movieRouter.post("/create", async ({ body }, res, next) => {
   try {
     const createdMovie = await movieModel.create(body);

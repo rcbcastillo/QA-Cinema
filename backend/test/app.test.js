@@ -88,7 +88,7 @@ describe("Tests for the app's movie HTTP requests", () => {
   });
 });
 
-describe("Tests for the app's user HTTP requests", function () {
+describe("Tests for the server's user HTTP requests", function () {
   it("/users/create should create a user", (done) => {
     chai
       .request(server)
@@ -132,6 +132,47 @@ describe("Tests for the app's user HTTP requests", function () {
           chai.expect(err).to.be.null;
           chai.expect(res.status).to.equal(200);
           chai.expect(readedUser._id).to.equal(expectedUser._id.toString());
+          done();
+        });
+    });
+  });
+
+  it("/users/update/:userId should get one user by Id", (done) => {
+    userModel.findOne({}).then((expectedUser) => {
+      const updatedUser = {
+        firstName: "Jane",
+        lastName: "Kwong",
+        password: "123mypass",
+        email: "jovi.kwong@hotmail.com",
+        avatar: "I am updated",
+      };
+      chai
+        .request(server)
+        .patch(`/users/update/${expectedUser._id}`)
+        .query(updatedUser)
+        .end((err, res) => {
+          const updatedUserDB = res.body;
+          chai.expect(err).to.be.null;
+          chai.expect(res.status).to.equal(201);
+          chai.expect(updatedUserDB).to.deep.equal({
+            _id: updatedUserDB._id,
+            __v: updatedUserDB.__v,
+            ...updatedUser,
+          });
+          done();
+        });
+    });
+  });
+
+  it("/users/delete/:userId should get one user by Id", (done) => {
+    userModel.findOne({}).then((expectedUser) => {
+      chai
+        .request(server)
+        .delete(`/users/delete/${expectedUser._id}`)
+        .end((err, res) => {
+          chai.expect(err).to.be.null;
+          chai.expect(res.status).to.equal(200);
+          chai.expect(res.body).to.equal(expectedUser._id.toString());
           done();
         });
     });

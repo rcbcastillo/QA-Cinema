@@ -5,9 +5,9 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      // Dark green
+      // Light green
       'pearl-aqua': '#84eab5',
-      // Lighter green
+      // Dark green
       'japanese-indigo': '#234453',
       'white': '#ffffff',
       'metallic-steel': '#b5c0c9',

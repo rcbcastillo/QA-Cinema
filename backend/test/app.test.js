@@ -34,7 +34,7 @@ describe("Tests for the app's movie HTTP requests", () => {
   it("/movies/create should create a movie", (done) => {
     // TODO: remove this test when no longer needed
     chai
-      .request(app)
+      .request(server)
       .post("/movies/create")
       .send(movie)
       .end((err, res) => {
@@ -48,7 +48,7 @@ describe("Tests for the app's movie HTTP requests", () => {
 
   it("/movies/readMovies should get all movies", (done) => {
     chai
-      .request(app)
+      .request(server)
       .get("/movies/readMovies")
       .end((err, res) => {
         const readedMovie = res.body[0];
@@ -93,7 +93,7 @@ describe("Tests for the app's movie HTTP requests", () => {
 describe("Tests for the app's user HTTP requests", function () {
   it("/users/create should create a user", (done) => {
     chai
-      .request(app)
+      .request(server)
       .post("/users/create")
       .send(user)
       .end((err, res) => {
@@ -107,7 +107,7 @@ describe("Tests for the app's user HTTP requests", function () {
 
   it("/users/readUsers should get all users", (done) => {
     chai
-      .request(app)
+      .request(server)
       .get("/users/readUsers")
       .end((err, res) => {
         const readedUser = res.body[0];
@@ -127,7 +127,7 @@ describe("Tests for the app's user HTTP requests", function () {
   it("/users/:userId should get one user by Id", (done) => {
     userModel.findOne({}).then((expectedUser) => {
       chai
-        .request(app)
+        .request(server)
         .get("/users/" + expectedUser._id)
         .end((err, res) => {
           const readedUser = res.body;
@@ -178,8 +178,6 @@ describe("Tests for HTTP requests: BOOKINGS", () => {
       });
   });
 
-  // TODO: read one works but this test is WIP
-  // Await merging of the new test from branch/issue QAC-75
   it("**WIP - test not complete** /bookings/id should get one booking", (done) => {
     bookingModel.findOne({}).then((testBooking) => {
       chai

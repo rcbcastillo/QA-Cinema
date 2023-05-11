@@ -12,19 +12,26 @@ const chaiHttp = require("chai-http");
 chai.use(chaiHttp);
 
 const mongoose = require("mongoose");
-const server = require("../app");
-
-before(async () => {
-  await mongoose.connection.close();
+const app = require("../app");
+var server;
+before(async function () {
+  this.timeout(30000);
+  console.log("starting Setup");
+  await new Promise((res, rej) => {
+    server = app.listen(9090, () => res());
+  });
   await mongoose.connect(uriTest);
   await movieModel.deleteMany({});
+  await userModel.deleteMany({});
+  //await userModel.createOne({});
+  console.log("Ending Setup");
 });
 
 describe("Tests for the app's movie HTTP requests", () => {
   it("/movies/create should create a movie", (done) => {
     // TODO: remove this test when no longer needed
     chai
-      .request(server)
+      .request(app)
       .post("/movies/create")
       .send(movie)
       .end((err, res) => {
@@ -38,7 +45,7 @@ describe("Tests for the app's movie HTTP requests", () => {
 
   it("/movies/readMovies should get all movies", (done) => {
     chai
-      .request(server)
+      .request(app)
       .get("/movies/readMovies")
       .end((err, res) => {
         const readedMovie = res.body[0];
@@ -80,11 +87,11 @@ describe("Tests for the app's movie HTTP requests", () => {
   });
 });
 
-describe("Tests for the app's user HTTP requests", () => {
+describe("Tests for the app's user HTTP requests", function () {
   it("/users/create should create a user", (done) => {
     // TODO: remove this test when no longer needed
     chai
-      .request(server)
+      .request(app)
       .post("/users/create")
       .send(user)
       .end((err, res) => {
@@ -98,7 +105,7 @@ describe("Tests for the app's user HTTP requests", () => {
 
   it("/users/readUsers should get all users", (done) => {
     chai
-      .request(server)
+      .request(app)
       .get("/users/readUsers")
       .end((err, res) => {
         const readedUser = res.body[0];
@@ -114,8 +121,24 @@ describe("Tests for the app's user HTTP requests", () => {
         done();
       });
   });
+
+  it("/users/:userId should get one user by Id", (done) => {
+    userModel.findOne({}).then((expectedUser) => {
+      chai
+        .request(app)
+        .get("/users/" + expectedUser._id)
+        .end((err, res) => {
+          const readedUser = res.body;
+          chai.expect(err).to.be.null;
+          chai.expect(res.status).to.equal(200);
+          chai.expect(readedUser._id).to.equal(expectedUser._id.toString());
+          done();
+        });
+    });
+  });
 });
 
 after(async () => {
   await mongoose.disconnect();
+  server.close();
 });

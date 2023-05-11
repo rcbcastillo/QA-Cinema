@@ -13,6 +13,7 @@ app.use(express.json());
 
 app.use("/movies", movieRouter);
 app.use("/users", userRouter);
+app.use("/comments", commentRouter);
 
 // Error handling
 app.use((err, req, res, next) => {

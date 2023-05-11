@@ -31,7 +31,7 @@ describe("Tests for the app's movie HTTP requests", () => {
   it("/movies/create should create a movie", (done) => {
     // TODO: remove this test when no longer needed
     chai
-      .request(app)
+      .request(server)
       .post("/movies/create")
       .send(movie)
       .end((err, res) => {
@@ -45,7 +45,7 @@ describe("Tests for the app's movie HTTP requests", () => {
 
   it("/movies/readMovies should get all movies", (done) => {
     chai
-      .request(app)
+      .request(server)
       .get("/movies/readMovies")
       .end((err, res) => {
         const readedMovie = res.body[0];
@@ -87,11 +87,11 @@ describe("Tests for the app's movie HTTP requests", () => {
   });
 });
 
-describe("Tests for the app's user HTTP requests", function () {
+describe("Tests for the server's user HTTP requests", function () {
   it("/users/create should create a user", (done) => {
     // TODO: remove this test when no longer needed
     chai
-      .request(app)
+      .request(server)
       .post("/users/create")
       .send(user)
       .end((err, res) => {
@@ -105,7 +105,7 @@ describe("Tests for the app's user HTTP requests", function () {
 
   it("/users/readUsers should get all users", (done) => {
     chai
-      .request(app)
+      .request(server)
       .get("/users/readUsers")
       .end((err, res) => {
         const readedUser = res.body[0];
@@ -125,7 +125,7 @@ describe("Tests for the app's user HTTP requests", function () {
   it("/users/:userId should get one user by Id", (done) => {
     userModel.findOne({}).then((expectedUser) => {
       chai
-        .request(app)
+        .request(server)
         .get("/users/" + expectedUser._id)
         .end((err, res) => {
           const readedUser = res.body;
@@ -147,7 +147,7 @@ describe("Tests for the app's user HTTP requests", function () {
         avatar: "I am updated",
       };
       chai
-        .request(app)
+        .request(server)
         .patch(`/users/update/${expectedUser._id}`)
         .query(updatedUser)
         .end((err, res) => {
@@ -164,16 +164,16 @@ describe("Tests for the app's user HTTP requests", function () {
     });
   });
 
-  it("/users/delete/:userId should get one user by Id", () => {
+  it("/users/delete/:userId should get one user by Id", (done) => {
     userModel.findOne({}).then((expectedUser) => {
       chai
-        .request(app)
+        .request(server)
         .delete(`/users/delete/${expectedUser._id}`)
         .end((err, res) => {
-          const deletedUserDB = res.body;
           chai.expect(err).to.be.null;
-          chai.expect(deletedUserDB.deletedCount).to.equal(1);
-          chai.expect(res.status).to.equal(201);
+          chai.expect(res.status).to.equal(200);
+          chai.expect(res.body).to.equal(expectedUser._id.toString());
+          done();
         });
     });
   });

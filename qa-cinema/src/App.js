@@ -9,6 +9,7 @@ import Footer from './Components/Footer';
 import OpenHrs from './Components/OpenHrs';
 import ContactForm from './Components/ContactForm';
 
+
 function App() {
   //to do:
   //fix navbar button??? things
@@ -20,17 +21,11 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}></Route>
       <Route path='/about' element={<About/>}></Route>
-<<<<<<< HEAD
       <Route path='/location' element={<Location/>}></Route>
-    </Routes>
-    <Footer/>
-=======
       <Route path='/opening-hours' element={<OpenHrs/>}></Route>
       <Route path='/contact-form' element={<ContactForm/>}></Route>
     </Routes>
-    
-    {/* <Footer/> */}
->>>>>>> 1bd9e68bbe99b912eb262c2c61249e2222a21aef
+    <Footer/>
     </BrowserRouter>
     </>
   );

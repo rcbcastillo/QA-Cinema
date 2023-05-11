@@ -6,6 +6,8 @@ const user = require("./data/userDataTest");
 const comment = require("./data/commentDataTest");
 const movieModel = require("../models/movieModel");
 const userModel = require("../models/userModel");
+const booking = require("./data/bookingDataTest");
+const bookingModel = require("../models/bookingModel");
 const commentModel = require("../models/commentModel");
 
 // Chai HTTP plugin
@@ -25,13 +27,12 @@ before(async function () {
   await mongoose.connect(uriTest);
   await movieModel.deleteMany({});
   await userModel.deleteMany({});
-  //await userModel.createOne({});
+  await bookingModel.deleteMany({});
   console.log("Ending Setup");
 });
 
-describe("Tests for the app's movie HTTP requests", () => {
+describe("Tests for HTTP requests: MOVIES", () => {
   it("/movies/create should create a movie", (done) => {
-    // TODO: remove this test when no longer needed
     chai
       .request(server)
       .post("/movies/create")
@@ -89,9 +90,8 @@ describe("Tests for the app's movie HTTP requests", () => {
   });
 });
 
-describe("Tests for the server's user HTTP requests", function () {
+describe("Tests for HTTP requests: USERS", function () {
   it("/users/create should create a user", (done) => {
-    // TODO: remove this test when no longer needed
     chai
       .request(server)
       .post("/users/create")
@@ -124,7 +124,7 @@ describe("Tests for the server's user HTTP requests", function () {
       });
   });
 
-  it("/users/:userId should get one user by Id", (done) => {
+  it("/users/userId should get one user by Id", (done) => {
     userModel.findOne({}).then((expectedUser) => {
       chai
         .request(server)
@@ -139,7 +139,7 @@ describe("Tests for the server's user HTTP requests", function () {
     });
   });
 
-  it("/users/update/:userId should get one user by Id", (done) => {
+  it("/users/update/userId should get one user by Id", (done) => {
     userModel.findOne({}).then((expectedUser) => {
       const updatedUser = {
         firstName: "Jane",
@@ -166,7 +166,7 @@ describe("Tests for the server's user HTTP requests", function () {
     });
   });
 
-  it("/users/delete/:userId should get one user by Id", (done) => {
+  it("/users/delete/userId should get one user by Id", (done) => {
     userModel.findOne({}).then((expectedUser) => {
       chai
         .request(server)
@@ -181,95 +181,84 @@ describe("Tests for the server's user HTTP requests", function () {
   });
 });
 
-describe("Tests for the server's comment HTTP requests", function () {
-  it("/comments/create should create a comment", (done) => {
-    // TODO: remove this test when no longer needed
+describe("Tests for HTTP requests: BOOKINGS", () => {
+  it("/bookings/create should create a booking", (done) => {
     chai
       .request(server)
-      .post("/comments/create")
-      .send(comment)
+      .post("/bookings/create")
+      .send(booking)
       .end((err, res) => {
         chai.expect(err).to.be.null;
         chai.expect(res.status).to.equal(201);
         chai.expect(res.body).has.property("_id");
-        chai.expect(res.body.movieId).to.equal(comment.movieId);
-        chai.expect(res.body.userId).to.equal(comment.userId);
-        chai.expect(res.body.message).to.equal(comment.message);
-        chai.expect(res.body.rating).to.equal(comment.rating);
+        chai.expect(res.body.movieTitle).to.equal(booking.movieTitle);
         done();
       });
   });
 
-  it("/comments/readComments should get all comments", (done) => {
+  it("/bookings/readBookings should get all bookings", (done) => {
     chai
       .request(server)
-      .get("/comments/readComments")
+      .get("/bookings/readBookings")
       .end((err, res) => {
-        const readedComment = res.body[0];
+        const booking = res.body[0];
         chai.expect(err).to.be.null;
         chai.expect(res.status).to.equal(200);
-        chai.expect(readedComment).has.property("_id");
-        chai.expect(readedComment).has.property("movieId");
-        chai.expect(readedComment).has.property("userId");
-        chai.expect(readedComment).has.property("message");
-        chai.expect(readedComment).has.property("rating");
-        chai.expect(readedComment.movieId).to.equal("Titanic");
+        chai.expect(booking).has.property("_id");
+        chai.expect(booking).has.property("movieID");
+        chai.expect(booking).has.property("movieTitle");
+        chai.expect(booking).has.property("screeningDateTime");
+        chai.expect(booking).has.property("firstName");
+        chai.expect(booking).has.property("lastName");
+        chai.expect(booking).has.property("seatsBooked");
+        chai.expect(booking).has.property("adult");
+        chai.expect(booking).has.property("concession");
+        chai.expect(booking).has.property("paymentID");
+        chai.expect(booking.movieTitle).equal("test booked movie title");
         done();
       });
   });
 
-  it("/comments/:commentId should get one comment by Id", (done) => {
-    commentModel.findOne({}).then((expectedComment) => {
+  it("/bookings/id should get one booking", (done) => {
+    bookingModel.findOne({}).then((testBooking) => {
       chai
         .request(server)
-        .get("/comments/" + expectedComment._id)
+        .get("/bookings/" + testBooking._id)
         .end((err, res) => {
-          const readedComment = res.body;
+          const returnedBooking = res.body;
           chai.expect(err).to.be.null;
           chai.expect(res.status).to.equal(200);
-          chai
-            .expect(readedComment._id)
-            .to.equal(expectedComment._id.toString());
+          chai.expect(returnedBooking._id).to.equal(testBooking._id.toString());
           done();
         });
     });
   });
 
-  it("/comments/update/:commentId should get one comment by Id", (done) => {
-    commentModel.findOne({}).then((expectedComment) => {
-      const updatedComment = {
-        movieId: "Titanic",
-        userId: "this is updated",
-        message: "the movie has great effects with the 3D view",
-        rating: 7.9,
-      };
+  it("/bookings/update/id should update one booking", (done) => {
+    bookingModel.findOne({}).then((testBooking) => {
       chai
         .request(server)
-        .patch(`/comments/update/${expectedComment._id}`)
-        .query(updatedComment)
+        .patch("/bookings/update/" + testBooking._id + "?movieTitle=CHANGED")
         .end((err, res) => {
-          const updatedCommentDB = res.body;
+          const returnedBooking = res.body;
           chai.expect(err).to.be.null;
           chai.expect(res.status).to.equal(201);
-          chai.expect(updatedCommentDB).to.deep.equal({
-            _id: updatedCommentDB._id,
-            __v: updatedCommentDB.__v,
-            ...updatedComment,
-          });
+          chai.expect(returnedBooking._id).to.equal(testBooking._id.toString());
+          chai.expect(returnedBooking.movieTitle).to.equal("CHANGED");
           done();
         });
     });
   });
 
-  it("/comments/delete/:commentId should get one comment by Id", (done) => {
-    commentModel.findOne({}).then((expectedComment) => {
+  it("/bookings/delete/id should delete one booking", (done) => {
+    bookingModel.findOne({}).then((testBooking) => {
       chai
         .request(server)
-        .delete(`/comments/delete/${expectedComment._id}`)
+        .delete("/bookings/delete/" + testBooking._id)
         .end((err, res) => {
           chai.expect(err).to.be.null;
           chai.expect(res.status).to.equal(200);
-          chai.expect(res.body).to.equal(expectedComment._id.toString());
+          chai.expect(res.body).to.equal(testBooking._id.toString());
           done();
         });
     });

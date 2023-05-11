@@ -2,7 +2,9 @@ const chai = require("chai");
 const { describe, before, it, after } = require("mocha");
 const { uriTest } = require("../atlas_uri");
 const movie = require("./data/movieDataTest");
+const user = require("./data/userDataTest");
 const movieModel = require("../models/movieModel");
+const userModel = require("../models/userModel");
 
 // Chai HTTP plugin
 const chaiHttp = require("chai-http");
@@ -18,7 +20,7 @@ before(async () => {
   await movieModel.deleteMany({});
 });
 
-describe("Tests for the app's HTTP requests", () => {
+describe("Tests for the app's movie HTTP requests", () => {
   it("/movies/create should create a movie", (done) => {
     // TODO: remove this test when no longer needed
     chai
@@ -76,8 +78,44 @@ describe("Tests for the app's HTTP requests", () => {
         done();
       });
   });
+});
 
-  after(async () => {
-    await mongoose.disconnect();
+describe("Tests for the app's user HTTP requests", () => {
+  it("/users/create should create a user", (done) => {
+    // TODO: remove this test when no longer needed
+    chai
+      .request(server)
+      .post("/users/create")
+      .send(user)
+      .end((err, res) => {
+        chai.expect(err).to.be.null;
+        chai.expect(res.status).to.equal(201);
+        chai.expect(res.body).has.property("_id");
+        chai.expect(res.body.firstName).to.equal(user.firstName);
+        done();
+      });
   });
+
+  it("/users/readUsers should get all users", (done) => {
+    chai
+      .request(server)
+      .get("/users/readUsers")
+      .end((err, res) => {
+        const readedUser = res.body[0];
+        chai.expect(err).to.be.null;
+        chai.expect(res.status).to.equal(200);
+        chai.expect(readedUser).has.property("_id");
+        chai.expect(readedUser).has.property("firstName");
+        chai.expect(readedUser).has.property("lastName");
+        chai.expect(readedUser).has.property("password");
+        chai.expect(readedUser).has.property("email");
+        chai.expect(readedUser).has.property("avatar");
+        chai.expect(readedUser.firstName).to.equal("Jovi");
+        done();
+      });
+  });
+});
+
+after(async () => {
+  await mongoose.disconnect();
 });

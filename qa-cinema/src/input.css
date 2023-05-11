@@ -7,7 +7,7 @@
 }
 
 .custom-button {
-    @apply block w-full rounded-md bg-pearl-aqua text-japanese-indigo px-3.5 py-2.5 text-center text-sm font-semibold shadow-sm hover:bg-metallic-steel focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black
+    @apply block w-full rounded-md bg-pearl-aqua text-japanese-indigo px-3.5 py-2.5 text-center text-base font-semibold shadow-sm hover:bg-metallic-steel focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black
 }
 
 .hidden-invalid-p {

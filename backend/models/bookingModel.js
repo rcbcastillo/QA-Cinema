@@ -9,10 +9,11 @@ const bookingSchema = new Schema({
   screeningDateTime: { type: DataView, required: true },
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
-  // TODO: make only one of adult/child/concession is 'true'
-  adult: { type: Boolean, required: false },
-  child: { type: Boolean, required: false },
-  concession: { type: Boolean, required: false },
+  seatsBooked: { type: Number, required: true },
+  // TODO: make numbers of adult/child/concession match seatsBooked
+  adult: { type: Number, required: true },
+  child: { type: Number, required: true },
+  concession: { type: Number, required: true },
   paymentID: { type: String, required: true },
 });
 

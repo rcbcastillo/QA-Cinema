@@ -118,6 +118,18 @@ describe("Tests for HTTP requests: BOOKINGS", () => {
         done();
       });
   });
+
+  // TODO: read one works but this test is WIP
+  it("**WIP - test not complete** /bookings/id should get one booking", (done) => {
+    chai
+      .request(server)
+      .get("/bookings/:id")
+      .end((err, res) => {
+        chai.expect(err).to.be.null;
+        // chai.expect(res.status).to.equal(200);
+        done();
+      });
+  });
 });
 
 after(async () => {

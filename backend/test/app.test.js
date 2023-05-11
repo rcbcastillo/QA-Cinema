@@ -3,8 +3,10 @@ const { describe, before, it, after } = require("mocha");
 const { uriTest } = require("../atlas_uri");
 const movie = require("./data/movieDataTest");
 const user = require("./data/userDataTest");
+const comment = require("./data/commentDataTest");
 const movieModel = require("../models/movieModel");
 const userModel = require("../models/userModel");
+const commentModel = require("../models/commentModel");
 
 // Chai HTTP plugin
 const chaiHttp = require("chai-http");
@@ -173,6 +175,101 @@ describe("Tests for the server's user HTTP requests", function () {
           chai.expect(err).to.be.null;
           chai.expect(res.status).to.equal(200);
           chai.expect(res.body).to.equal(expectedUser._id.toString());
+          done();
+        });
+    });
+  });
+});
+
+describe("Tests for the server's comment HTTP requests", function () {
+  it("/comments/create should create a comment", (done) => {
+    // TODO: remove this test when no longer needed
+    chai
+      .request(server)
+      .post("/comments/create")
+      .send(comment)
+      .end((err, res) => {
+        chai.expect(err).to.be.null;
+        chai.expect(res.status).to.equal(201);
+        chai.expect(res.body).has.property("_id");
+        chai.expect(res.body.movieId).to.equal(comment.movieId);
+        chai.expect(res.body.userId).to.equal(comment.userId);
+        chai.expect(res.body.message).to.equal(comment.message);
+        chai.expect(res.body.rating).to.equal(comment.rating);
+        done();
+      });
+  });
+
+  it("/comments/readComments should get all comments", (done) => {
+    chai
+      .request(server)
+      .get("/comments/readComments")
+      .end((err, res) => {
+        const readedComment = res.body[0];
+        chai.expect(err).to.be.null;
+        chai.expect(res.status).to.equal(200);
+        chai.expect(readedComment).has.property("_id");
+        chai.expect(readedComment).has.property("movieId");
+        chai.expect(readedComment).has.property("userId");
+        chai.expect(readedComment).has.property("message");
+        chai.expect(readedComment).has.property("ratin");
+        chai.expect(readedComment.movieId).to.equal("Titanic");
+        done();
+      });
+  });
+
+  it("/comments/:commentId should get one comment by Id", (done) => {
+    commentModel.findOne({}).then((expectedComment) => {
+      chai
+        .request(server)
+        .get("/comments/" + expectedComment._id)
+        .end((err, res) => {
+          const readedComment = res.body;
+          chai.expect(err).to.be.null;
+          chai.expect(res.status).to.equal(200);
+          chai
+            .expect(readedComment._id)
+            .to.equal(expectedComment._id.toString());
+          done();
+        });
+    });
+  });
+
+  it("/comments/update/:commentId should get one user by Id", (done) => {
+    userModel.findOne({}).then((expectedComment) => {
+      const updatedComment = {
+        movieId: "Titanic",
+        userId: "this is updated",
+        message: "the movie has great effects with the 3D view",
+        rating: 7.9,
+      };
+      chai
+        .request(server)
+        .patch(`/comments/update/${expectedComment._id}`)
+        .query(updatedComment)
+        .end((err, res) => {
+          const updatedCommentDB = res.body;
+          chai.expect(err).to.be.null;
+          chai.expect(res.status).to.equal(201);
+          chai.expect(updatedCommentDB).to.deep.equal({
+            _id: updatedCommentDB._id,
+            __v: updatedCommentDB.__v,
+            ...updatedComment,
+          });
+          done();
+        });
+    });
+  });
+
+  it("/comments/delete/:commentId should get one user by Id", (done) => {
+    userModel.findOne({}).then((expectedComment) => {
+      chai
+        .request(server)
+        .delete(`/comments/delete/${expectedComment._id}`)
+        .end((err, res) => {
+          chai.expect(err).to.be.null;
+          chai.expect(res.status).to.equal(200);
+          chai.expect(res.body).to.equal(expectedComment._id.toString());
           done();
         });
     });

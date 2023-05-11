@@ -41,4 +41,10 @@ bookingRouter.post("/create", async ({ body }, res, next) => {
   }
 });
 
+bookingRouter.patch("/update", async ({ body }, res, next) => {});
+
+// /update
+
+// /delete/id
+
 module.exports = bookingRouter;

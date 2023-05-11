@@ -120,6 +120,7 @@ describe("Tests for HTTP requests: BOOKINGS", () => {
   });
 
   // TODO: read one works but this test is WIP
+  // Await merging of the new test from branch/issue QAC-75
   it("**WIP - test not complete** /bookings/id should get one booking", (done) => {
     chai
       .request(server)

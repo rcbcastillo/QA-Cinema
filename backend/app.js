@@ -20,6 +20,7 @@ mongoose
   });
 
 app.use("/movies", movieRouter);
+app.use("/bookings", movieRouter);
 
 // Error handling
 app.use((err, req, res, next) => {

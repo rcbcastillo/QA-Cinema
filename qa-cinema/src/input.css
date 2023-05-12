@@ -1,6 +1,6 @@
 @tailwind base;
-/* @tailwind components;
-@tailwind utilities; */
+@tailwind components;
+@tailwind utilities;
 
 .custom-header {
     @apply text-2xl text-white p-4 m-2
@@ -29,7 +29,3 @@
 .inner-panel-img-div {
     @apply pt-3 col-start-1 col-span-1 hover:scale-150
 }
-
-
-@tailwind components;
-@tailwind utilities;

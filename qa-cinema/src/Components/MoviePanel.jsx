@@ -14,7 +14,7 @@ const MoviePanel = ({jsonObj, buttonSettings}) => {
                 src={imgSrc}
                 alt={`movie poster for ${title}`}></img>
             </div>
-            <div className='inner-panel-div'>
+            <div className='col-start-2 col-end-6 ...'>
                 <div className='py-8 ml-6'>
                     <article>
                         <h1 className='text-4xl pb-2'>{title}</h1>

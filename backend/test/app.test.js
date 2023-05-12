@@ -265,7 +265,7 @@ describe("Tests for HTTP requests: BOOKINGS", () => {
   });
 });
 
-describe("Tests for the server's comment HTTP requests", function () {
+describe("Tests for HTTP requests: COMMENTS", function () {
   it("/comments/create should create a comment", (done) => {
     // TODO: remove this test when no longer needed
     chai

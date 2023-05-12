@@ -33,8 +33,8 @@ const Gallery = () => {
 
     return (
         <div className='px-4 mt-2'>
-            <h4 className='px-2 p-3 mt-5'>Currently Showing</h4>
-            <div className='grid grid-cols-6 border-t-2 border-pearl-aqua'>
+            <h1 className='custom-header'>Currently Showing</h1>
+            <div className='outer-panel-div'>
                 {/* Movie panels for currently showing movies go here */}
                 {/* Set the button to go to the correct place book now/pre-book */}
                 {
@@ -45,8 +45,8 @@ const Gallery = () => {
                                                                     />)
                 }
             </div>
-            <h4 className='px-2 py-3 mt-5'>Coming soon!</h4>
-            <div className='grid grid-cols-6 border-t-2 border-pearl-aqua'>            
+            <h2 className='custom-header'>Coming soon!</h2>
+            <div className='outer-panel-div'>            
                 {/* More movie panels for upcoming movies here */}
                 {
                     jsonDataArray.map((jsonObj) => <MoviePanel key= {jsonObj.id} 

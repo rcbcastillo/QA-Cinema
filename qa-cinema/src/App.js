@@ -8,7 +8,7 @@ import Location from './Components/Location';
 import Footer from './Components/Footer';
 import OpenHrs from './Components/OpenHrs';
 import ContactForm from './Components/ContactForm';
-import CarouselComp from './Components/CarouselComp';
+import NavbarComponent from './Components/NavbarComponent';
 
 
 function App() {

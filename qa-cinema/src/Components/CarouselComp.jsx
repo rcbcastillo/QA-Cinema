@@ -19,20 +19,31 @@ const images = [
     src:"https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg",
     alt:"3",
     link:"/contact-form"
+  },
+  { 
+    id:"4",
+    src:"https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg",
+    alt:"1",
+    link:"/about"
+  }, 
+  {
+    id:"5",
+    src:"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg", 
+    alt:"2",
+    link:"/home"
+  },
+  {
+    id:"6",
+    src:"https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg",
+    alt:"3",
+    link:"/contact-form"
   }
 ]
 
-// const makeLink = (id) => {
-//   const linkArray = images.filter((item) => item.id === id);
-//   const link = `/movie-id/${linkArray[0].id}`
-//   return link;
-// }
-
-// console.log(makeLink())
-
 const CarouselComp = () => {
+
   return (
-    <Carousel infinite transition={{ duration: 1 }} className="w-80 h-120 rounded-xl shadow-md rounded">
+  <Carousel infinite transition={{ duration: 1 }} className="w-80 h-120 rounded-xl mx-auto shadow-md rounded">
       {images.map((image, index) => (
         <>
         <img

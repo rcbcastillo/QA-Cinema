@@ -1,5 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {
+  Button,
+  Input,
+} from "@material-tailwind/react";
 import logo from "../qa.png"
 
 function Navbar() {
@@ -26,7 +29,19 @@ function Navbar() {
           <a class="text-center block border border-white rounded hover:border-japanese-indigo-200 text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/discussion">Discussion Board</a>
         </li>
         <li>
-          <p>Search</p>
+        <div className="relative flex w-full gap-2 md:w-max align-items-start">
+            <Input
+              type="search"
+              label="Type here..."
+              className="pr-20 text-white"
+              containerProps={{
+                className: "min-w-[288px]",
+              }}
+            />
+            <Button size="sm" className="right-1 top-1 rounded">
+              Search
+            </Button>
+          </div>
         </li>
       </ul>
       </div>

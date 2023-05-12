@@ -14,6 +14,8 @@ const MoviePanel = ({jsonObj, buttonSettings}) => {
                 src={imgSrc}
                 alt={`movie poster for ${title}`}></img>
             </div>
+            {/* Note: '...' class doesn't seem to work in index.css 
+                so it's not been extracted as custom class*/}
             <div className='col-start-2 col-end-6 ...'>
                 <div className='py-8 ml-6'>
                     <article>

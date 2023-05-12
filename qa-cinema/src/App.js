@@ -9,6 +9,7 @@ import Footer from './Components/Footer';
 import OpenHrs from './Components/OpenHrs';
 import Gallery from './Components/Gallery';
 import ContactForm from './Components/ContactForm';
+import MovieRatings from './Components/MovieRatings';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <Route path='/opening-hours' element={<OpenHrs/>}></Route>
       <Route path='/location' element={<Location/>}></Route>
       <Route path='/contact-form' element={<ContactForm/>}></Route>
+      <Route path='/classifications' element={<MovieRatings/>}></Route>
     </Routes>
     <Footer/>
     </BrowserRouter>

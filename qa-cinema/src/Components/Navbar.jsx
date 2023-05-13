@@ -22,9 +22,11 @@ function Navbar() {
         <li className="flex-1 mr-2">
           <a className="text-center block border border-white rounded hover:border-japanese-indigo-200 text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/book">Book</a>
         </li>
-        <li className="flex-1 mr-2">
+        
+        {/* TODO: Do we need gallery if films exists? */}
+        {/* <li className="flex-1 mr-2">
           <a className="text-center block border border-white rounded hover:border-japanese-indigo-200 text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/gallery">Gallery</a>
-        </li>
+        </li> */}
         <li>
           <p>Search</p>
         </li>

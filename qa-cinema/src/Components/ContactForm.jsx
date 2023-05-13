@@ -88,8 +88,6 @@ const ContactForm = () => {
                     {/* <p id='email-warning' className={ (validEmail ? 'hidden-invalid-p' : 'visible-invalid-p') }> */}
                         {/* Please input a valid email.</p> */}
                     {/* <small id='emailHelp' class='form-text text-muted'>Please enter your email (required).</small> */}
-                {/* </div> */}
-                {/* <div className='flex-1 mx-3'> */}
                     <label
                      className='custom-label'
                      htmlFor='subject'>
@@ -105,9 +103,6 @@ const ContactForm = () => {
                         value={formData.subject}
                         onChange={handleChange}
                     />
-                {/* </div> */}
-
-                {/* <div className='flex-1'> */}
                     <label className='custom-label'
                     htmlFor='message'>
                         Message
@@ -121,8 +116,6 @@ const ContactForm = () => {
                         value={formData.message}
                         onChange={handleChange}
                     />
-                {/* </div> */}
-                {/* <div className='flex-1'> */}
                     <button 
                     className='custom-button'
                     type='submit'>

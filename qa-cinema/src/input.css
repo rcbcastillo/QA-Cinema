@@ -18,8 +18,8 @@
 
 .required-input {
     @apply appearance-none block w-full bg-gray-200 text-black border 
-    border-gray-200 rounded py-3 px-4 mb-3 focus:outline-none 
-    focus:bg-white focus:border-gray-500
+    required:border-red-500 rounded py-3 px-4 mb-3 focus:outline-none 
+    focus:bg-white focus:border-gray-500 
 }
 
 .hidden-invalid-p {

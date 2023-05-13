@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { FilmContext } from './BookingController';
 
 const MoviePanel = ({jsonObj, buttonSettings}) => {
 
-    const {imgSrc, title, rating, year, length, actors, plot} = jsonObj;
+    const { chosenFilmId, setChosenFilmId } = useContext(FilmContext);
+    const { id, imgSrc, title, rating, year, length, actors, plot } = jsonObj;
 
     return (
         //  Create and return a panel for one movie
@@ -20,14 +22,15 @@ const MoviePanel = ({jsonObj, buttonSettings}) => {
                 <div className='py-8 ml-6'>
                     <article>
                         <h1 className='text-4xl pb-2'>{title}</h1>
-                        {/* TODO: make classification a link? */}
+                        {/* Rating <li> links to classification page */}
                         <ul className='text-sm pb-2'><li className='inline pr-1'>{year}</li><li className='inline pr-1'>
                             <Link to='/classifications'>{rating}</Link></li><li className='inline pr-1'>{length} mins</li></ul>
                         <h2 className='pb-3'>{actors}</h2>
                         <p className='text-sm pb-5'>{plot}</p>
                     </article>
                     <Link to={buttonSettings.link}>
-                        <button className='custom-button'>{buttonSettings.text}</button>
+                        <button className='custom-button' onClick={() => setChosenFilmId(id)}>
+                                    {buttonSettings.text}</button>
                     </Link>
                 </div>
             </div>

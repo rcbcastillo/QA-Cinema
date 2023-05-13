@@ -31,6 +31,8 @@ const jsonDataArray = [
 
 const Gallery = () => {
 
+    // TODO: Remove Link - just set button text and useContext in BookingController
+    // to move to the TicketOffice component
     return (
         <div className='px-4 mt-2'>
             <h1 className='custom-header'>Currently Showing</h1>

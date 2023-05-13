@@ -37,7 +37,7 @@
 }
 
 .popup-bg {
-    @apply fixed w-full h-max bg-gray-200 flex justify-center items-center 
+    @apply fixed w-full h-max flex justify-center items-center bg-gray-200
 }
 .popup-content {
     @apply p-8 relative w-full bg-japanese-indigo text-white

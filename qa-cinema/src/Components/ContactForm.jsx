@@ -50,6 +50,7 @@ const ContactForm = () => {
         setOpenPopup(true);
     }
 
+    // TODO: Try if statement and two returns?
     return (
         <>
         <QAPopup trigger={openPopup} setTrigger={setOpenPopup}>

@@ -51,16 +51,16 @@ const ContactForm = () => {
         <>
         <div className="items-center justify-between">
         <h1 className="custom-header">Please contact us!</h1>
-            <form className="shadow-md rounded px-8 pt-6 pb-8 mb-4"
+            <form className="shadow-md rounded font-sans text-sm px-8 pt-6 pb-8 mb-4"
                 onSubmit={handleSubmit}>
-                <div className="flex-1">
+                <div className="flex-1 mx-3">
                     <label
-                        className="block tracking-wide text-white text-xs font-bold mb-2"
+                        className="custom-label"
                         htmlFor="fName">
                             Name
                     </label>
                     <input
-                        className="appearance-none block w-full bg-gray-200 text-black border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        className='required-input'
                         id="fName"
                         name="fName"
                         placeholder="Name - required"
@@ -69,8 +69,7 @@ const ContactForm = () => {
                         value={formData.fName}
                         onChange={handleChange}   
                     />             
-                    <label
-                    className="block tracking-wide text-white text-xs font-bold mb-2"
+                    <label className='custom-label'
                     htmlFor="email">
                         Email
                     </label>
@@ -89,9 +88,9 @@ const ContactForm = () => {
                         {/* Please input a valid email.</p> */}
                     {/* <small id="emailHelp" class="form-text text-muted">Please enter your email (required).</small> */}
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 mx-3">
                     <label
-                     className="block tracking-wide text-white text-xs font-bold mb-2"
+                     className="custom-label"
                      htmlFor="subject">
                         Subject
                     </label>
@@ -108,7 +107,7 @@ const ContactForm = () => {
                 </div>
 
                 <div className="flex-1">
-                    <label className="block tracking-wide text-white text-xs font-bold mb-2"
+                    <label className="custom-label"
                     htmlFor="message">
                         Message
                     </label>

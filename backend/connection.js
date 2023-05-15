@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const app = require("./app.js");
 const { uri } = require("./atlas_uri");
 
 mongoose
@@ -10,7 +9,3 @@ mongoose
   .catch((err) => {
     console.error(err);
   });
-
-app.listen(9090, () => {
-  console.log("server started on port 9090");
-});

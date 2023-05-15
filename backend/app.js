@@ -1,5 +1,4 @@
 const express = require("express");
-require("./connection");
 const app = express();
 const cors = require("cors");
 const movieRouter = require("./routes/movieRoutes");

@@ -18,6 +18,7 @@ describe("Tests for HTTP requests: USERS", function () {
   let testUser;
   beforeEach(async () => {
     try {
+      await mongoose.connect(uriTest);
       await userModel.deleteMany({});
       testUser = await userModel.create(user);
       testUser = JSON.parse(JSON.stringify(testUser));

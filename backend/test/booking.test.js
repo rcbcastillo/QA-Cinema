@@ -18,6 +18,7 @@ describe("Tests for HTTP requests: BOOKINGS", function () {
   let testBooking;
   beforeEach(async () => {
     try {
+      await mongoose.connect(uriTest);
       await bookingModel.deleteMany({});
       testBooking = await bookingModel.create(booking);
       testBooking = JSON.parse(JSON.stringify(testBooking));

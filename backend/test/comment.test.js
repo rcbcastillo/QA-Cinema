@@ -18,6 +18,7 @@ describe("Tests for the server's COMMENT HTTP requests", function () {
   let testComment;
   beforeEach(async () => {
     try {
+      await mongoose.connect(uriTest);
       await commentModel.deleteMany({});
       testComment = await commentModel.create(comment);
       testComment = JSON.parse(JSON.stringify(testComment));

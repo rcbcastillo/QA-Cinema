@@ -18,6 +18,7 @@ describe("Tests for HTTP requests: MOVIES", function () {
   let testMovie;
   beforeEach(async () => {
     try {
+      await mongoose.connect(uriTest);
       await movieModel.deleteMany({});
       testMovie = await movieModel.create(movie);
       testMovie = JSON.parse(JSON.stringify(testMovie));

@@ -32,8 +32,8 @@
 }
 
 .custom-td {
-    @apply border-2 border-solid border-pearl-aqua p-2 text-left
-
+    @apply border border-solid border-pearl-aqua p-2 text-left
+}
 
 .required-input {
     @apply appearance-none block w-full bg-gray-200 text-black border 

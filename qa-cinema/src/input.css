@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .custom-header {
-    @apply text-2xl underline text-pearl-aqua p-4
+    @apply text-2xl text-white p-4 m-2
 }
 
 .custom-button {
@@ -22,6 +22,19 @@
     @apply block mb-2 text-pearl-aqua text-sm
 }
 
+
+.custom-table {
+    @apply m-4 border-collapse border-2 border-pearl-aqua table-auto
+}
+
+.custom-th {
+    @apply border-2 border-solid border-pearl-aqua p-2 text-center
+}
+
+.custom-td {
+    @apply border-2 border-solid border-pearl-aqua p-2 text-left
+
+
 .required-input {
     @apply appearance-none block w-full bg-gray-200 text-black border 
     required:border-red-500 rounded py-3 px-4 mb-3 focus:outline-none 
@@ -34,6 +47,14 @@
 
 .visible-invalid-p {
     @apply visible text-tesla-red text-xs italic mx-4 
+}
+
+.outer-panel-div {
+    @apply grid grid-cols-6 border-t-2 border-pearl-aqua
+}
+
+.inner-panel-img-div {
+    @apply pt-3 col-start-1 col-span-1 hover:scale-150
 }
 
 .popup-bg {

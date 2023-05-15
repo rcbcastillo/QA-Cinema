@@ -5,34 +5,30 @@ import logo from "../qa.png"
 function Navbar() {
   return (
     <nav>
-      <div className='nav'>
-      <ul>
-        <li>
-          <Link to = "/"><img src={logo} alt="The poster"></img></Link>
+      <div className="shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <ul className="flex">
+        <li className="flex-1 mr-2">
+          <img src={logo} alt='qa cinema logo'></img>
         </li>
-        <li>
-          <Link to="/">Home</Link>
+        <li className="flex-1 mr-2">
+          <a className="text-center block border border-blue-500 rounded py-2 px-4 bg-pearl-aqua hover:bg-blue-700 text-black" href="/">Home</a>
         </li>
-        <li>
-          <Link to="/">Discussion Board</Link>
+        <li className="flex-1 mr-2">
+          <a className="text-center block border border-white rounded hover:border-japanese-indigo-200 text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/films">Films</a>
         </li>
-        <li>
-          <Link to="/about">About</Link>
+        <li className="flex-1 mr-2">
+          <a className="text-center block border border-white rounded hover:border-japanese-indigo-200 text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/location">Location</a>
         </li>
-        <li>
-          <Link to="/contact-form">Contact Us</Link>
+        <li className="flex-1 mr-2">
+          <a className="text-center block border border-white rounded hover:border-japanese-indigo-200 text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/book">Book</a>
         </li>
+        
+        {/* TODO: Do we need gallery if films exists? */}
+        {/* <li className="flex-1 mr-2">
+          <a className="text-center block border border-white rounded hover:border-japanese-indigo-200 text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/gallery">Gallery</a>
+        </li> */}
         <li>
-          <Link to="/opening-hours">Opening Hours</Link>
-        </li> 
-        <li>
-          <Link to="/">Films</Link>
-        </li>
-        <li>
-          <Link to="/">Location</Link>
-        </li>
-        <li>
-          <Link to="/">Book</Link>
+          <p>Search</p>
         </li>
       </ul>
       </div>

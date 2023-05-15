@@ -1,49 +1,6 @@
-body {
-  background-color: #234453;
-  color: white;
+#root {
+    background-color: #234453;
+    color: white;
+    font-size: 18px;
+    border-color: #234453;
 }
-
-.index{
-  text-align: center;
-  color: white;
-}
-.about-box{
-  background-color: #84eab5;
-  color: #234453;
-  margin: 20px;
-  font-size: 22px;
-}
-.about-content{
-  margin: 20px;
-  font-size: 18px;
-  padding: 10px;
-  border: solid;
-}
-.nav{
-  background-color: #84eab5;
-}
-  
-.UIComponent {
-  background-color: #84eab5;
-  color: black;
-}
-
-li{
-  list-style-type: none;
-  margin: 10px;
-  padding: 10px;
-  display: inline;
-}
-
-img{
-  margin-top: 5px;
-  margin-left: -50px;
-}
-
-a:visited { text-decoration: none; color:#234453; }
-
-.home-content{
-  padding: 10px;
-}
-
-

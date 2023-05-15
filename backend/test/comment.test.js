@@ -19,7 +19,7 @@ describe("Tests for the server's COMMENT HTTP requests", function () {
   beforeEach(async () => {
     try {
       await commentModel.deleteMany({});
-      await commentModel.create(comment);
+      testComment = await commentModel.create(comment);
       testComment = JSON.parse(JSON.stringify(testComment));
     } catch (err) {
       console.error(err);

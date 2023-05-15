@@ -63,24 +63,22 @@ describe("Tests for the server's COMMENT HTTP requests", function () {
   });
 
   it("/comments/:commentId should get one comment by Id", (done) => {
-    commentModel.findOne({}).then((expectedComment) => {
+    commentModel.findOne({}).then((testComment) => {
       chai
         .request(server)
-        .get("/comments/" + expectedComment._id)
+        .get("/comments/" + testComment._id)
         .end((err, res) => {
           const readedComment = res.body;
           chai.expect(err).to.be.null;
           chai.expect(res.status).to.equal(200);
-          chai
-            .expect(readedComment._id)
-            .to.equal(expectedComment._id.toString());
+          chai.expect(readedComment._id).to.equal(testComment._id.toString());
           done();
         });
     });
   });
 
   it("/comments/update/:commentId should get one comment by Id", (done) => {
-    commentModel.findOne({}).then((expectedComment) => {
+    commentModel.findOne({}).then((testComment) => {
       const updatedComment = {
         movieId: "Titanic",
         userId: "this is updated",
@@ -89,16 +87,15 @@ describe("Tests for the server's COMMENT HTTP requests", function () {
       };
       chai
         .request(server)
-        .patch(`/comments/update/${expectedComment._id}`)
-        .query(updatedComment)
+        .patch(`/comments/update/${testComment._id}`)
         .end((err, res) => {
-          const updatedCommentDB = res.body;
+          const returnedCommentDB = res.body;
           chai.expect(err).to.be.null;
           chai.expect(res.status).to.equal(201);
-          chai.expect(updatedCommentDB).to.deep.equal({
-            _id: updatedCommentDB._id,
-            __v: updatedCommentDB.__v,
-            ...updatedComment,
+          chai.expect(returnedCommentDB).to.deep.equal({
+            _id: returnedCommentDB._id,
+            __v: returnedCommentDB.__v,
+            ...comment,
           });
           done();
         });
@@ -106,14 +103,14 @@ describe("Tests for the server's COMMENT HTTP requests", function () {
   });
 
   it("/comments/delete/:commentId should get one comment by Id", (done) => {
-    commentModel.findOne({}).then((expectedComment) => {
+    commentModel.findOne({}).then((testComment) => {
       chai
         .request(server)
-        .delete(`/comments/delete/${expectedComment._id}`)
+        .delete(`/comments/delete/${testComment._id}`)
         .end((err, res) => {
           chai.expect(err).to.be.null;
           chai.expect(res.status).to.equal(200);
-          chai.expect(res.body).to.equal(expectedComment._id.toString());
+          chai.expect(res.body).to.equal(testComment._id.toString());
           done();
         });
     });

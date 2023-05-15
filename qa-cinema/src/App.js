@@ -7,20 +7,22 @@ import About from './Components/About';
 import Footer from './Components/Footer';
 import OpenHrs from './Components/OpenHrs';
 import ContactForm from './Components/ContactForm';
+import BookingsTest from "./Components/BookingsTest";
+
 
 function App() {
   return (
     <>
+    <BookingsTest />
     <BrowserRouter>
     <Navbar/>
     <Routes>
       <Route path='/' element={<Home/>}></Route>
       <Route path='/about' element={<About/>}></Route>
       <Route path='/opening-hours' element={<OpenHrs/>}></Route>
-      <Route path='/contact-form' element={<ContactForm/>}></Route>
     </Routes>
     
-    {/* <Footer/> */}
+    <Footer/>
     </BrowserRouter>
     </>
   );

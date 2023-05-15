@@ -15,9 +15,18 @@
     "Awards": "Nominated for 3 Oscars. 11 wins & 75 nominations total",
     "Poster": "https://m.media-amazon.com/images/M/MV5BMTcwNTE4MTUxMl5BMl5BanBnXkFtZTcwMDIyODM4OA@@._V1_SX300.jpg",
     "Ratings": [
-      { "Source": "Internet Movie Database", "Value": "7.8/10" },
-      { "Source": "Rotten Tomatoes", "Value": "64%" },
-      { "Source": "Metacritic", "Value": "58/100" }
+      {
+        "Source": "Internet Movie Database",
+        "Value": "7.8/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "64%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "58/100"
+      }
     ],
     "Metascore": "58",
     "imdbRating": "7.8",
@@ -47,9 +56,18 @@
     "Awards": "29 wins & 78 nominations",
     "Poster": "https://m.media-amazon.com/images/M/MV5BYzE5MjY1ZDgtMTkyNC00MTMyLThhMjAtZGI5OTE1NzFlZGJjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
     "Ratings": [
-      { "Source": "Internet Movie Database", "Value": "8.0/10" },
-      { "Source": "Rotten Tomatoes", "Value": "85%" },
-      { "Source": "Metacritic", "Value": "65/100" }
+      {
+        "Source": "Internet Movie Database",
+        "Value": "8.0/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "85%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "65/100"
+      }
     ],
     "Metascore": "65",
     "imdbRating": "8.0",
@@ -79,9 +97,18 @@
     "Awards": "Nominated for 3 BAFTA 13 wins & 20 nominations total",
     "Poster": "https://m.media-amazon.com/images/M/MV5BMTg5Mjk2NDMtZTk0Ny00YTQ0LWIzYWEtMWI5MGQ0Mjg1OTNkXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
     "Ratings": [
-      { "Source": "Internet Movie Database", "Value": "7.9/10" },
-      { "Source": "Rotten Tomatoes", "Value": "92%" },
-      { "Source": "Metacritic", "Value": "76/100" }
+      {
+        "Source": "Internet Movie Database",
+        "Value": "7.9/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "92%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "76/100"
+      }
     ],
     "Metascore": "76",
     "imdbRating": "7.9",
@@ -94,6 +121,252 @@
     "Website": "N/A",
     "Response": "True",
     "isShowing": "True"
+  },
+  {
+    "Title": "Star Wars: Episode III - Revenge of the Sith",
+    "Year": "2005",
+    "Rated": "PG-13",
+    "Released": "19 May 2005",
+    "Runtime": "140 min",
+    "Genre": "Action, Adventure, Fantasy",
+    "Director": "George Lucas",
+    "Writer": "George Lucas, John Ostrander, Jan Duursema",
+    "Actors": "Hayden Christensen, Natalie Portman, Ewan McGregor",
+    "Plot": "Three years into the Clone Wars, Obi-Wan pursues a new threat, while Anakin is lured by Chancellor Palpatine into a sinister plot to rule the galaxy.",
+    "Language": "English",
+    "Country": "United States, Italy, Switzerland, Thailand",
+    "Awards": "Nominated for 1 Oscar. 27 wins & 64 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNTc4MTc3NTQ5OF5BMl5BanBnXkFtZTcwOTg0NjI4NA@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "7.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "79%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "68/100"
+      }
+    ],
+    "Metascore": "68",
+    "imdbRating": "7.6",
+    "imdbVotes": "808,693",
+    "imdbID": "tt0121766",
+    "Type": "movie",
+    "DVD": "01 Nov 2005",
+    "BoxOffice": "$380,270,577",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "isShowing": "True"
+  },
+  {
+    "Title": "Halloween",
+    "Year": "1978",
+    "Rated": "R",
+    "Released": "27 Oct 1978",
+    "Runtime": "91 min",
+    "Genre": "Horror, Thriller",
+    "Director": "John Carpenter",
+    "Writer": "John Carpenter, Debra Hill",
+    "Actors": "Donald Pleasence, Jamie Lee Curtis, Tony Moran",
+    "Plot": "Fifteen years after murdering his sister on Halloween night 1963, Michael Myers escapes from a mental hospital and returns to the small town of Haddonfield, Illinois to kill again.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "8 wins & 3 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNzk1OGU2NmMtNTdhZC00NjdlLWE5YTMtZTQ0MGExZTQzOGQyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "7.7/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "96%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "87/100"
+      }
+    ],
+    "Metascore": "87",
+    "imdbRating": "7.7",
+    "imdbVotes": "287,959",
+    "imdbID": "tt0077651",
+    "Type": "movie",
+    "DVD": "28 Sep 1999",
+    "BoxOffice": "$47,160,000",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "isShowing": "True"
+  },
+  {
+    "Title": "Space Jam",
+    "Year": "1996",
+    "Rated": "PG",
+    "Released": "15 Nov 1996",
+    "Runtime": "88 min",
+    "Genre": "Animation, Adventure, Comedy",
+    "Director": "Joe Pytka",
+    "Writer": "Leo Benvenuti, Steve Rudnick, Timothy Harris",
+    "Actors": "Michael Jordan, Wayne Knight, Theresa Randle",
+    "Plot": "In a desperate attempt to win a basketball match and earn their freedom, the Looney Tunes seek the aid of retired basketball champion, Michael Jordan.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "5 wins & 8 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYjA3ZmMwNTUtNGM2Ni00YjUyLWE5ZDYtY2Y4YzhmYzlhYWI2XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "6.5/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "43%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "59/100"
+      }
+    ],
+    "Metascore": "59",
+    "imdbRating": "6.5",
+    "imdbVotes": "203,180",
+    "imdbID": "tt0117705",
+    "Type": "movie",
+    "DVD": "21 Oct 2003",
+    "BoxOffice": "$90,594,962",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "isShowing": "True"
+  },
+  {
+    "Title": "Scream",
+    "Year": "1996",
+    "Rated": "R",
+    "Released": "20 Dec 1996",
+    "Runtime": "111 min",
+    "Genre": "Horror, Mystery",
+    "Director": "Wes Craven",
+    "Writer": "Kevin Williamson",
+    "Actors": "Neve Campbell, Courteney Cox, David Arquette",
+    "Plot": "A year after the murder of her mother, a teenage girl is terrorized by a masked killer who targets her and her friends by using scary movies as part of a deadly game.",
+    "Language": "English",
+    "Country": "United States",
+    "Awards": "12 wins & 11 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMjA2NjU5MTg5OF5BMl5BanBnXkFtZTgwOTkyMzQxMDE@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "7.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "80%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "65/100"
+      }
+    ],
+    "Metascore": "65",
+    "imdbRating": "7.4",
+    "imdbVotes": "361,919",
+    "imdbID": "tt0117571",
+    "Type": "movie",
+    "DVD": "08 Dec 1998",
+    "BoxOffice": "$103,046,663",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "isShowing": "False"
+  },
+  {
+    "Title": "House of Wax",
+    "Year": "2005",
+    "Rated": "R",
+    "Released": "06 May 2005",
+    "Runtime": "113 min",
+    "Genre": "Horror, Thriller",
+    "Director": "Jaume Collet-Serra",
+    "Writer": "Charles Belden, Chad Hayes, Carey W. Hayes",
+    "Actors": "Chad Michael Murray, Paris Hilton, Elisha Cuthbert",
+    "Plot": "A group of teens are unwittingly stranded near a strange wax museum and soon must fight to survive and keep from becoming the next exhibit.",
+    "Language": "English",
+    "Country": "Australia, United States",
+    "Awards": "5 wins & 11 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNDA4Nzg1NjQ2NV5BMl5BanBnXkFtZTcwMDYwNTgyMQ@@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "5.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "27%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "41/100"
+      }
+    ],
+    "Metascore": "41",
+    "imdbRating": "5.4",
+    "imdbVotes": "128,193",
+    "imdbID": "tt0397065",
+    "Type": "movie",
+    "DVD": "25 Oct 2005",
+    "BoxOffice": "$32,064,800",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "isShowing": "False"
+  },
+  {
+    "Title": "Pixels",
+    "Year": "2015",
+    "Rated": "PG-13",
+    "Released": "24 Jul 2015",
+    "Runtime": "105 min",
+    "Genre": "Action, Comedy, Fantasy",
+    "Director": "Chris Columbus",
+    "Writer": "Tim Herlihy, Timothy Dowling, Patrick Jean",
+    "Actors": "Adam Sandler, Kevin James, Michelle Monaghan",
+    "Plot": "When aliens misinterpret video feeds of classic arcade games as a declaration of war, they attack the Earth in the form of the video games.",
+    "Language": "English, Hindi, Japanese",
+    "Country": "United States, China, Canada",
+    "Awards": "5 wins & 9 nominations",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTIzNDYzMzgtZWMzNS00ODc2LTg2ZmMtOTE2MWZkNzIxMmQ0XkEyXkFqcGdeQXVyNjQ3MDg0MTY@._V1_SX300.jpg",
+    "Ratings": [
+      {
+        "Source": "Internet Movie Database",
+        "Value": "5.6/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "18%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "27/100"
+      }
+    ],
+    "Metascore": "27",
+    "imdbRating": "5.6",
+    "imdbVotes": "149,991",
+    "imdbID": "tt2120120",
+    "Type": "movie",
+    "DVD": "27 Oct 2015",
+    "BoxOffice": "$78,747,585",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True",
+    "isShowing": "False"
   },
   {
     "Title": "Hot Fuzz",
@@ -111,9 +384,18 @@
     "Awards": "2 wins & 9 nominations",
     "Poster": "https://m.media-amazon.com/images/M/MV5BMzg4MDJhMDMtYmJiMS00ZDZmLThmZWUtYTMwZDM1YTc5MWE2XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
     "Ratings": [
-      { "Source": "Internet Movie Database", "Value": "7.8/10" },
-      { "Source": "Rotten Tomatoes", "Value": "91%" },
-      { "Source": "Metacritic", "Value": "81/100" }
+      {
+        "Source": "Internet Movie Database",
+        "Value": "7.8/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "91%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "81/100"
+      }
     ],
     "Metascore": "81",
     "imdbRating": "7.8",
@@ -143,9 +425,18 @@
     "Awards": "Won 1 Oscar. 40 wins & 60 nominations total",
     "Poster": "https://m.media-amazon.com/images/M/MV5BOGZhM2FhNTItODAzNi00YjA0LWEyN2UtNjJlYWQzYzU1MDg5L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
     "Ratings": [
-      { "Source": "Internet Movie Database", "Value": "7.9/10" },
-      { "Source": "Rotten Tomatoes", "Value": "88%" },
-      { "Source": "Metacritic", "Value": "84/100" }
+      {
+        "Source": "Internet Movie Database",
+        "Value": "7.9/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "88%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "84/100"
+      }
     ],
     "Metascore": "84",
     "imdbRating": "7.9",
@@ -175,9 +466,18 @@
     "Awards": "Won 2 Oscars. 82 wins & 60 nominations total",
     "Poster": "https://m.media-amazon.com/images/M/MV5BMTQ1MjQwMTE5OF5BMl5BanBnXkFtZTgwNjk3MTcyMDE@._V1_SX300.jpg",
     "Ratings": [
-      { "Source": "Internet Movie Database", "Value": "7.4/10" },
-      { "Source": "Rotten Tomatoes", "Value": "90%" },
-      { "Source": "Metacritic", "Value": "75/100" }
+      {
+        "Source": "Internet Movie Database",
+        "Value": "7.4/10"
+      },
+      {
+        "Source": "Rotten Tomatoes",
+        "Value": "90%"
+      },
+      {
+        "Source": "Metacritic",
+        "Value": "75/100"
+      }
     ],
     "Metascore": "75",
     "imdbRating": "7.4",

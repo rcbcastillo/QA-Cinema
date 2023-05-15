@@ -8,7 +8,7 @@ const bookingRouter = require("./routes/bookingRoutes");
 
 app.use(express.json());
 
-//app.use(cors());
+app.use(cors());
 
 app.use("/movies", movieRouter);
 app.use("/users", userRouter);

@@ -21,7 +21,7 @@ const ContactForm = () => {
     };
 
     // Handle the on Submit event
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         // React - prevent default DOM behaviour, to implement our own
         event.preventDefault();
 
@@ -35,7 +35,7 @@ const ContactForm = () => {
         //     return;
         // }
         
-        emailjs.send(emailServiceID, emailTemplateID, {'to_name': 'QA Cinema',
+        await emailjs.send(emailServiceID, emailTemplateID, {'to_name': 'QA Cinema',
                                                         'from_name': fName,
                                                         'message': comboMessage,
                                                         'reply_to': email}, emailPublicKey)

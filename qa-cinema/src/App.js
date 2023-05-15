@@ -12,6 +12,8 @@ import ContactForm from './Components/ContactForm';
 import MovieRatings from './Components/MovieRatings';
 import { BookingController } from './Components/BookingController';
 
+import BookingsTest from "./Components/BookingsTest";
+
 
 function App() {
   //to do:
@@ -19,6 +21,7 @@ function App() {
   //location embedded
   return (
     <>
+    <BookingsTest />
     <BrowserRouter>
     <Navbar/>
     <Routes>

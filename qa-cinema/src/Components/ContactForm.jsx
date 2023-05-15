@@ -56,6 +56,7 @@ const ContactForm = () => {
     setOpenPopup(true);
   };
 
+  // TODO: Need to ensure that emailSent is updated after popup closed.
   return (
     <>
       <QAPopup trigger={openPopup} setTrigger={setOpenPopup}>

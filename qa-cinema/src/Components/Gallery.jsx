@@ -51,25 +51,25 @@ const Gallery = () => {
         <div className="outer-panel-div">
           {/* Movie panels for currently showing movies go here */}
           {/* Set the button to go to the correct place book now/pre-book */}
-          {movies.map((movie, index) => (
+          {movies.filter((movie) => movie.isShowing === "True").map((movie, index) => (
             <MoviePanel
               key={index}
-              movie={JSON.parse(JSON.stringify(movie))}
-              //movie={{...movie}}
-              buttonSettings={{ link: "#", text: "Book Now!" }}
+              // movie={JSON.parse(JSON.stringify(movie))}
+              movie={{...movie}}
+              buttonText={"Book Now!"}
             />
           ))}
         </div>
         <h2 className="custom-header">Coming soon!</h2>
         <div className="outer-panel-div">
           {/* More movie panels for upcoming movies here */}
-          {/* {jsonDataArray.map((jsonObj) => (
+          {movies.filter((movie) => movie.isShowing === "False").map((movie, index) => (
             <MoviePanel
-              key={jsonObj.id}
-              jsonObj={jsonObj}
-              buttonSettings={{ link: "#", text: "Pre-book" }}
+              key={index}
+              movie={{...movie}}
+              buttonText={"Pre-book"}
             />
-          ))} */}
+          ))}
         </div>
       </div>
     );

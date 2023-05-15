@@ -22,7 +22,6 @@
     @apply block mb-2 text-pearl-aqua text-sm
 }
 
-
 .custom-table {
     @apply m-4 border-collapse border-2 border-pearl-aqua table-auto
 }

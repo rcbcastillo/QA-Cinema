@@ -88,14 +88,16 @@ describe("Tests for the server's COMMENT HTTP requests", function () {
       chai
         .request(server)
         .patch(`/comments/update/${testComment._id}`)
+        .query(updatedComment)
         .end((err, res) => {
           const returnedCommentDB = res.body;
           chai.expect(err).to.be.null;
           chai.expect(res.status).to.equal(201);
+          chai.expect(returnedCommentDB.userId).to.equal("this is updated");
           chai.expect(returnedCommentDB).to.deep.equal({
             _id: returnedCommentDB._id,
             __v: returnedCommentDB.__v,
-            ...comment,
+            ...updatedComment,
           });
           done();
         });

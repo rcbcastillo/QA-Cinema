@@ -11,7 +11,7 @@ chai.use(chaiHttp);
 
 const mongoose = require("mongoose");
 
-var server = require("../app");
+let server = require("../app");
 
 describe("Tests for HTTP requests: BOOKINGS", function () {
   this.timeout(5_000);

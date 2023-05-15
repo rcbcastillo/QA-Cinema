@@ -1,4 +1,5 @@
 const express = require("express");
+require("./connection");
 const app = express();
 const cors = require("cors");
 const movieRouter = require("./routes/movieRoutes");
@@ -20,4 +21,5 @@ app.use((err, req, res, next) => {
   res.status(err.status).send(err.msg);
 });
 
-module.exports = app;
+const server = app.listen(9090);
+module.exports = server;

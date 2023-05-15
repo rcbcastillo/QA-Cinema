@@ -1,9 +1,12 @@
 const About = () => {
     return(
         <>
+        <div className="shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="about-box">
+            <div className="about-heading">
             <h2>About Page</h2>
             <p>QA Cinema is part of QA - QA delivers training, apprenticeships and tech skills to UK companies large and small. We believe everything starts with our learners – transforming their careers, and their lives, is what motivates us.</p>
+            </div>
         </div>
         <div className="about-content">
             <p>ABOUT QA CINEMA
@@ -18,6 +21,7 @@ const About = () => {
             QA Cinema was founded in the UK following the acquisition of the Warner Village Cinemas in 2003 and is part of the largest cinema group in Europe, QA Cinema International.
 
             Over the years QA Cinema has won numerous accolades for its service and innovations, including more recently International Exhibitor of the Year at CineEurope 2014 and Cinema Exhibitor of the Year Screen, Marketing & Distribution Awards 2013.</p>
+        </div>
         </div>
         </>
     )

@@ -14,6 +14,18 @@ function Navbar() {
           <Link to="/">Home</Link>
         </li>
         <li>
+          <Link to="/">Discussion Board</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/contact-form">Contact Us</Link>
+        </li>
+        <li>
+          <Link to="/opening-hours">Opening Hours</Link>
+        </li> 
+        <li>
           <Link to="/">Films</Link>
         </li>
         <li>
@@ -21,15 +33,6 @@ function Navbar() {
         </li>
         <li>
           <Link to="/">Book</Link>
-        </li>
-        <li>
-          <Link to="/opening-hours">Opening Hours</Link>
-        </li>
-        <li>
-          <Link to="/">Discussion Board</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
         </li>
       </ul>
       </div>

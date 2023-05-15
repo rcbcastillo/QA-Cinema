@@ -6,7 +6,7 @@ const user = require("./data/userDataTest");
 const comment = require("./data/commentDataTest");
 const movieModel = require("../models/movieModel");
 const userModel = require("../models/userModel");
-const booking = require("./data/bookingDataTest");
+const booking = require("./data/bookingDataTest.json");
 const bookingModel = require("../models/bookingModel");
 const commentModel = require("../models/commentModel");
 
@@ -19,12 +19,15 @@ const mongoose = require("mongoose");
 const app = require("../app");
 var server;
 before(async function () {
-  this.timeout(30000);
+  this.timeout(5000);
   console.log("starting Setup");
   await new Promise((res, rej) => {
     server = app.listen(9090, () => res());
+    server.on("error", () => rej())
   });
   await mongoose.connect(uriTest);
+
+  // beforeEach
   await movieModel.deleteMany({});
   await userModel.deleteMany({});
   await bookingModel.deleteMany({});

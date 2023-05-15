@@ -1,0 +1,12 @@
+{
+  "movieID": "test id",
+  "movieTitle": "test booked movie title",
+  "screeningDateTime": "2023-05-11T12:00:00Z",
+  "firstName": "test first name",
+  "lastName": "test last name",
+  "seatsBooked": 6,
+  "adult": 3,
+  "child": 2,
+  "concession": 1,
+  "paymentID": "test payment id"
+}

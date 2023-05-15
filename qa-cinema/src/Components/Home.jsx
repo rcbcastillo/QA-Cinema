@@ -1,4 +1,3 @@
-import logo from "../logo.svg"
 import CarouselComp from "./CarouselComp"
 
 const Home = () =>{

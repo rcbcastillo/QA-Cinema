@@ -5,7 +5,7 @@ const PrintTableRows = ({ rowData }) => {
             <tr> 
             {
                 Object.values(rowData).map((value, i) => 
-                <td key={i}>{value}</td>)
+                <td style={{color: "white"}} key={i}>{value}</td>)
             }
             </tr>      
         )

@@ -4,7 +4,7 @@ import TitleCaseHelper from "./TitleCaseHelper";
 const PrintTableKeys = ({ tableKeys}) => 
     tableKeys.map(key => {
     return (
-        <th>{TitleCaseHelper(key)}</th>
+        <th style={{color: "#234453"}}>{TitleCaseHelper(key)}</th>
     )
 });
 

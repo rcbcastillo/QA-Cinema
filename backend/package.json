@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha test/",
-    "start": "nodemon connection.js"
+    "test": "mocha test/",
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",

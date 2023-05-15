@@ -141,7 +141,12 @@ const MovieRatings = () => {
         </tbody>
       </table>
       <div>
-        <span>For more information, please visit <a href="https://www.bbfc.co.uk/"><u>the BBFC guide</u></a></span>
+        <span>
+          For more information, please visit{" "}
+          <a href="https://www.bbfc.co.uk/">
+            <u>the BBFC guide</u>
+          </a>
+        </span>
       </div>
     </div>
   );

@@ -6,11 +6,10 @@ mongoose
   .connect(uri)
   .then(() => {
     console.log("db connected");
+    app.listen(9090, () => {
+      console.log("server started on port 9090");
+    });
   })
   .catch((err) => {
     console.error(err);
   });
-
-app.listen(9090, () => {
-  console.log("server started on port 9090");
-});

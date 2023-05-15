@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import QAPopup from './QAPopup';
+import { emailServiceID, emailTemplateID, emailPublicKey } from '../assets/email.js';
 
 const ContactForm = () => {
-    const emailServiceID = 'service_01gk0xb';
-    const emailTemplateID = 'template_14qpanu';
-    const emailPublicKey = 'iZfkvRJeWhM7gWGWL';
 
     const [formData, setFormData] = useState({
                                                 fName: '',
@@ -50,7 +48,6 @@ const ContactForm = () => {
         setOpenPopup(true);
     }
 
-    // TODO: Try if statement and two returns?
     return (
         <>
         <QAPopup trigger={openPopup} setTrigger={setOpenPopup}>

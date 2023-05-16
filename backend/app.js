@@ -20,5 +20,7 @@ app.use((err, req, res, next) => {
   res.status(err.status).send(err.msg);
 });
 
-const server = app.listen(9090);
+const server = app.listen(9090, () =>
+  console.log("running and listening on port 9090")
+);
 module.exports = server;

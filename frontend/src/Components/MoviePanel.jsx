@@ -34,7 +34,7 @@ const MoviePanel = ({ movie, buttonText }) => {
 
           <button
             className="custom-button"
-            onClick={() => setChosenMovie(...movie)}
+            onClick={() => setChosenMovie(movie)}
           >
             {buttonText}
           </button>

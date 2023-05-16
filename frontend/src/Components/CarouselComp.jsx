@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Carousel } from "@material-tailwind/react";
+
+import * as api from "../api";
+import MoviePanel from "./MoviePanel";
+
 
 const images = [
   { 
@@ -42,22 +46,34 @@ const images = [
 
 const CarouselComp = () => {
 
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    api.getMovies().then((response) => {
+      setMovies(response);
+    });
+  }, []);
+
+  if (movies) {
   return (
-  <Carousel infinite transition={{ duration: 1 }} className="w-80 h-120 rounded-xl mx-auto shadow-md rounded">
-      {images.map((image, index) => (
+  <Carousel infinite transition={{ duration: 1 }} className="w-1/2 h-1/2 rounded-xl mx-auto shadow-md rounded">
+      {movies.filter((movie) => movie.isShowing === "True").map((movie, index) => (
         <>
+        
         <img
           key={index}
-          src={image.src}
-          alt={`img ${index + 1}`}
+          src={movie.Poster}
+          alt={`img ${movie.Poster}`}
           className="h-full w-full object-cover cursor-pointer"
-          onClick={()=> window.location.href = `/movie-id/${image.id}`}
+          onClick={()=> window.location.href = `/movie-id/${movie._id}`}
         >
         </img>
         </>
       ))}
     </Carousel>
+    
   );
+};
 };
 
 export default CarouselComp;

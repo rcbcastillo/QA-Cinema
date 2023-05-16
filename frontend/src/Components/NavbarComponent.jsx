@@ -141,21 +141,21 @@ function NavList() {
       </Typography>
       <Typography
         as="a"
-        href="/account"
+        href="/booking"
         variant="small"
-        color="blue-gray"
+        
         className="font-normal"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4 text-white">
+        <ListItem className="bg-pearl-aqua flex items-center gap-2 py-2 pr-4 text-white">
           
           Book
         </ListItem>
       </Typography>
       <Typography
         as="a"
-        href="/account"
+        href="/discussion-board"
         variant="small"
-        color="blue-gray"
+        
         className="font-normal"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4 text-white">
@@ -166,7 +166,7 @@ function NavList() {
       <ListItem className="relative flex w-full gap-2 md:w-max">
       <div className="relative flex w-full gap-2 md:w-max">
           <Input
-            color="japaneseIndigo"
+            
             type="search"
             label="Type here..."
             className="pr-20"
@@ -187,8 +187,19 @@ const NavbarComponent = () => {
   const [openNav, setOpenNav] = React.useState(false);
  
   const navigate = useNavigate();
-  const userRedirect = () => {
+  const userSignUpRedirect = () => {
     navigate("/signup")
+  }
+  const userSignInRedirect = () => {
+    navigate("/user")
+  }
+  const userRedirect = (id) => {
+    if (id === 1) {
+      navigate("/user")
+    }
+    if (id === 2) {
+      navigate("/signup")
+    }
   }
 
   React.useEffect(() => {
@@ -212,14 +223,6 @@ const NavbarComponent = () => {
         <div className="hidden lg:block">
           <NavList />
         </div>
-        <div className="hidden gap-2 lg:flex">
-          <Button variant="text" size="sm" color="blue-gray">
-            Sign In
-          </Button>
-          <Button variant="gradient" size="sm">
-            Sign Up
-          </Button>
-        </div>
         <IconButton
           variant="text"
           color="japaneseIndigo"
@@ -236,10 +239,10 @@ const NavbarComponent = () => {
       <Collapse open={openNav}>
         <NavList />
         <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden text-white">
-          <Button onClick={() => userRedirect()} className="text-white" variant="outlined" size="sm" color="blue-gray" fullWidth>
+          <Button onClick={() => userRedirect(1)} className="text-white" variant="outlined" size="sm" color="blue-gray" fullWidth>
             Sign In
           </Button>
-          <Button onClick={() => userRedirect()} variant="gradient" size="sm" fullWidth>
+          <Button onClick={() => userRedirect(2)} variant="gradient" size="sm" fullWidth>
             Sign Up
           </Button>
         </div>

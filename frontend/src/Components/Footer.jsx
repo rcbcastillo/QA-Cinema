@@ -8,7 +8,6 @@ const Footer = () => {
     
         return (
             <footer className="bg-pearl-aqua">
-                
                 <Container>
                     <Row>
                         <Col><h3><u>Useful Information:</u></h3></Col>

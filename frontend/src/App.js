@@ -14,7 +14,7 @@ import Users from './Components/Users';
 import SignUp from './Components/SignUp';
 import MovieRatings from './Components/MovieRatings';
 import { BookingController } from './Components/BookingController';
-
+import SignIn from './Components/SignIn';
 import BookingsTest from "./Components/BookingsTest";
 
 
@@ -24,7 +24,7 @@ function App() {
   //location embedded
   return (
     <>
-    <BookingsTest />
+    {/* <BookingsTest /> */}
     <BrowserRouter>
     <NavbarComponent/>
     <Routes>
@@ -37,6 +37,7 @@ function App() {
       <Route path='/user' element={<Users/>}></Route>
       <Route path='/signup' element={<SignUp/>}></Route>
       <Route path='/classifications' element={<MovieRatings/>}></Route>
+      <Route path='/signin' element={<SignIn/>}></Route>
     </Routes>
     <Footer/>
     </BrowserRouter>

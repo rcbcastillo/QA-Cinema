@@ -12,7 +12,8 @@ import {
     TimelineIcon,
     TimelineBody,
   } from "@material-tailwind/react";
-import logo from '/Users/Admin/QA-Cinema/qa-cinema/src/logo.svg'
+import logo from '/Users/Admin/QA-Cinema/frontend/src/logo.svg'
+
 
 const Users = () => {
         return (

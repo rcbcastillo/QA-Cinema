@@ -10,10 +10,10 @@ const OpenHrs = () => {
                         margin: "auto",  
                         width: "50%", }}>
             
-            <div style={{backgroundColor: "#84eab5"}}>
+            {/* <div style={{backgroundColor: "#84eab5"}}> */}
             <JsonTable jsonData={jsonData} />
             </div>
-        </div>
+        
     );
 }
 

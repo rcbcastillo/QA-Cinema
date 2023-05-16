@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { MovieContext } from "./BookingController";
+import axios from "axios";
 
 const TicketOffice = () => {
   // Chosen film includes the screen, date and time for the film
@@ -12,16 +13,54 @@ const TicketOffice = () => {
     concessions: 0,
   });
 
+  const [checkoutURL, setCheckoutURL] = useState("");
+
+  const sendStripeReq = () => {
+    let requestBody = {};
+
+    // populate requestBody with key-value pairs using values from formData (useState)
+    if (formData.adults > 0) {
+      requestBody.adult = formData.adults;
+    }
+    if (formData.children > 0) {
+      requestBody.child = formData.children;
+    }
+    if (formData.concessions > 0) {
+      requestBody.concession = formData.concessions;
+    }
+
+    console.log(requestBody);
+
+    const url = "http://localhost:9090/create-checkout-session";
+    axios
+      .post(url, {
+        requestBody,
+      })
+      .then((response) => {
+        setCheckoutURL(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  // Use this event to submit Stripe API request?
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { adults, children, concessions } = formData;
-    console.log(`Adult tickets: ${adults} Child tickets: ${children} Concession Tickets: ${concessions}`);
+    await sendStripeReq();
+    // when response comes back, redirect to the Stripe checkout
+    // using useState value for "checkoutURL"
+
+    // const { adults, children, concessions } = formData;
+    // console.log(
+    //   `Adult tickets: ${adults} Child tickets: ${children} Concession Tickets: ${concessions}`
+    // );
   };
 
   // Show the screen, date and time and allow the user to select
@@ -92,8 +131,9 @@ const TicketOffice = () => {
         <button
           className="sm-custom-button mb-11"
           // type="reset"
-          onClick={() => setChosenMovie(null)}>
-            Cancel
+          onClick={() => setChosenMovie(null)}
+        >
+          Cancel
         </button>
       </form>
     </div>

@@ -7,7 +7,11 @@ const commentRouter = require("./routes/commentRoutes");
 const bookingRouter = require("./routes/bookingRoutes");
 const { stripeKey } = require("./resources/stripe_api_key");
 const stripe = require("stripe")(stripeKey);
-const { adultTicket, childTicket } = require("./resources/stripe_product_ids");
+const {
+  adultTicket,
+  childTicket,
+  concessionTicket,
+} = require("./resources/stripe_product_ids");
 
 app.use(express.json());
 
@@ -31,6 +35,10 @@ app.post("/create-checkout-session", async (req, res) => {
       {
         price: childTicket,
         quantity: 2,
+      },
+      {
+        price: concessionTicket,
+        quantity: 1,
       },
     ],
     mode: "payment",

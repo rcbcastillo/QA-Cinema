@@ -13,14 +13,13 @@ import MovieRatings from "./Components/MovieRatings";
 import { BookingController } from "./Components/BookingController";
 
 import BookingsTest from "./Components/BookingsTest";
-import StripeCheckoutExample from "./Components/StripeCheckoutExample";
 function App() {
   //to do:
   //fix navbar button??? things
   //location embedded
   return (
     <>
-      <StripeCheckoutExample />
+      {/* <StripeCheckoutExample /> */}
       <BookingsTest />
       <BrowserRouter>
         <Navbar />

@@ -25,22 +25,27 @@ app.use(express.static("public"));
 
 // Stripe API request - checkout page
 // TODO: create router for Stripe API requests?
-app.post("/create-checkout-session", async (req, res) => {
+app.post("/create-checkout-session", async ({ body }, res) => {
+  let ticketsInfo = body.requestBody;
+  let stripeLineItems = [];
+
+  for (let key in ticketsInfo) {
+    let obj = {};
+    if (key === "adult") {
+      obj.price = adultTicket;
+      obj.quantity = parseInt(ticketsInfo[key]);
+    } else if (key === "child") {
+      obj.price = childTicket;
+      obj.quantity = parseInt(ticketsInfo[key]);
+    } else if (key === "concession") {
+      obj.price = concessionTicket;
+      obj.quantity = parseInt(ticketsInfo[key]);
+    }
+    stripeLineItems.push(obj);
+  }
+
   const session = await stripe.checkout.sessions.create({
-    line_items: [
-      {
-        price: adultTicket,
-        quantity: 3,
-      },
-      {
-        price: childTicket,
-        quantity: 2,
-      },
-      {
-        price: concessionTicket,
-        quantity: 1,
-      },
-    ],
+    line_items: stripeLineItems,
     mode: "payment",
     // TODO: make success page on frontend to redirect to
     success_url: `http://localhost:9090/success.html?success=true`,

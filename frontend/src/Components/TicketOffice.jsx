@@ -37,6 +37,7 @@ const TicketOffice = () => {
         requestBody,
       })
       .then((response) => {
+        console.log(response.data);
         setCheckoutURL(response.data);
       })
       .catch((error) => {

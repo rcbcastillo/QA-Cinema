@@ -75,3 +75,31 @@ export async function createComment(newComment) {
     console.error(err);
   }
 }
+
+export async function getCommentsByUserId(userId) {
+  try {
+    const response = await axios.get(
+      `http://localhost:9090/comments/${userId}`,
+      {
+        params: {
+          userId: userId,
+        },
+      }
+    );
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function postCommentByUserId(userId, newComment) {
+  try {
+    const response = await axios.post(
+      `http://localhost:9090/comments/${userId}`,
+      newComment
+    );
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+}

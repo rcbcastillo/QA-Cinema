@@ -9,7 +9,7 @@ const OpenHrs = () => {
         <div style={{ padding: "10px", 
                         margin: "auto",  
                         width: "50%", }}>
-            <h1>Opening Hours test</h1>
+            <h1>QACinema is open at the following times:</h1>
             <JsonTable jsonData={jsonData} />
         </div>
     );

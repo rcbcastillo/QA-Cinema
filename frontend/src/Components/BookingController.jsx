@@ -2,17 +2,17 @@ import React, { useState, createContext } from 'react';
 import Gallery from './Gallery';
 import TicketOffice from './TicketOffice';
 
-export const FilmContext = createContext();
+export const MovieContext = createContext();
 export const BookingController = () => {
 
-    const [chosenFilmId, setChosenFilmId] = useState(null)
-
+    //const [chosenFilmId, setChosenFilmId] = useState(null)
+    const [chosenMovie, setChosenMovie] = useState(null)
 
     return (
         <div>
-            <FilmContext.Provider value={{chosenFilmId, setChosenFilmId}}>
-                {chosenFilmId ? <TicketOffice/> : <Gallery/>} 
-            </FilmContext.Provider>
+            <MovieContext.Provider value={{chosenMovie, setChosenMovie}}>
+                {chosenMovie ? <TicketOffice/> : <Gallery/>} 
+            </MovieContext.Provider>
         </div>
     )
 }

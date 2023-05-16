@@ -19,3 +19,23 @@ export async function getMovies() {
     console.error(err);
   }
 }
+
+export async function getUsers() {
+  try {
+    const response = await axios.get("http://localhost:9090/users/readUsers");
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function getComments() {
+  try {
+    const response = await axios.get(
+      "http://localhost:9090/comments/readComments"
+    );
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+}

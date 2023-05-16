@@ -24,12 +24,6 @@ const Booking = () => {
       });
   };
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     testGetMovies();
-  //   }, 1000);
-  // }, []);
-
   return (
     <>
       <form onSubmit={testGetMovies}>

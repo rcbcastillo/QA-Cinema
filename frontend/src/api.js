@@ -39,3 +39,27 @@ export async function getComments() {
     console.error(err);
   }
 }
+
+export async function createBooking(newBooking) {
+  try {
+    const response = await axios.post(
+      `http://localhost:9090/bookings/create`,
+      newBooking
+    );
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function createUser(newUser) {
+  try {
+    const response = await axios.post(
+      `http://localhost:9090/users/create`,
+      newUser
+    );
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+}

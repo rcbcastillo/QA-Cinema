@@ -52,7 +52,7 @@ const BookingsTest = () => {
         <h1>Comments title</h1>
         {comments.map((comment, index) => (
           <ul key={index}>
-            <p>Title: {comment.Title}</p>
+            <p>Title: {comment.message}</p>
           </ul>
         ))}
       </>

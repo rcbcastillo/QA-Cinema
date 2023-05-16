@@ -37,7 +37,7 @@ const CommentPanel = ({ movie }) => {
 
           <button
             className="custom-button"
-            onClick={() => setChosenFilmId(movie._id)}
+            //onClick={() => setChosenFilmId(movie._id)}
           >
             Post comment
           </button>

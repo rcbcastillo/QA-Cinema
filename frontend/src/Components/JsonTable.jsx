@@ -11,13 +11,11 @@ const JsonTable = ({jsonData}) => {
     const tableKeys = Object.keys(columns);
 
     return (
-        <Table  
+        <table  
             style = {{ border: "2px solid white"}}
-            bordered
-            hover
-            striped>
+            className="custom-table">
             <thead>
-                <tr>
+                <tr className="bg-japanese-indigo text-white">
                     <PrintTableKeys tableKeys={tableKeys} /> 
                 </tr>
             </thead>
@@ -26,7 +24,7 @@ const JsonTable = ({jsonData}) => {
                     jsonData.map((row) => <PrintTableRows rowData={row}/>)
                 }
             </tbody>
-        </Table>
+        </table>
     )
 }
 

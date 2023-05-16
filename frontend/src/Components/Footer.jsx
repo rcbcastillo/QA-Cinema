@@ -2,11 +2,12 @@ import React from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container , Row, Col} from 'react-bootstrap'  
+import MovieRatings from './MovieRatings';
 
 const Footer = () => {
     
         return (
-            <footer class="bg-pearl-aqua">
+            <footer className="bg-pearl-aqua">
                 
                 <Container>
                     <Row>
@@ -20,8 +21,8 @@ const Footer = () => {
                         </div>
                         </Col>  
                         <Col>
-                        <div class="w-1/2 bg-pearl-aqua h-12">
-                            <a class="text-center block border border-pearl-aqua rounded hover:border-japanese-indigo text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/about">About</a>
+                        <div className="w-1/2 bg-pearl-aqua h-12">
+                            <a className="text-center block border border-pearl-aqua rounded hover:border-japanese-indigo text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/about">About</a>
                         </div>
                         </Col>  
                     </Row>  
@@ -30,20 +31,20 @@ const Footer = () => {
                         <p> Manchester M1 3LD</p>
                         </Col>
                         <Col>
-                        <div class="w-1/2 bg-pearl-aqua h-12">
-                            <a class="text-center block border border-pearl-aqua rounded hover:border-japanese-indigo text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/contact-form">Contact</a>
+                        <div className="w-1/2 bg-pearl-aqua h-12">
+                            <a className="text-center block border border-pearl-aqua rounded hover:border-japanese-indigo text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/contact-form">Contact</a>
                         </div>
                         </Col>  
                     </Row>
                     <Row>
                         <Col>
-                        <div class="w-1/2 bg-pearl-aqua h-12">
-                            <a class="text-center block border border-pearl-aqua rounded hover:border-japanese-indigo text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/opening-hours">Opening Hours</a>
+                        <div className="w-1/2 bg-pearl-aqua h-12">
+                            <a className="text-center block border border-pearl-aqua rounded hover:border-japanese-indigo text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/opening-hours">Opening Hours</a>
                         </div>
                         </Col>   
                         <Col>
-                        <div class="w-1/2 bg-pearl-aqua h-12">
-                            <a class="text-center block border border-pearl-aqua rounded hover:border-japanese-indigo text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/classifications">Classifications</a>
+                        <div className="w-1/2 bg-pearl-aqua h-12">
+                            <a className="text-center block border border-pearl-aqua rounded hover:border-japanese-indigo text-blue-500 hover:bg-japanese-indigo py-2 px-4 hover:text-white" href="/classifications">Classifications</a>
                         </div>
                         </Col>
                     </Row>

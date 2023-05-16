@@ -23,7 +23,7 @@ app.use("/comments", commentRouter);
 app.use("/bookings", bookingRouter);
 app.use(express.static("public"));
 
-// Stripe API
+// Stripe API request - checkout page
 // TODO: create router for Stripe API requests?
 app.post("/create-checkout-session", async (req, res) => {
   const session = await stripe.checkout.sessions.create({
@@ -46,11 +46,7 @@ app.post("/create-checkout-session", async (req, res) => {
     success_url: `http://localhost:9090/success.html?success=true`,
     cancel_url: `http://localhost:3000/`,
   });
-  console.log(session.url);
-  // res.redirect(303, session.url);
   res.send(session.url);
-
-  // res.json("TEST");
 });
 
 // Error handling

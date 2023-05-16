@@ -1,39 +1,57 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-// import "./App.css";
-
 const Booking = () => {
-  // TEST FUNCTION ONLY - to be replaced
-  const [movies, setMovies] = useState([]);
+  const [test, setTest] = useState("");
 
-  const testGetMovies = (e) => {
-    if (e) {
-      e.preventDefault();
-    }
-
-    const url = "http://localhost:9090/movies/readMovies";
+  useEffect(() => {
+    const url = "http://localhost:9090/create-checkout-session";
     axios
-      .get(url)
-      .then((data) => {
-        console.log(data);
-        setMovies(data.data);
+      .post(url)
+      .then((response) => {
+        // console.log(response.data);
+        setTest(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.error(error);
       });
-  };
+  }, []);
+  // TEST FUNCTION ONLY - to be replaced
+  // const testStripe = (e) => {
+  //   if (e) {
+  //     e.preventDefault();
+  //   }
+
+  // const url = "http://localhost:9090/create-checkout-session";
+  // axios
+  //   .post(url)
+  //   .then((response) => {
+  //     // console.log(response.data);
+  //     setTest(response.data);
+  //     console.log(response.data);
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+  // };
 
   return (
     <>
-      <form onSubmit={testGetMovies}>
+      {/* <form onSubmit={testStripe}> */}
+      <form action={test}>
         <input type="text" />
-        <button color="success" type="submit" style={{ width: "100%" }}>
+        <button
+          onClick={() => test}
+          color="success"
+          type="submit"
+          style={{ width: "100%" }}
+        >
           GO
         </button>
       </form>
 
-      <p>{movies.map((movie) => movie.Title)}</p>
+      {/* <p>{movies.map((movie) => movie.Title)}</p> */}
     </>
   );
 };

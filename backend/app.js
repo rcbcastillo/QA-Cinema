@@ -7,6 +7,7 @@ const commentRouter = require("./routes/commentRoutes");
 const bookingRouter = require("./routes/bookingRoutes");
 const { stripeKey } = require("./resources/stripe_api_key");
 const stripe = require("stripe")(stripeKey);
+const { adultTicket, childTicket } = require("./resources/stripe_product_ids");
 
 app.use(express.json());
 
@@ -16,9 +17,33 @@ app.use("/movies", movieRouter);
 app.use("/users", userRouter);
 app.use("/comments", commentRouter);
 app.use("/bookings", bookingRouter);
+app.use(express.static("public"));
 
 // Stripe API
 // TODO: create router for Stripe API requests?
+app.post("/create-checkout-session", async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        price: adultTicket,
+        quantity: 3,
+      },
+      {
+        price: childTicket,
+        quantity: 2,
+      },
+    ],
+    mode: "payment",
+    // TODO: make success page on frontend to redirect to
+    success_url: `http://localhost:9090/success.html?success=true`,
+    cancel_url: `http://localhost:3000/`,
+  });
+  console.log(session.url);
+  // res.redirect(303, session.url);
+  res.send(session.url);
+
+  // res.json("TEST");
+});
 
 // Error handling
 app.use((err, req, res, next) => {

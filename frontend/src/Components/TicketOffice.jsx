@@ -14,7 +14,7 @@ const TicketOffice = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData({ [name]: value });
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
   const handleSubmit = (event) => {
@@ -89,13 +89,13 @@ const TicketOffice = () => {
         <button className="sm-custom-button mb-11" type="submit">
           Proceed to payment
         </button>
-      </form>
-      <button
+        <button
           className="sm-custom-button mb-11"
           // type="reset"
           onClick={() => setChosenMovie(null)}>
             Cancel
         </button>
+      </form>
     </div>
   );
 };

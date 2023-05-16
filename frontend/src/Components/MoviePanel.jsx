@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FilmContext } from "./BookingController";
+import { MovieContext } from "./BookingController";
 
 const MoviePanel = ({ movie, buttonText }) => {
 
-  const { chosenFilmId, setChosenFilmId } = useContext(FilmContext);
+  const { chosenMovie, setChosenMovie } = useContext(MovieContext);
 
   return (
     //  Create and return a panel for one movie
@@ -34,7 +34,7 @@ const MoviePanel = ({ movie, buttonText }) => {
 
           <button
             className="custom-button"
-            onClick={() => setChosenFilmId(movie._id)}
+            onClick={() => setChosenMovie(...movie)}
           >
             {buttonText}
           </button>

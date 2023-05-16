@@ -14,16 +14,14 @@ import { BookingController } from "./Components/BookingController";
 
 import BookingsTest from "./Components/BookingsTest";
 import Booking from "./Components/Booking";
-
 function App() {
   //to do:
   //fix navbar button??? things
   //location embedded
   return (
     <>
-      {/* <BookingsTest /> */}
+      <BookingsTest />
       <Booking />
-
       <BrowserRouter>
         <Navbar />
         <Routes>

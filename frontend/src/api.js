@@ -63,3 +63,15 @@ export async function createUser(newUser) {
     console.error(err);
   }
 }
+
+export async function createComment(newComment) {
+  try {
+    const response = await axios.post(
+      `http://localhost:9090/comments/create`,
+      newComment
+    );
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+}

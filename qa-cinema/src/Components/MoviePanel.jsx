@@ -10,7 +10,6 @@ const MoviePanel = ({ movie, buttonText }) => {
     //  Create and return a panel for one movie
     <>
       {/* Transform the image div to scale up poster on hover */}
-      {/* console.log({movie}); */}
       <div className="inner-panel-img-div">
         <img src={movie.Poster} alt={`movie poster for ${movie.Title}`}></img>
       </div>
@@ -29,6 +28,7 @@ const MoviePanel = ({ movie, buttonText }) => {
               <li className="inline pr-1">{movie.Runtime}</li>
             </ul>
             <h2 className="pb-3">{movie.Actors}</h2>
+            <h2 className="pb-3">{movie.Director}</h2>
             <p className="text-sm pb-5">{movie.Plot}</p>
           </article>
 

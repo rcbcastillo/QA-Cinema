@@ -29,6 +29,8 @@ const TicketOffice = () => {
       requestBody.concession = formData.concessions;
     }
 
+    requestBody.movie = chosenMovie;
+
     console.log(requestBody);
 
     const url = "http://localhost:9090/create-checkout-session";

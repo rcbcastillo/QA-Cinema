@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import * as api from "../api";
 import { useParams } from "react-router-dom";
-import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { Button, Form, Input } from "reactstrap";
 
 const CommentForm = ({ handleSubmit }) => {
   const [bodyComment, setBodyComment] = useState("");

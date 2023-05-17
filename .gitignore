@@ -5,8 +5,8 @@
 **/.pnp
 **.pnp.js
 **atlas_uri.js
-**stripe_api_key.js
-**stripe_product_ids.js
+**stripe_api_key*
+**stripe_product_ids*
 
 # testing
 **/coverage

@@ -5,6 +5,7 @@ const movieRouter = require("./routes/movieRoutes");
 const userRouter = require("./routes/userRoutes");
 const commentRouter = require("./routes/commentRoutes");
 const bookingRouter = require("./routes/bookingRoutes");
+const bookingModel = require("./models/bookingModel");
 const { stripeKey } = require("./resources/stripe_api_key");
 const stripe = require("stripe")(stripeKey);
 const {
@@ -27,6 +28,11 @@ app.use(express.static("public"));
 // TODO: create router for Stripe API requests?
 app.post("/create-checkout-session", async ({ body }, res) => {
   let ticketsInfo = body.requestBody;
+
+  let ticketsQty = 0;
+  let adultQty = 0;
+  let childQty = 0;
+  let concessionQty = 0;
   let stripeLineItems = [];
 
   for (let key in ticketsInfo) {
@@ -34,12 +40,18 @@ app.post("/create-checkout-session", async ({ body }, res) => {
     if (key === "adult") {
       obj.price = adultTicket;
       obj.quantity = parseInt(ticketsInfo[key]);
+      ticketsQty += obj.quantity;
+      adultQty += obj.quantity;
     } else if (key === "child") {
       obj.price = childTicket;
       obj.quantity = parseInt(ticketsInfo[key]);
+      ticketsQty += obj.quantity;
+      childQty += obj.quantity;
     } else if (key === "concession") {
       obj.price = concessionTicket;
       obj.quantity = parseInt(ticketsInfo[key]);
+      ticketsQty += obj.quantity;
+      concessionQty += obj.quantity;
     }
     stripeLineItems.push(obj);
   }
@@ -51,7 +63,30 @@ app.post("/create-checkout-session", async ({ body }, res) => {
     success_url: `http://localhost:3000/payment-success`,
     cancel_url: `http://localhost:3000/films`,
   });
+
+  console.log(session.id);
   res.send(session.url);
+
+  let booking = {
+    // TODO: make dynamic
+    movieID: "TBC",
+    // TODO: make dynamic
+    movieTitle: "TBC",
+    // TODO: make dynamic - hard coded date
+    screeningDateTime: "2023-05-20T19:30",
+    // TODO: make dynamic
+    firstName: "Customer First Name",
+    // TODO: make dynamic
+    lastName: "Customer Last Name",
+    seatsBooked: ticketsQty,
+    adult: adultQty,
+    child: childQty,
+    concession: concessionQty,
+    // TODO: Ensure total cost works with decimals
+    totalCost: `£${session.amount_total / 100}`,
+    paymentID: session.id,
+  };
+  bookingModel.create(booking);
 });
 
 // Error handling

@@ -37,7 +37,8 @@ const TicketOffice = () => {
             {/* Output the screen, time and date */}
             <h6>Screen: {chosenMovie.ScreenNum}</h6>
             <h6>Date: {screenDate.toDateString()}</h6>
-            <h6>Time: {screenDate.toLocaleTimeString()}</h6>
+            {(chosenMovie.ScreenNum === "TBC") ? 
+              <></> : <h6>Time: {screenDate.toLocaleTimeString()}</h6>}
           </article>
         </div>
       </div>

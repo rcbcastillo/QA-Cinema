@@ -27,6 +27,19 @@ bookingRouter.get("/:id", async (req, res, next) => {
   }
 });
 
+bookingRouter.get("/paymentID/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const bookingFound = await bookingModel.find({ paymentID: id });
+    res.status(200).json(bookingFound);
+  } catch (err) {
+    return next({
+      status: 500,
+      msg: err.message,
+    });
+  }
+});
+
 bookingRouter.post("/create", async ({ body }, res, next) => {
   try {
     const createdBooking = await bookingModel.create(body);

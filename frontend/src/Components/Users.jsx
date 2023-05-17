@@ -13,12 +13,49 @@ import {
     TimelineBody,
   } from "@material-tailwind/react";
 import logo from '/Users/Admin/QA-Cinema/frontend/src/logo.svg'
+import SignUp from "./SignUp";
+import { useState, useEffect } from "react";
+import { UserContext } from "./LoginController";
+import { useLocation } from "react-router-dom";
 
+import * as api from "../api";
 
-const Users = () => {
-        return (
+const Users = (props) => {
+
+    //update sign up form to match the data from db
+    //if data matches then display username or 
+
+    //get users from database
+    const [users, setUsers] = useState([]);
+    
+    useEffect(() => {
+    api.getUsers().then((response) => {
+      setUsers(response);
+    });}, []);
+
+    //compare input to the gotten
+  
+    //const { user, setUser } = useContext(UserContext)
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search)
+    const username = searchParams.get("username")
+    const { open } = props; 
+
+    function search(array, variable){
         
-        <Card className="bg-japanese-indigo w-100">
+        return array.includes(variable);
+    }
+    function compare(array, variable){
+        return array.find((item) => item.firstName === variable) !== undefined;
+    }
+    const result = compare(users, username)
+
+    if (result) {
+        console.log("found")
+    return (
+        <>
+        
+    <Card className="bg-japanese-indigo w-100">
             <List>
                 <ListItem>
                     <ListItemPrefix>
@@ -26,7 +63,7 @@ const Users = () => {
                     </ListItemPrefix>
                     <div>
                         <Typography className="text-white" variant="h6" color="blue-gray">
-                            Candice Wu
+                            {username}
                         </Typography>
                         <Typography variant="small" color="gray" className="text-white font-normal">
                             Software Engineer @ Material Tailwind
@@ -106,6 +143,15 @@ const Users = () => {
                 </ListItem>
             </List>
     </Card>
+
+    </>
   );
+    } else {
+        console.log("not found")
+        console.log(result)
+        console.log(users)
+        console.log(username)
+    }
+  
 }
 export default Users

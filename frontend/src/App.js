@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import './App.css';
 // import Navbar from './Components/Navbar'
@@ -16,12 +16,13 @@ import MovieRatings from './Components/MovieRatings';
 import { BookingController } from './Components/BookingController';
 import SignIn from './Components/SignIn';
 import BookingsTest from "./Components/BookingsTest";
-
+import { LoginController } from './Components/LoginController';
 
 function App() {
   //to do:
   //fix navbar button??? things
   //location embedded
+
   return (
     <>
     {/* <BookingsTest /> */}

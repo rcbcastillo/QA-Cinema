@@ -191,7 +191,7 @@ const NavbarComponent = () => {
     navigate("/signup")
   }
   const userSignInRedirect = () => {
-    navigate("/user")
+    navigate("/signin")
   }
   const userRedirect = (id) => {
     if (id === 1) {

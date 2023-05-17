@@ -5,15 +5,34 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
+import { useContext } from "react";
+
 import { useState } from "react";
+import { renderMatches, useNavigate } from "react-router-dom";
+import { UserContext } from "./LoginController";
+
+import Users from "./Users";
 
 const SignUp = () => {
 
-  const [inputs, setInputs] = useState({"username": "", "email":"", "password":""});
+  const navigate = useNavigate()
 
-  const handleSubmitButton = () => { 
-    alert(JSON.stringify(inputs)); 
-  }; 
+  //const { user, setUser } = use(UserContext)
+  //const [open, setOpen] = useState(false)
+  const [inputs, setInputs] = useState({username: "", email:"", password:""});
+
+  const handleSubmitButton = () => {
+    //event.preventDefault()
+    //setUser({...user, username: inputs.username, email: inputs.email, password:inputs.password})
+    //setOpen(true)
+    alert(JSON.stringify(inputs));
+    //setUser({username: inputs.username, email: inputs.email, password: inputs.password})
+
+    //open user but passing the props
+    //do the same in sign in 
+    navigate(`/user?username=${inputs.username}`);
+
+  };
 
   return (
     <div className="flex justify-center w-full h-full rounded-xl mx-auto shadow-md rounded">

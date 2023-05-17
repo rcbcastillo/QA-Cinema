@@ -20,7 +20,7 @@ const DiscussionBoard = () => {
     return (
       <>
         <div className="px-4 mt-2">
-          <h1 className="custom-header">Currently Showing</h1>
+          <h1 className="custom-header">Discussion Board</h1>
           <div className="outer-panel-div">
             {/* Movie panels for currently showing movies go here */}
             {/* Set the button to go to the correct place book now/pre-book */}

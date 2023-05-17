@@ -7,9 +7,9 @@ import About from "./Components/About";
 import Location from "./Components/Location";
 import Footer from "./Components/Footer";
 import OpenHrs from "./Components/OpenHrs";
-import Gallery from "./Components/Gallery";
 import ContactForm from "./Components/ContactForm";
 import MovieRatings from "./Components/MovieRatings";
+import PaymentSuccess from "./Components/PaymentSuccess";
 import { BookingController } from "./Components/BookingController";
 
 import BookingsTest from "./Components/BookingsTest";
@@ -29,6 +29,7 @@ function App() {
           <Route path="/location" element={<Location />}></Route>
           <Route path="/contact-form" element={<ContactForm />}></Route>
           <Route path="/classifications" element={<MovieRatings />}></Route>
+          <Route path="/payment-success" element={<PaymentSuccess />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -48,7 +48,7 @@ app.post("/create-checkout-session", async ({ body }, res) => {
     line_items: stripeLineItems,
     mode: "payment",
     // TODO: make success page on frontend to redirect to
-    success_url: `http://localhost:9090/success.html?success=true`,
+    success_url: `http://localhost:3000/payment-success`,
     cancel_url: `http://localhost:3000/films`,
   });
   res.send(session.url);

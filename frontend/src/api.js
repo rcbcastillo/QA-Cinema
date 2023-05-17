@@ -76,15 +76,10 @@ export async function createComment(newComment) {
   }
 }
 
-export async function getCommentsByUserId(userId) {
+export async function getCommentsByMovieId(movieId) {
   try {
     const response = await axios.get(
-      `http://localhost:9090/comments/${userId}`,
-      {
-        params: {
-          userId: userId,
-        },
-      }
+      `http://localhost:9090/readCommentsByMovieId/${movieId}`
     );
     return response.data;
   } catch (err) {

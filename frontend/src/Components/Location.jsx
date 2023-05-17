@@ -2,6 +2,17 @@ const Location = () => {
   return (
     <>
       <h4 className="custom-header">Visiting QACinema</h4>
+
+      <article className="pl-10">
+        <h4>Our Address:</h4>
+        <ul className="mt-2 pl-2">
+          <li>Global Logic</li>
+          <li>Manchester One,</li>
+          <li>53 Portland St,</li>
+          <li>Greater Manchester,</li>      
+          <li>M1 3LD</li>
+        </ul>
+      </article>
       <div className="flex justify-center">
         <iframe
           className="border-4 px-5 pb-5"

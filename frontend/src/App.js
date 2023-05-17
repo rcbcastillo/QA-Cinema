@@ -20,7 +20,7 @@ function App() {
   //location embedded
   return (
     <>
-      <BookingsTest />
+      {/* <BookingsTest /> */}
       <BrowserRouter>
         <Navbar />
         <Routes>

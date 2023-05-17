@@ -30,7 +30,7 @@ const PaymentSuccess = () => {
         <div className="flex justify-center">
         <ul>
           <li className="py-2"><h6 className="">Thank you for your custom, see you soon!</h6></li>
-          <li><h6 className="py-2">Here are the details of your booking</h6></li>
+          <li><h6 className="pt-2">Here are the details of your booking</h6></li>
           </ul>
         </div>
         <div className="flex justify-center pb-4 mb-5">

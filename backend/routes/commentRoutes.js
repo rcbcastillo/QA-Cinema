@@ -27,6 +27,20 @@ commentRouter.get("/readComments", async (req, res, next) => {
   }
 });
 
+commentRouter.get("/readCommentsByMovieId/:movieId", async (req, res, next) => {
+  try {
+    const commentsFound = await commentModel.find({
+      movieId: req.params.movieId,
+    });
+    res.status(200).json(commentsFound);
+  } catch (err) {
+    return next({
+      status: 500,
+      msg: err.message,
+    });
+  }
+});
+
 commentRouter.get("/:commentId", async (req, res, next) => {
   try {
     const { commentId } = req.params;

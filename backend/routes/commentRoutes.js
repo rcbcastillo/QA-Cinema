@@ -27,15 +27,16 @@ commentRouter.get("/readComments", async (req, res, next) => {
   }
 });
 
-commentRouter.get("/:movieId", async (req, res, next) => {
+commentRouter.get("/readCommentsByMovieId/:movieId", async (req, res, next) => {
   try {
-    const { movieId } = req.params;
-    const readCommentByMovieId = await commentModel.findById(movieId);
-    res.status(200).json(readCommentByMovieId);
+    const commentsFound = await commentModel.find({
+      movieId: req.params.movieId,
+    });
+    res.status(200).json(commentsFound);
   } catch (err) {
     return next({
       status: 500,
-      message: err.message,
+      msg: err.message,
     });
   }
 });

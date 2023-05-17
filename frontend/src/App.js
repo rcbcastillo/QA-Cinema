@@ -13,14 +13,12 @@ import PaymentSuccess from "./Components/PaymentSuccess";
 import { BookingController } from "./Components/BookingController";
 
 import BookingsTest from "./Components/BookingsTest";
-
 function App() {
   //to do:
   //fix navbar button??? things
   //location embedded
   return (
     <>
-      {/* <BookingsTest /> */}
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -31,7 +29,7 @@ function App() {
           <Route path="/location" element={<Location />}></Route>
           <Route path="/contact-form" element={<ContactForm />}></Route>
           <Route path="/classifications" element={<MovieRatings />}></Route>
-          <Route path="/payment-success" element={<PaymentSuccess/>}></Route> 
+          <Route path="/payment-success" element={<PaymentSuccess />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

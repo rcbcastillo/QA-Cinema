@@ -59,24 +59,18 @@ app.post("/create-checkout-session", async ({ body }, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: stripeLineItems,
     mode: "payment",
-    // TODO: make success page on frontend to redirect to
     success_url: `http://localhost:3000/payment-success`,
     cancel_url: `http://localhost:3000/films`,
   });
 
-  console.log(session.id);
   res.send(session.url);
 
   let booking = {
-    // TODO: make dynamic
-    movieID: "TBC",
-    // TODO: make dynamic
-    movieTitle: "TBC",
-    // TODO: make dynamic - hard coded date
-    screeningDateTime: "2023-05-20T19:30",
-    // TODO: make dynamic
+    movieID: ticketsInfo.movie._id,
+    movieTitle: ticketsInfo.movie.Title,
+    screeningNum: ticketsInfo.movie.ScreenNum,
+    screeningDateTime: ticketsInfo.movie.ScreenDateTime,
     firstName: "Customer First Name",
-    // TODO: make dynamic
     lastName: "Customer Last Name",
     seatsBooked: ticketsQty,
     adult: adultQty,

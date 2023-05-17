@@ -11,7 +11,7 @@ import ContactForm from "./Components/ContactForm";
 import MovieRatings from "./Components/MovieRatings";
 import PaymentSuccess from "./Components/PaymentSuccess";
 import { BookingController } from "./Components/BookingController";
-
+import DiscussionBoard from "./Components/DiscussionBoard";
 import BookingsTest from "./Components/BookingsTest";
 function App() {
   //to do:
@@ -22,6 +22,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          <Route path="/comments" element={<DiscussionBoard />}></Route>
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/films" element={<BookingController />}></Route>

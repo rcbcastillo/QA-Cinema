@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { MovieContext } from "./BookingController";
+import axios from "axios";
 
 const TicketOffice = () => {
   // Chosen film includes the screen, date and time for the film
@@ -12,30 +13,78 @@ const TicketOffice = () => {
     concessions: 0,
   });
 
+  const [checkoutURL, setCheckoutURL] = useState("");
+
+  const sendStripeReq = () => {
+    let requestBody = {};
+
+    // populate requestBody with key-value pairs using values from formData (useState)
+    if (formData.adults > 0) {
+      requestBody.adult = formData.adults;
+    }
+    if (formData.children > 0) {
+      requestBody.child = formData.children;
+    }
+    if (formData.concessions > 0) {
+      requestBody.concession = formData.concessions;
+    }
+
+    console.log(requestBody);
+
+    const url = "http://localhost:9090/create-checkout-session";
+    axios
+      .post(url, {
+        requestBody,
+      })
+      .then((response) => {
+        console.log("url returned: " + response.data);
+        setCheckoutURL(response.data);
+        console.log("useState: " + checkoutURL);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    console.log("useEffect executing");
+
+    if (checkoutURL !== "") {
+      window.location.href = checkoutURL;
+    }
+  }, [checkoutURL]);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  // On submit, send booking info to backend
+  // For Stripe API to process
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { adults, children, concessions } = formData;
-    console.log(`Adult tickets: ${adults} Child tickets: ${children} Concession Tickets: ${concessions}`);
+    // Wait for Stripe to return checkout page URL
+    // Then useEffect redirects browser to checkout page
+    await sendStripeReq();
   };
 
   // Show the screen, date and time and allow the user to select
   // number of tickets by type.
   return (
     <div className="w-full h-full">
-      <div className="flex p-4 m-8">
-        <h3 className="custom-header">{chosenMovie.Title}</h3>
+      <div className="flex p-4 m-4">
         <div className="">
           <article>
+            <h3 className="custom-header">{chosenMovie.Title}</h3>
             {/* Output the screen, time and date */}
             <h6>Screen: {chosenMovie.ScreenNum}</h6>
             <h6>Date: {screenDate.toDateString()}</h6>
-            <h6>Time: {screenDate.toTimeString()}</h6>
+            {chosenMovie.ScreenNum === "TBC" ? (
+              <></>
+            ) : (
+              <h6>Time: {screenDate.toLocaleTimeString()}</h6>
+            )}
           </article>
         </div>
       </div>
@@ -44,11 +93,11 @@ const TicketOffice = () => {
         className="shadow-md place-items-center rounded"
         onSubmit={handleSubmit}
       >
-        <div className="flex p-2">
+        <div className="flex-auto w-3/5 ml-10">
           <label className="">
             Adult tickets - £3.00
             <input
-              className="ml-2 text-black rounded"
+              className="m-2 text-black rounded text-right hover:bg-metallic-steel"
               type="number"
               id="adults"
               name="adults"
@@ -61,7 +110,7 @@ const TicketOffice = () => {
           <label className="">
             Child tickets - £2.00
             <input
-              className="ml-2 text-black rounded"
+              className="m-2 text-black rounded text-right hover:bg-metallic-steel"
               type="number"
               id="children"
               name="children"
@@ -74,7 +123,7 @@ const TicketOffice = () => {
           <label className="">
             Concession tickets - £1.00
             <input
-              className="ml-2t text-black rounded"
+              className="m-2 text-black rounded text-right hover:bg-metallic-steel"
               type="number"
               id="concessions"
               name="concessions"
@@ -84,17 +133,18 @@ const TicketOffice = () => {
               onChange={handleChange}
             ></input>
           </label>
-        </div>
-        {/* <button className="border-2 mb-11"> */}
-        <button className="sm-custom-button mb-11" type="submit">
-          Proceed to payment
-        </button>
-        <button
-          className="sm-custom-button mb-11"
-          // type="reset"
-          onClick={() => setChosenMovie(null)}>
+          {/* <button className="border-2 mb-11"> */}
+          <button className="sm-custom-button mb-11" type="submit">
+            Proceed to payment
+          </button>
+          <button
+            className="sm-custom-button mb-11"
+            // type="reset"
+            onClick={() => setChosenMovie(null)}
+          >
             Cancel
-        </button>
+          </button>
+        </div>
       </form>
     </div>
   );

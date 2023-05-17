@@ -16,14 +16,14 @@ const CommentPanel = ({ movie }) => {
     return (
       //  Create and return a panel for one movie
       <>
-        <div className="inner-panel-img-div-without-hovering">
-          <p className="text-center">{movie.Title}</p>
+        <div className="inner-panel-img-div">
           <img src={movie.Poster} alt={`movie poster for ${movie.Title}`}></img>
         </div>
         {/* Note: '...' class doesn't seem to work in index.css 
                 so it's not been extracted as custom class*/}
         <div className="col-start-2 col-end-6 ...">
           <div className="py-8 ml-6">
+            <p className="text-center custom-header">{movie.Title}</p>
             <div className="comments-onclick">
               <button onClick={() => setShowComments((current) => !current)}>
                 {showComments ? "Hide comments" : "See comments"}

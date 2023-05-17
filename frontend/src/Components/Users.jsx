@@ -16,7 +16,7 @@ import logo from '/Users/Admin/QA-Cinema/frontend/src/logo.svg'
 import SignUp from "./SignUp";
 import { useState, useEffect } from "react";
 import { UserContext } from "./LoginController";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import * as api from "../api";
 
@@ -25,6 +25,7 @@ const Users = (props) => {
     //update sign up form to match the data from db
     //if data matches then display username or 
 
+    const navigate = useNavigate();
     //get users from database
     const [users, setUsers] = useState([]);
     
@@ -147,6 +148,9 @@ const Users = (props) => {
     </>
   );
     } else {
+        //show not found page
+        //clear url
+        navigate("/signin")
         console.log("not found")
         console.log(result)
         console.log(users)

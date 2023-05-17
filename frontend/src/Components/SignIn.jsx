@@ -7,9 +7,11 @@ import {
   } from "@material-tailwind/react";
 import { useState } from "react";
 import { UserContext } from "./LoginController";
+import { useNavigate } from "react-router-dom";
   
   const SignIn = () => {
 
+    const navigate = useNavigate()
     //const { user } = useContext(UserContext)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -23,7 +25,7 @@ import { UserContext } from "./LoginController";
       setPassword(inputs.password)
       alert(JSON.stringify(inputs));
       //setUser({username: inputs.username, email: inputs.email, password: inputs.password})
-      
+      navigate(`/user?username=${inputs.username}`);
     }; 
 
     return (

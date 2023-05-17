@@ -195,7 +195,7 @@ const NavbarComponent = () => {
   }
   const userRedirect = (id) => {
     if (id === 1) {
-      navigate("/user")
+      navigate("/signin")
     }
     if (id === 2) {
       navigate("/signup")

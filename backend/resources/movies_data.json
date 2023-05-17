@@ -38,7 +38,9 @@
     "Production": "N/A",
     "Website": "N/A",
     "Response": "True",
-    "isShowing": "True"
+    "isShowing": "True",
+    "ScreenNum": "1",
+    "ScreenDateTime": "2023-05-20T19:30" 
   },
   {
     "Title": "Deadpool",
@@ -79,7 +81,9 @@
     "Production": "N/A",
     "Website": "N/A",
     "Response": "True",
-    "isShowing": "True"
+    "isShowing": "True",
+    "ScreenNum": "2",
+    "ScreenDateTime": "2023-05-20T20:30" 
   },
   {
     "Title": "Shaun of the Dead",
@@ -120,7 +124,9 @@
     "Production": "N/A",
     "Website": "N/A",
     "Response": "True",
-    "isShowing": "True"
+    "isShowing": "True",
+    "ScreenNum": "3",
+    "ScreenDateTime": "2023-05-20T20:00" 
   },
   {
     "Title": "Star Wars: Episode III - Revenge of the Sith",
@@ -161,7 +167,9 @@
     "Production": "N/A",
     "Website": "N/A",
     "Response": "True",
-    "isShowing": "True"
+    "isShowing": "True",
+    "ScreenNum": "1",
+    "ScreenDateTime": "2023-05-21T19:30" 
   },
   {
     "Title": "Halloween",
@@ -202,7 +210,9 @@
     "Production": "N/A",
     "Website": "N/A",
     "Response": "True",
-    "isShowing": "True"
+    "isShowing": "True",
+    "ScreenNum": "2",
+    "ScreenDateTime": "2023-05-21T20:30" 
   },
   {
     "Title": "Space Jam",
@@ -243,7 +253,9 @@
     "Production": "N/A",
     "Website": "N/A",
     "Response": "True",
-    "isShowing": "True"
+    "isShowing": "True",
+    "ScreenNum": "3",
+    "ScreenDateTime": "2023-05-21T20:00" 
   },
   {
     "Title": "Scream",
@@ -284,7 +296,9 @@
     "Production": "N/A",
     "Website": "N/A",
     "Response": "True",
-    "isShowing": "False"
+    "isShowing": "False",
+    "ScreenNum": "TBC",
+    "ScreenDateTime": "2023-06-01" 
   },
   {
     "Title": "House of Wax",
@@ -325,7 +339,9 @@
     "Production": "N/A",
     "Website": "N/A",
     "Response": "True",
-    "isShowing": "False"
+    "isShowing": "False",
+    "ScreenNum": "TBC",
+    "ScreenDateTime": "2023-06-01" 
   },
   {
     "Title": "Pixels",
@@ -366,7 +382,9 @@
     "Production": "N/A",
     "Website": "N/A",
     "Response": "True",
-    "isShowing": "False"
+    "isShowing": "False",
+    "ScreenNum": "TBC",
+    "ScreenDateTime": "2023-06-01" 
   },
   {
     "Title": "Hot Fuzz",
@@ -407,7 +425,9 @@
     "Production": "N/A",
     "Website": "N/A",
     "Response": "True",
-    "isShowing": "False"
+    "isShowing": "False",
+    "ScreenNum": "TBC",
+    "ScreenDateTime": "2023-06-02" 
   },
   {
     "Title": "Shrek",
@@ -448,7 +468,9 @@
     "Production": "N/A",
     "Website": "N/A",
     "Response": "True",
-    "isShowing": "False"
+    "isShowing": "False",
+    "ScreenNum": "TBC",
+    "ScreenDateTime": "2023-06-02" 
   },
   {
     "Title": "Frozen",
@@ -489,6 +511,8 @@
     "Production": "N/A",
     "Website": "N/A",
     "Response": "True",
-    "isShowing": "False"
+    "isShowing": "False",
+    "ScreenNum": "TBC",
+    "ScreenDateTime": "2023-06-02" 
   }
 ]

@@ -79,7 +79,7 @@ export async function createComment(newComment) {
 export async function getCommentsByMovieId(movieId) {
   try {
     const response = await axios.get(
-      `http://localhost:9090/readCommentsByMovieId/${movieId}`
+      `http://localhost:9090/comments/readCommentsByMovieId/${movieId}`
     );
     return response.data;
   } catch (err) {

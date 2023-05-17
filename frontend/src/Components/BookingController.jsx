@@ -5,7 +5,6 @@ import TicketOffice from './TicketOffice';
 export const MovieContext = createContext();
 export const BookingController = () => {
 
-    //const [chosenFilmId, setChosenFilmId] = useState(null)
     const [chosenMovie, setChosenMovie] = useState(null)
 
     return (

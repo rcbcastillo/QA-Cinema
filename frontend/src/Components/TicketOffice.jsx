@@ -68,14 +68,15 @@ const TicketOffice = () => {
   // number of tickets by type.
   return (
     <div className="w-full h-full">
-      <div className="flex p-4 m-8">
-        <h3 className="custom-header">{chosenMovie.Title}</h3>
+      <div className="flex p-4 m-4">
         <div className="">
           <article>
+            <h3 className="custom-header">{chosenMovie.Title}</h3>
             {/* Output the screen, time and date */}
             <h6>Screen: {chosenMovie.ScreenNum}</h6>
             <h6>Date: {screenDate.toDateString()}</h6>
-            <h6>Time: {screenDate.toTimeString()}</h6>
+            {(chosenMovie.ScreenNum === "TBC") ? 
+              <></> : <h6>Time: {screenDate.toLocaleTimeString()}</h6>}
           </article>
         </div>
       </div>
@@ -84,11 +85,11 @@ const TicketOffice = () => {
         className="shadow-md place-items-center rounded"
         onSubmit={handleSubmit}
       >
-        <div className="flex p-2">
+        <div className="flex-auto w-3/5 ml-10">
           <label className="">
             Adult tickets - £3.00
             <input
-              className="ml-2 text-black rounded"
+              className="m-2 text-black rounded text-right hover:bg-metallic-steel"
               type="number"
               id="adults"
               name="adults"
@@ -101,7 +102,7 @@ const TicketOffice = () => {
           <label className="">
             Child tickets - £2.00
             <input
-              className="ml-2 text-black rounded"
+              className="m-2 text-black rounded text-right hover:bg-metallic-steel"
               type="number"
               id="children"
               name="children"
@@ -114,7 +115,7 @@ const TicketOffice = () => {
           <label className="">
             Concession tickets - £1.00
             <input
-              className="ml-2t text-black rounded"
+              className="m-2 text-black rounded text-right hover:bg-metallic-steel"
               type="number"
               id="concessions"
               name="concessions"
@@ -124,18 +125,18 @@ const TicketOffice = () => {
               onChange={handleChange}
             ></input>
           </label>
+          {/* <button className="border-2 mb-11"> */}
+          <button className="sm-custom-button mb-11" type="submit">
+            Proceed to payment
+          </button>
+          <button
+            className="sm-custom-button mb-11"
+            // type="reset"
+            onClick={() => setChosenMovie(null)}
+          >
+            Cancel
+          </button>
         </div>
-        {/* <button className="border-2 mb-11"> */}
-        <button className="sm-custom-button mb-11" type="submit">
-          Proceed to payment
-        </button>
-        <button
-          className="sm-custom-button mb-11"
-          // type="reset"
-          onClick={() => setChosenMovie(null)}
-        >
-          Cancel
-        </button>
       </form>
     </div>
   );

@@ -40,7 +40,7 @@
     "Response": "True",
     "isShowing": "True",
     "ScreenNum": "1",
-    "ScreenDateTime": "2023-05-20T19:30" 
+    "ScreenDateTime": "2023-05-20T19:30"
   },
   {
     "Title": "Deadpool",
@@ -83,7 +83,7 @@
     "Response": "True",
     "isShowing": "True",
     "ScreenNum": "2",
-    "ScreenDateTime": "2023-05-20T20:30" 
+    "ScreenDateTime": "2023-05-20T20:30"
   },
   {
     "Title": "Shaun of the Dead",
@@ -126,7 +126,7 @@
     "Response": "True",
     "isShowing": "True",
     "ScreenNum": "3",
-    "ScreenDateTime": "2023-05-20T20:00" 
+    "ScreenDateTime": "2023-05-20T20:00"
   },
   {
     "Title": "Star Wars: Episode III - Revenge of the Sith",
@@ -169,7 +169,7 @@
     "Response": "True",
     "isShowing": "True",
     "ScreenNum": "1",
-    "ScreenDateTime": "2023-05-21T19:30" 
+    "ScreenDateTime": "2023-05-21T19:30"
   },
   {
     "Title": "Halloween",
@@ -212,7 +212,7 @@
     "Response": "True",
     "isShowing": "True",
     "ScreenNum": "2",
-    "ScreenDateTime": "2023-05-21T20:30" 
+    "ScreenDateTime": "2023-05-21T20:30"
   },
   {
     "Title": "Space Jam",
@@ -255,7 +255,7 @@
     "Response": "True",
     "isShowing": "True",
     "ScreenNum": "3",
-    "ScreenDateTime": "2023-05-21T20:00" 
+    "ScreenDateTime": "2023-05-21T20:00"
   },
   {
     "Title": "Scream",
@@ -298,7 +298,7 @@
     "Response": "True",
     "isShowing": "False",
     "ScreenNum": "TBC",
-    "ScreenDateTime": "2023-06-01" 
+    "ScreenDateTime": "2023-06-01"
   },
   {
     "Title": "House of Wax",
@@ -341,7 +341,7 @@
     "Response": "True",
     "isShowing": "False",
     "ScreenNum": "TBC",
-    "ScreenDateTime": "2023-06-01" 
+    "ScreenDateTime": "2023-06-01"
   },
   {
     "Title": "Pixels",
@@ -384,7 +384,7 @@
     "Response": "True",
     "isShowing": "False",
     "ScreenNum": "TBC",
-    "ScreenDateTime": "2023-06-01" 
+    "ScreenDateTime": "2023-06-01"
   },
   {
     "Title": "Hot Fuzz",
@@ -427,7 +427,7 @@
     "Response": "True",
     "isShowing": "False",
     "ScreenNum": "TBC",
-    "ScreenDateTime": "2023-06-02" 
+    "ScreenDateTime": "2023-06-02"
   },
   {
     "Title": "Shrek",
@@ -470,7 +470,7 @@
     "Response": "True",
     "isShowing": "False",
     "ScreenNum": "TBC",
-    "ScreenDateTime": "2023-06-02" 
+    "ScreenDateTime": "2023-06-02"
   },
   {
     "Title": "Frozen",
@@ -513,6 +513,6 @@
     "Response": "True",
     "isShowing": "False",
     "ScreenNum": "TBC",
-    "ScreenDateTime": "2023-06-02" 
+    "ScreenDateTime": "2023-06-02"
   }
 ]

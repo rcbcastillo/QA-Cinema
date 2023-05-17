@@ -1,19 +1,18 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, } from 'react-router-dom';
-import './App.css';
-import Navbar from './Components/Navbar'
-import Home from './Components/Home';
-import About from './Components/About';
-import Location from './Components/Location';
-import Footer from './Components/Footer';
-import OpenHrs from './Components/OpenHrs';
-import Gallery from './Components/Gallery';
-import ContactForm from './Components/ContactForm';
-import MovieRatings from './Components/MovieRatings';
-import { BookingController } from './Components/BookingController';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Navbar from "./Components/Navbar";
+import Home from "./Components/Home";
+import About from "./Components/About";
+import Location from "./Components/Location";
+import Footer from "./Components/Footer";
+import OpenHrs from "./Components/OpenHrs";
+import Gallery from "./Components/Gallery";
+import ContactForm from "./Components/ContactForm";
+import MovieRatings from "./Components/MovieRatings";
+import { BookingController } from "./Components/BookingController";
 
 import BookingsTest from "./Components/BookingsTest";
-
 
 function App() {
   //to do:
@@ -21,20 +20,20 @@ function App() {
   //location embedded
   return (
     <>
-    <BookingsTest />
-    <BrowserRouter>
-    <Navbar/>
-    <Routes>
-      <Route path='/' element={<Home/>}></Route>
-      <Route path='/about' element={<About/>}></Route>
-      <Route path='/films' element={<BookingController/>}></Route>
-      <Route path='/opening-hours' element={<OpenHrs/>}></Route>
-      <Route path='/location' element={<Location/>}></Route>
-      <Route path='/contact-form' element={<ContactForm/>}></Route>
-      <Route path='/classifications' element={<MovieRatings/>}></Route>
-    </Routes>
-    <Footer/>
-    </BrowserRouter>
+      <BookingsTest />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/films" element={<BookingController />}></Route>
+          <Route path="/opening-hours" element={<OpenHrs />}></Route>
+          <Route path="/location" element={<Location />}></Route>
+          <Route path="/contact-form" element={<ContactForm />}></Route>
+          <Route path="/classifications" element={<MovieRatings />}></Route>
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }

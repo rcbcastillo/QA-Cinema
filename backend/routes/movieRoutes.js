@@ -29,4 +29,16 @@ movieRouter.post("/create", async ({ body }, res, next) => {
   }
 });
 
+movieRouter.post("/createMany", async ({ body }, res, next) => {
+  try {
+    const createdMovies = await movieModel.insertMany(body);
+    res.status(201).json(createdMovies);
+  } catch (err) {
+    return next({
+      status: 500,
+      msg: err.message,
+    });
+  }
+});
+
 module.exports = movieRouter;

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { MovieContext } from "./BookingController";
 import axios from "axios";
 
@@ -37,31 +37,36 @@ const TicketOffice = () => {
         requestBody,
       })
       .then((response) => {
-        console.log(response.data);
+        console.log("url returned: " + response.data);
         setCheckoutURL(response.data);
+        console.log("useState: " + checkoutURL);
       })
       .catch((error) => {
         console.error(error);
       });
   };
 
+  useEffect(() => {
+    console.log("useEffect executing");
+
+    if (checkoutURL !== "") {
+      window.location.href = checkoutURL;
+    }
+  }, [checkoutURL]);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
-  // Use this event to submit Stripe API request?
+  // On submit, send booking info to backend
+  // For Stripe API to process
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // Wait for Stripe to return checkout page URL
+    // Then useEffect redirects browser to checkout page
     await sendStripeReq();
-    // when response comes back, redirect to the Stripe checkout
-    // using useState value for "checkoutURL"
-
-    // const { adults, children, concessions } = formData;
-    // console.log(
-    //   `Adult tickets: ${adults} Child tickets: ${children} Concession Tickets: ${concessions}`
-    // );
   };
 
   // Show the screen, date and time and allow the user to select
@@ -75,8 +80,11 @@ const TicketOffice = () => {
             {/* Output the screen, time and date */}
             <h6>Screen: {chosenMovie.ScreenNum}</h6>
             <h6>Date: {screenDate.toDateString()}</h6>
-            {(chosenMovie.ScreenNum === "TBC") ? 
-              <></> : <h6>Time: {screenDate.toLocaleTimeString()}</h6>}
+            {chosenMovie.ScreenNum === "TBC" ? (
+              <></>
+            ) : (
+              <h6>Time: {screenDate.toLocaleTimeString()}</h6>
+            )}
           </article>
         </div>
       </div>

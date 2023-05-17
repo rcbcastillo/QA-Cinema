@@ -19,8 +19,6 @@ function App() {
   //location embedded
   return (
     <>
-      {/* <StripeCheckoutExample /> */}
-      <BookingsTest />
       <BrowserRouter>
         <Navbar />
         <Routes>

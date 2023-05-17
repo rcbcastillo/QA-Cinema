@@ -59,8 +59,10 @@ app.post("/create-checkout-session", async ({ body }, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: stripeLineItems,
     mode: "payment",
-    success_url: `http://localhost:3000/payment-success`,
-    cancel_url: `http://localhost:3000/films`,
+    success_url:
+      "http://localhost:3000/payment-success?session_id={CHECKOUT_SESSION_ID}",
+    // TODO: dedicated cancellation page
+    cancel_url: "http://localhost:3000/films",
   });
 
   res.send(session.url);

@@ -1,5 +1,7 @@
 import React from "react";
 import cinema_img from "../assets/cinema_image.jpg";
+import nellsLogo from "../assets/placeImages/nells_logo.jpg";
+import nellsPlace from "../assets/placeImages/nells_place.jpg";
 
 const Location = () => {
   return (
@@ -11,7 +13,8 @@ const Location = () => {
             <p className="pb-3">
               The QA Cinema is conveniently located in the heart of Manchester,
               in a beautiful old 1920s art-deco style building on Portland
-              Street, close to public transport links and lots of restaurants and attractions.
+              Street, close to public transport links and lots of restaurants
+              and attractions.
             </p>
             <h4>Our Address:</h4>
             <ul className="my-2 pl-2">
@@ -96,32 +99,45 @@ const Location = () => {
             </article>
           </div>
         </div>
-        {/* <h4 className="custom-header">Places to go...</h4>
-        <div className="outer-panel-div">
+      </div>
+
+      <div className="outer-panel-div">
+        <h4 className="custom-header">Places to go...</h4>
         <div className="pt-3 my-2 col-start-1 col-span-3">
-          <h4 className="custom-header"></h4>
+          <img 
+          src={nellsLogo} 
+          alt="Logo for Nell's pizza" 
+          width="300"
+          height="50"
+          ></img>
+
+          <h4 className="custom-header">Nell's - New York Pizza</h4>
           <article className="pl-10 mb-4">
-            <p className="pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde deserunt excepturi corrupti nihil aperiam nulla maiores dolorem aut illum rem dolore eos ex, nisi error quod doloremque eius. Reiciendis, dicta!
+            <p className="pb-3">
+              A convienient 5 minutes walk away from the QA Cinema is Nell's, a
+              New York style bar and pizza place. Great for group outings and larger parties!
+              Show 2 QA Cinema tickets for a free side order of 
             </p>
-            <h4></h4>
+            <h4>Contact - 0161 806 0516</h4>
             <ul className="my-2 pl-2">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
+              <li>Nell’s New York Pizza & Bar,</li>
+              <li>20 Minshull St,</li>
+              <li>Kampus,</li>
+              <li>Manchester</li>
+              <li>M1 3EF</li>
+              
             </ul>
           </article>
         </div>
-        <div className="col-start-4 col-end-8 ... my-4">
+        <div className="col-start-4 col-end-8 ... m-4">
           <img
-            src={}
+            src={nellsPlace}
+            alt="Front of Nells New York Pizza and Bar"
             width="300"
             height="400"
           ></img>
         </div>
       </div>
-      </div> */}
     </>
   );
 };

@@ -44,15 +44,16 @@ const PaymentSuccess = () => {
                   <td className="custom-td">{sessionId}</td>
                 </tr>
                 <tr className="p-2">
-                  <th className="custom-th">Sreening Date</th>
+                  <th className="custom-th">Screening Date</th>
                   <td className="custom-td">{bookingDate.toDateString()}</td>
                 </tr>
                 {/* Construct time from hours and mins as the timeString methods are
               either too verbose, or add +1 hour for British Summer time */}
                 <tr className="p-2">
-                  <th className="custom-th">Sreening Time</th>
+                  <th className="custom-th">Screening Time</th>
                   <td className="custom-td">
-                    {bookingDate.getUTCHours()}:{bookingDate.getMinutes()}
+                    {bookingDate.getUTCHours()}:
+                    {bookingDate.getMinutes().toString().padStart(2, "0")}
                   </td>
                 </tr>
                 <tr className="p-2">

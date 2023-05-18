@@ -40,9 +40,7 @@ const TicketOffice = () => {
         requestBody,
       })
       .then((response) => {
-        console.log("url returned: " + response.data);
         setCheckoutURL(response.data);
-        console.log("useState: " + checkoutURL);
       })
       .catch((error) => {
         console.error(error);

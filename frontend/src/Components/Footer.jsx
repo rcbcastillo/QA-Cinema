@@ -1,25 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container , Row, Col} from 'react-bootstrap'  
 import MovieRatings from './MovieRatings';
 
 const Footer = () => {
-    const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-    const title = "Lorem Ipsum";
-
-    const columns = [{
-        },{
-        link: <Link to="/about">About</Link>
-        },{
-            link: <Link to="/">Opening times</Link>
-        },{
-            link: <Link to="/classifications"><MovieRatings/></Link>
-        }];
-
+    
         return (
             <footer className="bg-pearl-aqua">
-                
                 <Container>
                     <Row>
                         <Col><h3><u>Useful Information:</u></h3></Col>

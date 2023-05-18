@@ -44,6 +44,12 @@ const PaymentSuccess = () => {
                   <td className="custom-td text-xs">{sessionId}</td>
                 </tr>
                 <tr className="p-2">
+                  <th className="custom-th">Customer</th>
+                  <td className="custom-td">
+                    {bookingRes.firstName + " " + bookingRes.lastName}
+                  </td>
+                </tr>
+                <tr className="p-2">
                   <th className="custom-th">Screening Date</th>
                   <td className="custom-td">{bookingDate.toDateString()}</td>
                 </tr>

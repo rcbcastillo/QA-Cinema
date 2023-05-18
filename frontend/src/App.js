@@ -28,7 +28,7 @@ function App() {
     <>
     {/* <BookingsTest /> */}
     <BrowserRouter>
-        <Navbar />
+        <NavbarComponent />
         <Routes>
           <Route path="/comments" element={<DiscussionBoard />}></Route>
           <Route path="/" element={<Home />}></Route>

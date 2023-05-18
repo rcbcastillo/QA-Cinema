@@ -2,6 +2,7 @@ import React from "react";
 import cinema_img from "../assets/cinema_image.jpg";
 import nellsLogo from "../assets/placeImages/nells_logo.jpg";
 import nellsPlace from "../assets/placeImages/nells_place.jpg";
+import crystalMaze from "../assets/placeImages/crystal_maze.jpg";
 
 const Location = () => {
   return (
@@ -104,19 +105,25 @@ const Location = () => {
       <div className="outer-panel-div">
         <h4 className="custom-header">Places to go...</h4>
         <div className="pt-3 my-2 col-start-1 col-span-3">
-          <img 
-          src={nellsLogo} 
-          alt="Logo for Nell's pizza" 
-          width="300"
-          height="50"
+          <img
+            src={nellsLogo}
+            alt="Logo for Nell's pizza"
+            width="300"
+            height="50"
           ></img>
 
           <h4 className="custom-header">Nell's - New York Pizza</h4>
           <article className="pl-10 mb-4">
             <p className="pb-3">
               A convienient 5 minutes walk away from the QA Cinema is Nell's, a
-              New York style bar and pizza place. Great for group outings and larger parties!
-              Show 2 QA Cinema tickets for a free side order of 
+              New York style bar and pizza place. Great for group outings and
+              larger parties.
+            </p>
+            <p className="mb-4">
+              <strong>
+                Show 2 QA Cinema tickets for a free ice cream with every 2
+                pizzas!!
+              </strong>
             </p>
             <h4>Contact - 0161 806 0516</h4>
             <ul className="my-2 pl-2">
@@ -125,7 +132,12 @@ const Location = () => {
               <li>Kampus,</li>
               <li>Manchester</li>
               <li>M1 3EF</li>
-              
+              <a
+                className="underline"
+                href="https://www.nellspizza.co.uk/nells-kampus/"
+              >
+                Nell's website
+              </a>
             </ul>
           </article>
         </div>
@@ -133,6 +145,44 @@ const Location = () => {
           <img
             src={nellsPlace}
             alt="Front of Nells New York Pizza and Bar"
+            width="300"
+            height="400"
+          ></img>
+        </div>
+      </div>
+      <div className="outer-panel-div">
+        <div className="pt-3 my-2 col-start-1 col-span-3">
+          <h4 className="custom-header">The Crystal Maze Experience</h4>
+          <article className="pl-10 mb-4">
+            <p className="pb-3">
+              Just 16 minutes by foot or 7 minutes on the free number 1 bus, is
+              the exciting Crystal Maze experience. An interactive team game set
+              in 4 adventure zones, just like the popular 1990s TV show.
+            </p>
+            <p className="mb-4">
+              <strong>
+                Show 4 QA Cinema tickets to get one of your party in for free!
+              </strong>
+            </p>
+            <ul className="my-2 pl-2">
+              <li>The Crystal Maze Experience</li>
+              <li>St Johns,</li>
+              <li>Lower Byrom Street,</li>
+              <li>Manchester</li>
+              <li>M3 4FP</li>
+              <a
+                className="underline"
+                href="https://the-crystal-maze.com/manchester/"
+              >
+                Crystal Maze website
+              </a>
+            </ul>
+          </article>
+        </div>
+        <div className="col-start-4 col-end-8 ... m-4">
+          <img
+            src={crystalMaze}
+            alt="Front of the Crystal Maze experience unit"
             width="300"
             height="400"
           ></img>

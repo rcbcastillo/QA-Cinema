@@ -20,6 +20,8 @@ const TicketOffice = () => {
     adults: 0,
     children: 0,
     concessions: 0,
+    firstName: "",
+    lastName: "",
   });
 
   const [checkoutURL, setCheckoutURL] = useState("");
@@ -40,6 +42,8 @@ const TicketOffice = () => {
     }
 
     requestBody.movie = chosenMovie;
+    requestBody.firstName = formData.firstName;
+    requestBody.lastName = formData.lastName;
 
     console.log(requestBody);
 
@@ -85,10 +89,9 @@ const TicketOffice = () => {
   // Show the screen, date and time and allow the user to select
   // number of tickets by type.
   return (
-    <div className="flex-auto align-centre">
-      <div className="flex">
-        <h3 className="custom-header">{chosenMovie.Title}</h3>
-        {/* <div className=""> */}
+    <div className="flex-auto ml-20">
+      <h3 className="custom-header">{chosenMovie.Title}</h3>
+      <div className="pl-6 pb-3">
         <section>
           {/* Output the screen, time and date */}
           <Link to="/screens">
@@ -102,15 +105,38 @@ const TicketOffice = () => {
           ) : (
             <h6>
               Time: {screenDate.getUTCHours()}:
-              {screenDate.getMinutes().toFixed(2)}
+              {screenDate.getMinutes().toString().padStart(2, "0")}
             </h6>
           )}
         </section>
-        {/* </div> */}
       </div>
 
       <form className="shadow-md rounded" onSubmit={handleSubmit}>
         <div className="flex-auto w-3/5 ml-10 place-items-end">
+          <label>
+            First name:
+            <input
+              className="m-2 text-black rounded text-left pl-2 hover:bg-metallic-steel"
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="First name"
+              value={formData.firstName}
+              onChange={handleChange}
+            ></input>
+          </label>
+          <label>
+            Surname:
+            <input
+              className="m-2 text-black rounded text-left pl-2 hover:bg-metallic-steel"
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+            ></input>
+          </label>
           <label className="">
             <span className="inline-block">Adult tickets - £3.00</span>
             <input

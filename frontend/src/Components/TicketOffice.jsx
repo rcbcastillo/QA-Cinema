@@ -8,6 +8,14 @@ const TicketOffice = () => {
   const { chosenMovie, setChosenMovie } = useContext(MovieContext);
   const screenDate = new Date(chosenMovie.ScreenDateTime);
 
+  //hardcoded data for now
+  //localStorage.setItem("firstname", {firstname})
+  localStorage.setItem("firstname", "amalik");
+  localStorage.setItem("lstname", "malik");
+
+  const firstname = localStorage.getItem("firstname");
+  const lastname = localStorage.getItem("lastname");
+
   const [formData, setFormData] = useState({
     adults: 0,
     children: 0,
@@ -79,27 +87,29 @@ const TicketOffice = () => {
   return (
     <div className="flex-auto align-centre">
       <div className="flex">
-      <h3 className="custom-header">{chosenMovie.Title}</h3>
+        <h3 className="custom-header">{chosenMovie.Title}</h3>
         {/* <div className=""> */}
-          <section>
-            {/* Output the screen, time and date */}
-            <Link to="/screens">
-              <h6 className='font-semibold underline py-2'>Screen: {chosenMovie.ScreenNum}</h6>
-            </Link>
-            <h6>Date: {screenDate.toDateString()}</h6>
-            {chosenMovie.ScreenNum === "TBC" ? (
-              <></>
-            ) : (
-              <h6>Time: {screenDate.getUTCHours()}:{screenDate.getMinutes().toFixed(2)}</h6>
-            )}
-          </section>
+        <section>
+          {/* Output the screen, time and date */}
+          <Link to="/screens">
+            <h6 className="font-semibold underline py-2">
+              Screen: {chosenMovie.ScreenNum}
+            </h6>
+          </Link>
+          <h6>Date: {screenDate.toDateString()}</h6>
+          {chosenMovie.ScreenNum === "TBC" ? (
+            <></>
+          ) : (
+            <h6>
+              Time: {screenDate.getUTCHours()}:
+              {screenDate.getMinutes().toFixed(2)}
+            </h6>
+          )}
+        </section>
         {/* </div> */}
       </div>
 
-      <form
-        className="shadow-md rounded"
-        onSubmit={handleSubmit}
-      >
+      <form className="shadow-md rounded" onSubmit={handleSubmit}>
         <div className="flex-auto w-3/5 ml-10 place-items-end">
           <label className="">
             <span className="inline-block">Adult tickets - £3.00</span>

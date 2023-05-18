@@ -2,15 +2,11 @@ import React, { useState, useEffect } from "react";
 import * as api from "../api";
 import CommentsList from "./CommentsList";
 import CommentForm from "./CommentForm";
+import RatingComments from "./RatingComments";
 
 const CommentPanel = ({ movie }) => {
   const [comments, setComments] = useState([]);
   const [showComments, setShowComments] = useState(false);
-  const [visible, setVisible] = useState(false);
-
-  const handleCommentSubmit = () => {
-    visible = true;
-  };
 
   useEffect(() => {
     api
@@ -44,6 +40,9 @@ const CommentPanel = ({ movie }) => {
 
             <div className="write-comments">
               <CommentForm handleSubmit={addComment} />
+            </div>
+            <div className="flex justify-end ...">
+              <RatingComments totalStars={5} />
             </div>
           </div>
         </div>

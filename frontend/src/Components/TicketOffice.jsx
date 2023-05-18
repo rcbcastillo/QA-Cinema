@@ -10,11 +10,11 @@ const TicketOffice = () => {
 
   //hardcoded data for now
   //localStorage.setItem("firstname", {firstname})
-  localStorage.setItem("firstname", "amalik");
-  localStorage.setItem("lstname", "malik");
+  // localStorage.setItem("firstname", "amalik");
+  // localStorage.setItem("lstname", "malik");
 
-  const firstname = localStorage.getItem("firstname");
-  const lastname = localStorage.getItem("lastname");
+  // const firstname = localStorage.getItem("firstname");
+  // const lastname = localStorage.getItem("lastname");
 
   const [formData, setFormData] = useState({
     adults: 0,

@@ -12,7 +12,7 @@ import {
     TimelineIcon,
     TimelineBody,
   } from "@material-tailwind/react";
-import logo from '/Users/Admin/QA-Cinema/frontend/src/logo.svg'
+import logo from '../logo.svg'
 import SignUp from "./SignUp";
 import { useState, useEffect } from "react";
 import { UserContext } from "./LoginController";

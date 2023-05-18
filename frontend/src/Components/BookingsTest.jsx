@@ -4,6 +4,8 @@ import * as api from "../api";
 const BookingsTest = () => {
   const [bookings, setBookings] = useState([]);
   const [movies, setMovies] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     api.getBookings().then((response) => {
@@ -12,9 +14,15 @@ const BookingsTest = () => {
     api.getMovies().then((response) => {
       setMovies(response);
     });
+    api.getUsers().then((response) => {
+      setUsers(response);
+    });
+    api.getComments().then((response) => {
+      setComments(response);
+    });
   }, []);
 
-  if ((bookings, movies)) {
+  if ((bookings, movies, users, bookings)) {
     return (
       <>
         <h1>Bookings test</h1>
@@ -31,6 +39,20 @@ const BookingsTest = () => {
         {movies.map((movie, index) => (
           <ul key={index}>
             <p>Title: {movie.Title}</p>
+          </ul>
+        ))}
+
+        <h1>Users title</h1>
+        {users.map((user, index) => (
+          <ul key={index}>
+            <p>Title: {user.Title}</p>
+          </ul>
+        ))}
+
+        <h1>Comments title</h1>
+        {comments.map((comment, index) => (
+          <ul key={index}>
+            <p>Title: {comment.message}</p>
           </ul>
         ))}
       </>

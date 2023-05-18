@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { FilmContext } from "./BookingController";
+import { MovieContext } from "./BookingController";
 
 const MoviePanel = ({ movie, buttonText }) => {
 
-  const { chosenFilmId, setChosenFilmId } = useContext(FilmContext);
+  const { chosenMovie, setChosenMovie } = useContext(MovieContext);
 
   return (
     //  Create and return a panel for one movie
@@ -27,14 +27,14 @@ const MoviePanel = ({ movie, buttonText }) => {
               </li>
               <li className="inline pr-1">{movie.Runtime}</li>
             </ul>
-            <h2 className="pb-3">{movie.Actors}</h2>
-            <h2 className="pb-3">{movie.Director}</h2>
-            <p className="text-sm pb-5">{movie.Plot}</p>
+            <h2 className="pb-3">Starring: {movie.Actors}</h2>
+            <h2 className="pb-3">Directed by: {movie.Director}</h2>
+            <p className="text-sm pb-5">{movie.Plot}</p> 
           </article>
 
           <button
             className="custom-button"
-            onClick={() => setChosenFilmId(movie._id)}
+            onClick={() => setChosenMovie(movie)}
           >
             {buttonText}
           </button>

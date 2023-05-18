@@ -23,7 +23,7 @@
 
 - Test coverage: 84% (backend)
 
-![screenshot](/docs/230518-1-test-coverage.jpg)
+![screenshot](/docs/230518-1-test-coverage.JPG)
 
 ---
 

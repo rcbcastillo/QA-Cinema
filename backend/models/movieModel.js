@@ -30,6 +30,10 @@ const movieSchema = new Schema({
   Website: { type: String, required: true },
   Response: { type: String, required: true },
   isShowing: { type: String, required: true },
+  ScreenNum: { type: String, required: true },
+  ScreenDateTime: { type: Date, required: true },
+  ScreenNum: { type: Number, required: true },
+  ScreenDateTime: { type: Date, required: true },
 });
 
 const movieModel = mongoose.model("movies", movieSchema);

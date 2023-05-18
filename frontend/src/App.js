@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Navbar from "./Components/Navbar";
+// import Navbar from "./Components/Navbar";
+// import BookingsTest from "./Components/BookingsTest";
+// import { LoginController } from './Components/LoginController';
 import Home from "./Components/Home";
 import About from "./Components/About";
 import Location from "./Components/Location";
@@ -16,8 +18,7 @@ import PaymentSuccess from "./Components/PaymentSuccess";
 import { BookingController } from "./Components/BookingController";
 import SignIn from './Components/SignIn';
 import DiscussionBoard from "./Components/DiscussionBoard";
-import BookingsTest from "./Components/BookingsTest";
-import { LoginController } from './Components/LoginController';
+import Screens from "./Components/Screens";
 
 function App() {
   //to do:
@@ -41,7 +42,8 @@ function App() {
       	  <Route path='/signup' element={<SignUp/>}></Route>
           <Route path="/classifications" element={<MovieRatings />}></Route>
           <Route path="/payment-success" element={<PaymentSuccess />}></Route>
-      <Route path='/signin' element={<SignIn/>}></Route>
+          <Route path="/screens" element={<Screens />}></Route>
+          <Route path='/signin' element={<SignIn/>}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -1,4 +1,5 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { MovieContext } from "./BookingController";
 import axios from "axios";
 
@@ -82,7 +83,9 @@ const TicketOffice = () => {
         {/* <div className=""> */}
           <section>
             {/* Output the screen, time and date */}
-            <h6>Screen: {chosenMovie.ScreenNum}</h6>
+            <Link to="/screens">
+              <h6 className='font-semibold underline py-2'>Screen: {chosenMovie.ScreenNum}</h6>
+            </Link>
             <h6>Date: {screenDate.toDateString()}</h6>
             {chosenMovie.ScreenNum === "TBC" ? (
               <></>

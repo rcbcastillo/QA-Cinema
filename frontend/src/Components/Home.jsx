@@ -1,11 +1,10 @@
-import logo from "../logo.svg"
-import Carousel from "./Carousel"
+import CarouselComp from "./CarouselComp"
 
 const Home = () =>{
     return (
-        <div className="home-content">
-        <h2>QA Cinema</h2>
-        <Carousel/>
+        <div className="2xl:container 2xl:mx-auto 2xl:px-0 py-3 px-10">
+            <h1>QA Cinema</h1>
+            <CarouselComp />
         </div>
     )
 }

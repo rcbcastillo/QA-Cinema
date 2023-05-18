@@ -96,7 +96,32 @@ const Location = () => {
             </article>
           </div>
         </div>
+        {/* <h4 className="custom-header">Places to go...</h4>
+        <div className="outer-panel-div">
+        <div className="pt-3 my-2 col-start-1 col-span-3">
+          <h4 className="custom-header"></h4>
+          <article className="pl-10 mb-4">
+            <p className="pb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde deserunt excepturi corrupti nihil aperiam nulla maiores dolorem aut illum rem dolore eos ex, nisi error quod doloremque eius. Reiciendis, dicta!
+            </p>
+            <h4></h4>
+            <ul className="my-2 pl-2">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </article>
+        </div>
+        <div className="col-start-4 col-end-8 ... my-4">
+          <img
+            src={}
+            width="300"
+            height="400"
+          ></img>
+        </div>
       </div>
+      </div> */}
     </>
   );
 };

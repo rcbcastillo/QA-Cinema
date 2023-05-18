@@ -1,15 +1,22 @@
 import { useState, useEffect } from "react";
 import * as api from "../api";
-import { useParams } from "react-router-dom";
 import { Button, Form, Input } from "reactstrap";
+const Filter = require("bad-words");
 
 const CommentForm = ({ handleSubmit }) => {
   const [bodyComment, setBodyComment] = useState("");
   const [errorBodyComment, setBodyCommentError] = useState(null);
   const [errorPostComment, setErrorPostComment] = useState(null);
+  let filteredComment = "";
+
+  if (bodyComment.length > 0) {
+    const filter = new Filter();
+    filteredComment = filter.clean(bodyComment);
+  }
+
   const dataTosend = {
     userId: "6464f2238601ee81c183cd2",
-    message: bodyComment,
+    message: filteredComment,
   };
 
   const onSubmit = (event) => {

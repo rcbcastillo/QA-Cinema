@@ -20,7 +20,9 @@ const RatingComments = ({ totalStars }) => {
             <Stars
               key={index}
               selected={selectedStars > index}
-              onSelect={() => setSelectedStars(index + 1)}
+              onSelect={() => {
+                setSelectedStars(index + 1);
+              }}
             />
           ))}
         </div>

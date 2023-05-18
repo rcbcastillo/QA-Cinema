@@ -2,7 +2,7 @@ const withMT = require("@material-tailwind/react/utils/withMT")
 
 /** @type {import('tailwindcss').Config} */
 module.exports = withMT({
-  content: ['node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'], 
+  content: ["./src/**/*.{html,js,jsx}",'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'], 
   theme: {
     colors: {
       transparent: 'transparent',

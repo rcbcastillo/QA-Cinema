@@ -39,17 +39,16 @@ const Users = (props) => {
     //const { user, setUser } = useContext(UserContext)
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search)
-    const username = searchParams.get("username")
+    //const email = searchParams.get("email")
     const { open } = props; 
 
-    function search(array, variable){
-        
-        return array.includes(variable);
+    const email = localStorage.getItem("email")
+    const pass = localStorage.getItem("pass")
+
+    function compare(array, variable, variable2){
+        return array.find((item) => item.email === variable && item.password === pass) !== undefined;
     }
-    function compare(array, variable){
-        return array.find((item) => item.firstName === variable) !== undefined;
-    }
-    const result = compare(users, username)
+    const result = compare(users, email)
 
     if (result) {
         console.log("found")
@@ -64,7 +63,7 @@ const Users = (props) => {
                     </ListItemPrefix>
                     <div>
                         <Typography className="text-white" variant="h6" color="blue-gray">
-                            {username}
+                            {email}
                         </Typography>
                         <Typography variant="small" color="gray" className="text-white font-normal">
                             Software Engineer @ Material Tailwind
@@ -147,14 +146,16 @@ const Users = (props) => {
 
     </>
   );
-    } else {
+    } else if (result === false) {
         //show not found page
         //clear url
+        alert("user not found")
         navigate("/signin")
+        
         console.log("not found")
         console.log(result)
         console.log(users)
-        console.log(username)
+        console.log(email)
     }
   
 }

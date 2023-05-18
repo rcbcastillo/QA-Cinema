@@ -30,7 +30,7 @@ function App() {
     <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/comments" element={<DiscussionBoard />}></Route>
+          <Route path="/discussion-board" element={<DiscussionBoard />}></Route>
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/films" element={<BookingController />}></Route>

@@ -5,13 +5,14 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
-import { useContext } from "react";
-
+import { useContext, useEffect } from "react";
+import * as api from "../api";
 import { useState } from "react";
 import { renderMatches, useNavigate } from "react-router-dom";
 import { UserContext } from "./LoginController";
 
 import Users from "./Users";
+import SignIn from "./SignIn";
 
 const SignUp = () => {
 
@@ -19,7 +20,8 @@ const SignUp = () => {
 
   //const { user, setUser } = use(UserContext)
   //const [open, setOpen] = useState(false)
-  const [inputs, setInputs] = useState({username: "", email:"", password:""});
+  const [showUser, setShowUser] = useState(false)
+  const [inputs, setInputs] = useState({firstname: "", lastname: "", email:"", password:""});
 
   const handleSubmitButton = () => {
     //event.preventDefault()
@@ -30,8 +32,22 @@ const SignUp = () => {
 
     //open user but passing the props
     //do the same in sign in 
-    navigate(`/user?username=${inputs.username}`);
+    //navigate(`/user?username=${inputs.username}`);
 
+    api.createUser(inputs)
+    .then((response) => {
+      console.log(response);
+      // Handle the response or perform any necessary actions
+      //navigate(`/user?username=${inputs.username}`);
+      navigate(`/signin`);
+    })
+    .catch((error) => {
+      console.error(error);
+      // Handle the error if necessary
+    });
+
+    //setShowUser(true)
+    // navigate(`/signin}`);
   };
 
   return (
@@ -45,7 +61,9 @@ const SignUp = () => {
       </Typography>
       <form name="detailsForm" className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
         <div className="mb-4 flex flex-col gap-0">
-          <div name="username" className="p-2"><Input id="1" required color="white" type="input" size="lg" label="Name" onChange={({target}) => setInputs(state => ({...state,username:target.value}))} value={inputs.username}/></div>
+          <div name="firstname" className="p-2"><Input id="1" required color="white" type="input" size="lg" label="First Name" onChange={({target}) => setInputs(state => ({...state,firstname:target.value}))} value={inputs.firstname}/></div>
+          <div name="lastname" className="p-2"><Input id="4" required color="white" type="input" size="lg" label="Last Name" onChange={({target}) => setInputs(state => ({...state,lastname:target.value}))} value={inputs.lastname}/></div>
+          
           <div name="email" className="p-2"><Input id="2" required color="white" type="email" size="lg" label="Email" onChange={({target}) => setInputs(state => ({...state,email:target.value}))} value={inputs.email}/></div>
           <div name="pass" className="p-2"><Input id="3" required color="white" type="password" size="lg" label="Password" onChange={({target}) => setInputs(state => ({...state,password:target.value}))} value={inputs.password} /></div>
         

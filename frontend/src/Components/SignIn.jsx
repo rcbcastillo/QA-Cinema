@@ -13,19 +13,26 @@ import { useNavigate } from "react-router-dom";
 
     const navigate = useNavigate()
     //const { user } = useContext(UserContext)
-    const [username, setUsername] = useState("")
+    const [firstname, setFirstname] = useState("")
+    const [lastname, setLastname] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [inputs, setInputs] = useState({username: "", password:""});
+    const [inputs, setInputs] = useState({firstname: "", lastname: "", email: "", password:""});
 
 
     const handleSubmitButton = () => {
       //event.preventDefault()
       //setUser({...user, username: inputs.username, email: inputs.email, password:inputs.password})
-      setUsername(inputs.username)
+      setFirstname(inputs.firstname)
+      setLastname(inputs.lastname)
+      setEmail(inputs.email)
       setPassword(inputs.password)
-      alert(JSON.stringify(inputs));
+      //alert(JSON.stringify(inputs));
       //setUser({username: inputs.username, email: inputs.email, password: inputs.password})
-      navigate(`/user?username=${inputs.username}`);
+      localStorage.setItem("email", inputs.email)
+      localStorage.setItem("pass", inputs.password)
+      navigate(`/user`);
+      window.location.reload();
     }; 
 
     return (
@@ -39,7 +46,7 @@ import { useNavigate } from "react-router-dom";
       </Typography>
       <form name="detailsForm" className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
         <div className="mb-4 flex flex-col gap-0">
-        <div name="username" className="p-2"><Input id="1" required color="white" type="input" size="lg" label="Name" onChange={({target}) => setInputs(state => ({...state,username:target.value}))} value={inputs.username}/></div>
+        <div name="email" className="p-2"><Input id="1" required color="white" type="input" size="lg" label="Email" onChange={({target}) => setInputs(state => ({...state,email:target.value}))} value={inputs.email}/></div>
         <div name="pass" className="p-2"><Input id="3" required color="white" type="password" size="lg" label="Password" onChange={({target}) => setInputs(state => ({...state,password:target.value}))} value={inputs.password} /></div>
           <Typography color="white" className="mt-1 text-center font-normal">
             Forgot your{" "}

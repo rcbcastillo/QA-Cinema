@@ -8,10 +8,20 @@ const TicketOffice = () => {
   const { chosenMovie, setChosenMovie } = useContext(MovieContext);
   const screenDate = new Date(chosenMovie.ScreenDateTime);
 
+  //hardcoded data for now
+  //localStorage.setItem("firstname", {firstname})
+  // localStorage.setItem("firstname", "amalik");
+  // localStorage.setItem("lstname", "malik");
+
+  // const firstname = localStorage.getItem("firstname");
+  // const lastname = localStorage.getItem("lastname");
+
   const [formData, setFormData] = useState({
     adults: 0,
     children: 0,
     concessions: 0,
+    firstName: "",
+    lastName: "",
   });
 
   const [checkoutURL, setCheckoutURL] = useState("");
@@ -32,6 +42,8 @@ const TicketOffice = () => {
     }
 
     requestBody.movie = chosenMovie;
+    requestBody.firstName = formData.firstName;
+    requestBody.lastName = formData.lastName;
 
     console.log(requestBody);
 
@@ -77,30 +89,54 @@ const TicketOffice = () => {
   // Show the screen, date and time and allow the user to select
   // number of tickets by type.
   return (
-    <div className="flex-auto align-centre">
-      <div className="flex">
+    <div className="flex-auto ml-20">
       <h3 className="custom-header">{chosenMovie.Title}</h3>
-        {/* <div className=""> */}
-          <section>
-            {/* Output the screen, time and date */}
-            <Link to="/screens">
-              <h6 className='font-semibold underline py-2'>Screen: {chosenMovie.ScreenNum}</h6>
-            </Link>
-            <h6>Date: {screenDate.toDateString()}</h6>
-            {chosenMovie.ScreenNum === "TBC" ? (
-              <></>
-            ) : (
-              <h6>Time: {screenDate.getUTCHours()}:{screenDate.getMinutes().toFixed(2)}</h6>
-            )}
-          </section>
-        {/* </div> */}
+      <div className="pl-6 pb-3">
+        <section>
+          {/* Output the screen, time and date */}
+          <Link to="/screens">
+            <h6 className="font-semibold underline py-2">
+              Screen: {chosenMovie.ScreenNum}
+            </h6>
+          </Link>
+          <h6>Date: {screenDate.toDateString()}</h6>
+          {chosenMovie.ScreenNum === "TBC" ? (
+            <></>
+          ) : (
+            <h6>
+              Time: {screenDate.getUTCHours()}:
+              {screenDate.getMinutes().toString().padStart(2, "0")}
+            </h6>
+          )}
+        </section>
       </div>
 
-      <form
-        className="shadow-md rounded"
-        onSubmit={handleSubmit}
-      >
+      <form className="shadow-md rounded" onSubmit={handleSubmit}>
         <div className="flex-auto w-3/5 ml-10 place-items-end">
+          <label>
+            First name:
+            <input
+              className="m-2 text-black rounded text-left pl-2 hover:bg-metallic-steel"
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="First name"
+              value={formData.firstName}
+              onChange={handleChange}
+            ></input>
+          </label>
+          <label>
+            Surname:
+            <input
+              className="m-2 text-black rounded text-left pl-2 hover:bg-metallic-steel"
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+            ></input>
+          </label>
           <label className="">
             <span className="inline-block">Adult tickets - £3.00</span>
             <input

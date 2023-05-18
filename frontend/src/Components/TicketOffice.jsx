@@ -14,6 +14,7 @@ const TicketOffice = () => {
   });
 
   const [checkoutURL, setCheckoutURL] = useState("");
+  const [totalCost, setTotalCost] = useState(0.0);
 
   const sendStripeReq = () => {
     let requestBody = {};
@@ -57,6 +58,9 @@ const TicketOffice = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    setTotalCost(
+      formData.adults * 3 + formData.children * 2 + formData.concessions * 1
+    );
   };
 
   // On submit, send booking info to backend
@@ -72,30 +76,30 @@ const TicketOffice = () => {
   // Show the screen, date and time and allow the user to select
   // number of tickets by type.
   return (
-    <div className="w-full h-full">
-      <div className="flex p-4 m-4">
-        <div className="">
-          <article>
-            <h3 className="custom-header">{chosenMovie.Title}</h3>
+    <div className="flex-auto align-centre">
+      <div className="flex">
+      <h3 className="custom-header">{chosenMovie.Title}</h3>
+        {/* <div className=""> */}
+          <section>
             {/* Output the screen, time and date */}
             <h6>Screen: {chosenMovie.ScreenNum}</h6>
             <h6>Date: {screenDate.toDateString()}</h6>
             {chosenMovie.ScreenNum === "TBC" ? (
               <></>
             ) : (
-              <h6>Time: {screenDate.toLocaleTimeString()}</h6>
+              <h6>Time: {screenDate.getUTCHours()}:{screenDate.getMinutes().toFixed(2)}</h6>
             )}
-          </article>
-        </div>
+          </section>
+        {/* </div> */}
       </div>
 
       <form
-        className="shadow-md place-items-center rounded"
+        className="shadow-md rounded"
         onSubmit={handleSubmit}
       >
-        <div className="flex-auto w-3/5 ml-10">
+        <div className="flex-auto w-3/5 ml-10 place-items-end">
           <label className="">
-            Adult tickets - £3.00
+            <span className="inline-block">Adult tickets - £3.00</span>
             <input
               className="m-2 text-black rounded text-right hover:bg-metallic-steel"
               type="number"
@@ -133,17 +137,24 @@ const TicketOffice = () => {
               onChange={handleChange}
             ></input>
           </label>
-          {/* <button className="border-2 mb-11"> */}
-          <button className="sm-custom-button mb-11" type="submit">
-            Proceed to payment
-          </button>
-          <button
-            className="sm-custom-button mb-11"
-            // type="reset"
-            onClick={() => setChosenMovie(null)}
-          >
-            Cancel
-          </button>
+          <div className="border-2 my-2 p-2 text-left w-3/5 text-pearl-aqua">
+            <label>
+              Total: £<label className="px-2">{totalCost.toFixed(2)}</label>
+            </label>
+          </div>
+          <div className="flex m-2">
+            {/* <button className="border-2 mb-11"> */}
+            <button className="sm-custom-button m-2" type="submit">
+              Proceed to payment
+            </button>
+            <button
+              className="sm-custom-button m-2"
+              // type="reset"
+              onClick={() => setChosenMovie(null)}
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </form>
     </div>

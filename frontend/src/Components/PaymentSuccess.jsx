@@ -37,11 +37,11 @@ const PaymentSuccess = () => {
         <div className="flex justify-center pb-4 mb-5">
           <div>
             <h3 className="custom-header">{bookingRes.movieTitle}</h3>
-            <table>
-              <tbody>
+            <table className="table-fixed">
+              <tbody className="">
                 <tr className="p-2">
                   <th className="custom-th">Booking Ref</th>
-                  <td className="custom-td">{sessionId}</td>
+                  <td className="custom-td text-xs">{sessionId}</td>
                 </tr>
                 <tr className="p-2">
                   <th className="custom-th">Screening Date</th>

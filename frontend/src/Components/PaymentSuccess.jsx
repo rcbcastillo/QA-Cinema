@@ -37,14 +37,14 @@ const PaymentSuccess = () => {
         <div className="flex justify-center pb-4 mb-5">
           <div>
             <h3 className="custom-header">{bookingRes.movieTitle}</h3>
-            <table>
-              <tbody>
+            <table className="table-fixed">
+              <tbody className="">
                 <tr className="p-2">
                   <th className="custom-th">Booking Ref</th>
-                  <td className="custom-td">{sessionId}</td>
+                  <td className="custom-td text-xs">{sessionId}</td>
                 </tr>
                 <tr className="p-2">
-                  <th className="custom-th">Sreening Date</th>
+                  <th className="custom-th">Screening Date</th>
                   <td className="custom-td">{bookingDate.toDateString()}</td>
                 </tr>
                 {/* Construct time from hours and mins as the timeString methods are
@@ -52,7 +52,7 @@ const PaymentSuccess = () => {
                 <tr className="p-2">
                   <th className="custom-th">Sreening Time</th>
                   <td className="custom-td">
-                    {bookingDate.getUTCHours()}:{bookingDate.getMinutes()}
+                    {bookingDate.getUTCHours()}:{bookingDate.getMinutes().toFixed(2)}
                   </td>
                 </tr>
                 <tr className="p-2">

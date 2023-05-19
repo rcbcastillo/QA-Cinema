@@ -73,6 +73,10 @@
   - npm (9.5.1 onwards)
   - nodemon (2.0.22 onwards)
   - Tailwind CSS (3.3.2 onwards)
+  - Apply for your own API keys and use them in the code for:
+    - MongoDB Atlas
+    - Stripe API
+    - EmailJS
 
 ### Clone the repository
 

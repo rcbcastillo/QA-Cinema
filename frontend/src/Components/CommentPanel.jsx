@@ -14,10 +14,6 @@ const CommentPanel = ({ movie }) => {
       .then((response) => setComments(response));
   }, []);
 
-  const addComment = (text) => {
-    console.log(text);
-  };
-
   if (comments) {
     return (
       //  Create and return a panel for one movie
@@ -39,7 +35,7 @@ const CommentPanel = ({ movie }) => {
             </div>
 
             <div className="write-comments">
-              <CommentForm handleSubmit={addComment} />
+              <CommentForm />
             </div>
             <div className="flex justify-end ...">
               <RatingComments totalStars={5} />

@@ -1,13 +1,11 @@
 const express = require("express");
 const commentRouter = express.Router();
 const commentModel = require("../models/commentModel");
-const { ReturnDocument } = require("mongodb");
 
-commentRouter.post("/create", async ({ body }, res, next) => {
+commentRouter.post("/create", async (req, res, next) => {
   try {
-    const createdComment = await commentModel.create({
-      message: body.message.value,
-    });
+    const createdComment = await commentModel.create(req.body);
+    console.log(createdComment);
     res.status(201).json(createdComment);
   } catch (err) {
     return next({

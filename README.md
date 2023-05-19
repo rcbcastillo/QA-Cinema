@@ -28,6 +28,7 @@
 - Other tools
   - react-router-dom
   - axios
+  - material-tailwind
   - emailjs
   - leo-profanity
 
@@ -136,5 +137,15 @@ Navigate to the website using this URL
 ```
 http://localhost:3000/
 ```
+
+---
+
+### Credits
+
+- British Board of Film Classification
+  - [BBFC](https://en.wikipedia.org/wiki/British_Board_of_Film_Classification)
+  - [BBFC age symbols user guide](https://en.wikipedia.org/wiki/British_Board_of_Film_Classification)
+- OMDb API - The Open Movie Database
+  - [OMDB](https://www.omdbapi.com/)
 
 ---

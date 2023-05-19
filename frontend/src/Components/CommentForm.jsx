@@ -64,7 +64,7 @@ const CommentForm = ({ handleSubmit }) => {
   if (errorPostCommentToSend) return <p>{errorPostCommentToSend}</p>;
 
   return (
-    <div name="username" className="p-2">
+    <div name="username" className="p-2 text-black">
       <Form onSubmit={onSubmit}>
         {errorBodyComment ? <p>{errorBodyComment}</p> : null}
         <Input

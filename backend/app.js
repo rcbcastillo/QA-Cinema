@@ -65,6 +65,7 @@ app.post("/create-checkout-session", async ({ body }, res) => {
     cancel_url: "http://localhost:3000/films",
   });
 
+  // TODO: make this the last line when Stripe API tests have been fixed
   res.send(session.url);
 
   let booking = {
@@ -72,8 +73,8 @@ app.post("/create-checkout-session", async ({ body }, res) => {
     movieTitle: ticketsInfo.movie.Title,
     screeningNum: ticketsInfo.movie.ScreenNum,
     screeningDateTime: ticketsInfo.movie.ScreenDateTime,
-    firstName: "Customer First Name",
-    lastName: "Customer Last Name",
+    firstName: ticketsInfo.firstName,
+    lastName: ticketsInfo.lastName,
     seatsBooked: ticketsQty,
     adult: adultQty,
     child: childQty,
@@ -83,6 +84,8 @@ app.post("/create-checkout-session", async ({ body }, res) => {
     paymentID: session.id,
   };
   bookingModel.create(booking);
+
+  return;
 });
 
 // Error handling

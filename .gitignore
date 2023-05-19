@@ -10,6 +10,7 @@
 
 # testing
 **/coverage
+**.nyc_output
 
 # production
 **/build
@@ -28,3 +29,4 @@
 **yarn-error.log*
 backend/package-lock.json
 backend/package-lock.json
+frontend/src/output.css

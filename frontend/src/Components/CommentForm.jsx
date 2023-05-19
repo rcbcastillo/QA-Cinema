@@ -9,6 +9,7 @@ const CommentForm = ({ handleSubmit }) => {
   const [errorPostComment, setErrorPostComment] = useState(null);
   const [errorPostCommentToSend, setErrorPostCommentToSend] = useState(null);
   let filteredCommentToSend = "";
+  let result = false;
 
   if (bodyComment.length > 0) {
     const Filter = new Profanity({
@@ -17,10 +18,10 @@ const CommentForm = ({ handleSubmit }) => {
     });
     let filteredComment = Filter.filter(bodyComment);
     console.log(filteredComment);
-    let strRegex = new RegExp(/^[a-z0-9]+$/i);
-    let result = strRegex.test(filteredComment);
+    let strRegex = /^[0-9a-zA-Z]*$/;
+    result = strRegex.test(filteredComment);
     console.log(result);
-    if (result) {
+    if (!result) {
       filteredCommentToSend = filteredComment;
     }
   }
@@ -34,7 +35,7 @@ const CommentForm = ({ handleSubmit }) => {
     event.preventDefault();
     handleSubmit(bodyComment);
     setBodyComment("");
-    if (filteredCommentToSend.length === 0) {
+    if (result === false) {
       setErrorPostCommentToSend(
         "IMPORTANT: Before you post a comment, consider adjusting your message. Bad language won't be tolerated!"
       );

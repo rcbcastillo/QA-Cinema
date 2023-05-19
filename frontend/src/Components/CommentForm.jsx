@@ -8,7 +8,9 @@ const CommentForm = ({ handleSubmit }) => {
   const [errorBodyComment, setBodyCommentError] = useState(null);
   const [errorPostComment, setErrorPostComment] = useState(null);
   const [errorPostCommentToSend, setErrorPostCommentToSend] = useState(null);
+
   let filteredCommentToSend = "";
+  let result = true;
 
   if (bodyComment.length > 0) {
     const Filter = new Profanity({
@@ -17,8 +19,8 @@ const CommentForm = ({ handleSubmit }) => {
     });
     let filteredComment = Filter.filter(bodyComment);
     console.log(filteredComment);
-    let strRegex = new RegExp(/^[a-z0-9]+$/i);
-    let result = strRegex.test(filteredComment);
+    let strRegex = /^[0-9a-zA-Z]*$/;
+    result = strRegex.test(filteredComment);
     console.log(result);
     if (result) {
       filteredCommentToSend = filteredComment;
@@ -34,7 +36,7 @@ const CommentForm = ({ handleSubmit }) => {
     event.preventDefault();
     handleSubmit(bodyComment);
     setBodyComment("");
-    if (filteredCommentToSend.length === 0) {
+    if (result === false) {
       setErrorPostCommentToSend(
         "IMPORTANT: Before you post a comment, consider adjusting your message. Bad language won't be tolerated!"
       );
@@ -47,6 +49,11 @@ const CommentForm = ({ handleSubmit }) => {
     }
   };
 
+  const handleChange = (event) => {
+    const { value } = event.target;
+    setBodyComment((prevFormData) => ({ ...prevFormData, value }));
+  };
+
   useEffect(() => {
     if (bodyComment.length > 500) {
       setBodyCommentError("Comment should be less than 500 characters");
@@ -57,12 +64,12 @@ const CommentForm = ({ handleSubmit }) => {
   if (errorPostCommentToSend) return <p>{errorPostCommentToSend}</p>;
 
   return (
-    <div name="username" className="p-2">
+    <div name="username" className="p-2 text-black">
       <Form onSubmit={onSubmit}>
         {errorBodyComment ? <p>{errorBodyComment}</p> : null}
         <Input
           type="text"
-          onChange={(e) => setBodyComment(e.target.value)}
+          onChange={handleChange}
           placeholder="write here ..."
         />
         <Button className="bg-pearl-aqua">Post comment</Button>

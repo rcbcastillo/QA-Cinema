@@ -12,6 +12,8 @@ module.exports = withMT({
       current: "currentColor",
       // Light green
       "pearl-aqua": "#84eab5",
+      //tad darker than peal-aqua
+      "pearl-green": "#3a6b52",
       // Dark green
       "japanese-indigo": "#234453",
       white: "#ffffff",

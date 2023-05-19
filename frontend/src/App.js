@@ -41,7 +41,7 @@ function App() {
       	  <Route path='/signup' element={<SignUp/>}></Route>
           <Route path="/classifications" element={<MovieRatings />}></Route>
           <Route path="/payment-success" element={<PaymentSuccess />}></Route>
-      <Route path='/signin' element={<SignIn/>}></Route>
+          <Route path='/signin' element={<SignIn/>}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

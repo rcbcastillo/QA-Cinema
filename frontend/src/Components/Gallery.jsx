@@ -10,6 +10,7 @@ const Gallery = () => {
       setMovies(response);
     });
   }, []);
+  
 
   if (movies) {
     return (

@@ -1,22 +1,50 @@
 import { useState, useEffect } from "react";
-import { postCommentByUserId } from "../api";
-import { useParams } from "react-router-dom";
+import * as api from "../api";
+import { Button, Form, Input } from "reactstrap";
+import Profanity from "accurate-profanity-filter";
 
 const CommentForm = ({ handleSubmit }) => {
   const [bodyComment, setBodyComment] = useState("");
   const [errorBodyComment, setBodyCommentError] = useState(null);
   const [errorPostComment, setErrorPostComment] = useState(null);
-  const { userId } = useParams();
-  const isTextAreaDisabled = bodyComment.length === 0;
-  const dataToSend = { body: bodyComment };
+  const [errorPostCommentToSend, setErrorPostCommentToSend] = useState(null);
+  let filteredCommentToSend = "";
+
+  if (bodyComment.length > 0) {
+    const Filter = new Profanity({
+      substitute: "*",
+      addToFilter: { ENG: true, PHL: true },
+    });
+    let filteredComment = Filter.filter(bodyComment);
+    console.log(filteredComment);
+    let strRegex = new RegExp(/^[a-z0-9]+$/i);
+    let result = strRegex.test(filteredComment);
+    console.log(result);
+    if (result) {
+      filteredCommentToSend = filteredComment;
+    }
+  }
+
+  const dataTosend = {
+    userId: "6464f2238601ee81c183cd2",
+    message: filteredCommentToSend,
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
     handleSubmit(bodyComment);
     setBodyComment("");
-    postCommentByUserId(userId, dataToSend).catch(() =>
-      setErrorPostComment("This website is not working now. Try later!")
-    );
+    if (filteredCommentToSend.length === 0) {
+      setErrorPostCommentToSend(
+        "IMPORTANT: Before you post a comment, consider adjusting your message. Bad language won't be tolerated!"
+      );
+    } else {
+      api
+        .createComment(dataTosend)
+        .catch(() =>
+          setErrorPostComment("This website is not working now. Try later!")
+        );
+    }
   };
 
   useEffect(() => {
@@ -26,21 +54,20 @@ const CommentForm = ({ handleSubmit }) => {
   }, [bodyComment]);
 
   if (errorPostComment) return <p>{errorPostComment}</p>;
+  if (errorPostCommentToSend) return <p>{errorPostCommentToSend}</p>;
 
   return (
-    <form onSubmit={onSubmit}>
-      {errorBodyComment ? <p>{errorBodyComment}</p> : null}
-      <input
-        placeholder="here ..."
-        className="form-textarea"
-        value={bodyComment}
-        type="bodyComment"
-        onChange={(event) => setBodyComment(event.target.value)}
-      />
-      <button className="form-submit" disabled={isTextAreaDisabled}>
-        Submit
-      </button>
-    </form>
+    <div name="username" className="p-2">
+      <Form onSubmit={onSubmit}>
+        {errorBodyComment ? <p>{errorBodyComment}</p> : null}
+        <Input
+          type="text"
+          onChange={(e) => setBodyComment(e.target.value)}
+          placeholder="write here ..."
+        />
+        <Button className="bg-pearl-aqua">Post comment</Button>
+      </Form>
+    </div>
   );
 };
 

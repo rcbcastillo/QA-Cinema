@@ -10,19 +10,6 @@ const CommentForm = ({ handleSubmit }) => {
   const [errorPostCommentToSend, setErrorPostCommentToSend] = useState(null);
   let filteredCommentToSend = "";
 
-  if (bodyComment.length > 0) {
-    const Filter = new Profanity({
-      substitute: "*",
-      addToFilter: { ENG: true, PHL: true },
-    });
-    let filteredComment = Filter.filter(bodyComment);
-    console.log(filteredComment);
-    if (filteredComment.includes("*")) {
-      setErrorPostCommentToSend(
-        "IMPORTANT: Before you post a comment, consider adjusting your message. Bad language won't be tolerated!"
-      );
-    }
-  }
   const dataTosend = {
     userId: "6464f2238601ee81c183cd2",
     message: filteredCommentToSend,
@@ -38,6 +25,19 @@ const CommentForm = ({ handleSubmit }) => {
       .catch(() =>
         setErrorPostComment("This website is not working now. Try later!")
       );
+    if (bodyComment.length > 0) {
+      const Filter = new Profanity({
+        substitute: "*",
+        addToFilter: { ENG: true, PHL: true },
+      });
+      let filteredComment = Filter.filter(bodyComment);
+      console.log(filteredComment);
+      if (filteredComment.includes("*")) {
+        setErrorPostCommentToSend(
+          "IMPORTANT: Before you post a comment, consider adjusting your message. Bad language won't be tolerated!"
+        );
+      }
+    }
   };
 
   useEffect(() => {

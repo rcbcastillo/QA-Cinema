@@ -19,6 +19,36 @@
 
 ---
 
+## Key Languages / Tools
+
+### Frontend
+
+- React / JavaScript
+- Tailwind CSS
+- Other tools
+  - react-router-dom
+  - axios
+  - emailjs
+  - leo-profanity
+
+### Backend
+
+- Express.js
+- Node.js
+- MongoDB Atlas
+  - Mongoose
+- Testing
+  - mocha
+  - chai / chai-http
+  - nyc
+- Other tools
+  - mongoose
+  - stripe
+  - cors
+  - nodemon
+
+---
+
 ## Testing
 
 - Test coverage: 84% (backend)

@@ -19,6 +19,37 @@
 
 ---
 
+## Key Languages / Tools
+
+### Frontend
+
+- React / JavaScript
+- Tailwind CSS
+- Other tools
+  - react-router-dom
+  - axios
+  - material-tailwind
+  - emailjs
+  - leo-profanity
+
+### Backend
+
+- Express.js
+- Node.js
+- MongoDB Atlas
+  - Mongoose
+- Testing
+  - mocha
+  - chai / chai-http
+  - nyc
+- Other tools
+  - mongoose
+  - stripe
+  - cors
+  - nodemon
+
+---
+
 ## Testing
 
 - Test coverage: 84% (backend)
@@ -106,5 +137,15 @@ Navigate to the website using this URL
 ```
 http://localhost:3000/
 ```
+
+---
+
+### Credits
+
+- British Board of Film Classification
+  - [BBFC](https://en.wikipedia.org/wiki/British_Board_of_Film_Classification)
+  - [BBFC age symbols user guide](https://en.wikipedia.org/wiki/British_Board_of_Film_Classification)
+- OMDb API - The Open Movie Database
+  - [OMDB](https://www.omdbapi.com/)
 
 ---

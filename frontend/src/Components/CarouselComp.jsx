@@ -21,7 +21,7 @@ const CarouselComp = () => {
             <div
               key={index}
               className="relative cursor-pointer transform hover:scale-105"
-              onClick={() => (window.location.href = `/movie-id/${movie._id}`)}
+              onClick={() => (window.location.href = `/films?movie-id=${movie._id}`)}
             >
               <img
                 src={movie.Poster}

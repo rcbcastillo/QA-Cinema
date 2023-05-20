@@ -6,6 +6,7 @@ const { ReturnDocument } = require("mongodb");
 commentRouter.post("/create", async ({ body }, res, next) => {
   try {
     const createdComment = await commentModel.create(body);
+    console.log(createdComment, "in the backend");
     res.status(201).json(createdComment);
   } catch (err) {
     return next({
